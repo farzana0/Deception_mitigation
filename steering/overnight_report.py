@@ -66,17 +66,24 @@ def render():
     sessions=subprocess.run(['tmux','list-sessions'],capture_output=True,text=True).stdout.strip()
     sections.append('Live tmux sessions:\n```\n'+sessions+'\n```')
     sections.append('Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. Evaluation jobs remain partial while running. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.')
-    sections.append('Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Exitcode files record job completion. No raw artifacts are staged in Git.')
+    sections.append('Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Use paired summaries and per-trajectory CSVs to establish completion; legacy exitcode filenames can be shared between pilot and expansion commands. No raw artifacts are staged in Git.')
     commands='''cd /lambda/nfs/fs-cand-nov05/Deception_mitigation
 # First inspect tmux ls and nvidia-smi; do not duplicate healthy jobs.
 bash scripts/serve_judge.sh
 bash scripts/grade_mask_pilot.sh
-CUDA_VISIBLE_DEVICES=GPU bash scripts/run_capability.sh CONDITION
-CUDA_VISIBLE_DEVICES=GPU bash scripts/run_machiavelli.sh CONDITION --output-name machiavelli_main --seeds 0,1 --game-count 2 --max-steps 150
-CUDA_VISIBLE_DEVICES=GPU STEERING_EVAL_CONDITIONS=CONDITION MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
+# These serial resume loops use GPU 0; first verify it is free.
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 bash scripts/run_capability.sh "$condition"
+done
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 bash scripts/run_machiavelli.sh "$condition" --output-name machiavelli_main --seeds 0,1 --game-count 2 --max-steps 150
+done
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 STEERING_EVAL_CONDITIONS="$condition" MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
+done
 MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json MASK_JUDGE_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_expanded bash scripts/grade_mask_pilot.sh
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report'''
-    sections.append('Exact resume commands (put GPU workers in tmux, choose a free GPU; judge uses GPU 5):\n```bash\n'+commands+'\n```')
+    sections.append('Executable resume commands (put GPU workers in tmux and confirm GPU 0 is free first; judge uses GPU 5):\n```bash\n'+commands+'\n```')
     text='\n\n'.join(sections)+'\n'
     (ROOT/'OVERNIGHT_STATUS.md').write_text(text)
     (ROOT/'Deception_mitigation/REPORT.txt').write_text(text)
