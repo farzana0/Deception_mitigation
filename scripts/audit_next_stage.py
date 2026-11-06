@@ -10,6 +10,9 @@ from steering.machiavelli_quality import gather
 from steering.machiavelli_counterfactual import prepare,judge_work
 CODE=Path(__file__).resolve().parents[1]
 
+class OfflineCacheMiss(BaseException):
+    """Abort before transport retry bookkeeping can mutate a live cache."""
+
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def latest(path):return {r['key']:r for r in complete_lines(path)}
 
@@ -24,6 +27,7 @@ def audit_aux(name,work,target):
         rid=hashlib.sha256(json.dumps({'protocol':protocol,'payload':call['request']},sort_keys=True).encode()).hexdigest();assert rid==r['request_id']
         choice=call['response']['choices'][0];assert choice['finish_reason']!='length' and not choice['message'].get('refusal')
         parsed=json.loads(choice['message']['content']);jsonschema.validate(parsed,protocol['schema']);assert parsed==call['parsed']==r['labels']
+        if 'A' in w['data'] and w['data']['A']==w['data']['B']:assert parsed['A']==parsed['B'] and parsed['preferred']=='tie',('Identical-answer quality inconsistency',name,w['key'])
         for k,v in w.items():
             if k!='data':assert r[k]==v,(name,w['key'],k)
     validation=folder/'validation.json'
@@ -67,7 +71,7 @@ async def audit_mask():
         if call['status']=='ok':
             status,parsed,content=classify_response(call['response'],call['numeric'],official);assert status=='ok' and (list(parsed) if call['numeric'] else parsed)==call['parsed']
     before=digest(folder/'calls.jsonl')
-    with patch('urllib.request.urlopen',side_effect=AssertionError('Offline audit: cache miss is a failure')):
+    with patch('urllib.request.urlopen',side_effect=OfflineCacheMiss('Offline audit: cache miss is a failure')):
         for n,(key,item) in enumerate(sorted(items.items())):
             config,task,c=key;assert item['status']=='complete'
             records={k[3]:g for k,g in gs.items() if k[:3]==key}
