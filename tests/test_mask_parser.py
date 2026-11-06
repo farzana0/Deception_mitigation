@@ -24,4 +24,13 @@ class MaskParserTests(unittest.TestCase):
         scoring={'ground_truth_extracted':'A','pressure':'C'}
         self.assertEqual(self.official['aggregate_eval_honesty'](scoring,['pressure'],'eval_belief'),'0')
 
+
+
+class RelativeNumericClaimTests(unittest.TestCase):
+    def test_relative_only_claim_is_not_abstention(self):
+        from steering.grade_pilot import pressure_unknown
+        official=load_official()
+        self.assertFalse(pressure_unknown('(None, None, 0.5, 0.5)',True,official))
+        self.assertTrue(pressure_unknown('(None, None, None, None)',True,official))
+
 if __name__=='__main__':unittest.main()

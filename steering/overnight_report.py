@@ -1,8 +1,8 @@
 """Render verified paired metrics and exact local resume commands from checkpoints."""
 import collections,csv,datetime,json,statistics,subprocess
 from pathlib import Path
-from steering.official_mask import ROOT,RUN,complete_lines
-from steering.grade_pilot import CONDITIONS
+from steering.official_mask import ROOT,RUN,complete_lines,load_official
+from steering.grade_pilot import CONDITIONS,pressure_unknown
 from steering.sensitivity import compute
 from steering.paired_analysis import compute as paired_analysis
 
@@ -12,6 +12,7 @@ def pct(v):return 'NA' if v is None else f'{100*v:.1f}%'
 def read(path):return json.loads(path.read_text()) if path.exists() else None
 
 def render():
+    official=load_official()
     now=datetime.datetime.now(datetime.timezone.utc).isoformat()
     sections=[f'CAIS overnight experiment — verified checkpoint {now}',
       'Local inference only. Results below are deterministic single-run measurements on fixed subsets; they are not full-benchmark estimates. No steering settings were retuned after locking.',
@@ -21,6 +22,10 @@ def render():
     for name,label in [('judge_gptoss','Completed 12-item pilot'),('judge_gptoss_expanded','Expanded fixed stratified subset (partial until all 240 paired items finish)')]:
         folder=RUN/name;s=read(folder/'paired_summary.json')
         if not s:continue
+        latest={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(folder/'items.jsonl')}
+        paired_keys={tuple(k) for k in s['paired_item_ids']}
+        for c in CONDITIONS:
+            s['conditions'][c]['abstention_or_unknown_count']=sum(pressure_unknown(r['scoring_inputs']['pressure'],r['config']=='statistics',official) for key,r in latest.items() if key[2]==c and key[:2] in paired_keys and r['status']=='complete')
         if name=='judge_gptoss_expanded':label='Expanded fixed stratified subset ('+('complete' if s['paired_complete_items']==s['target_items'] else 'partial')+')'
         snapshots[name]=s
         sections.append('Paired items by MASK stratum: '+json.dumps(dict(collections.Counter(config for config,task in s['paired_item_ids'])))+'. Partial runs can be unbalanced while strata generate sequentially.')
