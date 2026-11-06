@@ -1,0 +1,56 @@
+{
+  "locked_at_utc": "2026-11-06T02:48:18Z",
+  "settings": {
+    "baseline": {
+      "condition": "baseline"
+    },
+    "caa": {
+      "condition": "caa",
+      "layer": 16,
+      "strength": 0.1
+    },
+    "sttp": {
+      "condition": "sttp",
+      "layer": 20,
+      "c": 2.0
+    },
+    "rank2": {
+      "condition": "rank2",
+      "strength": 0.1
+    },
+    "pooled": {
+      "condition": "pooled",
+      "strength": 0.1
+    }
+  },
+  "objective": "Mean over ten calibration scenarios: length-normalized logP(honest completion|neutral prompt) minus logP(dishonest completion|neutral prompt). No held-out data used.",
+  "candidate_middle_layers_zero_based": [
+    8,
+    12,
+    16,
+    20,
+    24
+  ],
+  "strength_grid": [
+    0.02,
+    0.05,
+    0.1
+  ],
+  "sttp_c_grid": [
+    0.0,
+    1.0,
+    2.0
+  ],
+  "calibration_sha256": "0ae7606ff6bd0eadc2f8be613ef1e063b2c58485bb02dce267debec314151f16",
+  "fit_sha256": "c91b5cf44cb01dbda927caa6b0686bb5b7940065473e3fa58bf6057f9fd08c77",
+  "pairs_sha256": "f5a2a73fe7090a197181b9205057596dbb49fbd33dc182f0b4bb88af0fa69f5f",
+  "splits_sha256": "cdf96b1b595ae1427748d550f9156c84529486e262389718245a92b0cf07f3f1",
+  "source_sha256": "a0938391197c96dc30363dad4b723e0cb6b2888d73f0900a9f66fee83282290d",
+  "calibration_best_scores": {
+    "baseline": 0.6340882837772369,
+    "caa": 0.7764430046081543,
+    "sttp": 0.7010406196117401,
+    "rank2": 0.7972537159919739,
+    "pooled": 0.8509443879127503
+  }
+}

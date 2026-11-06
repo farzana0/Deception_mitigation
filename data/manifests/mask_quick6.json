@@ -1,0 +1,31 @@
+{
+  "selection": "Quick fixed subset: first item per MASK configuration from mask_pilot12.json, i.e. the lowest SHA256(config+task_id) item per config over the full official test split. Fixed before any refactor rerun; no outcome-based selection.",
+  "source_manifest": "data/manifests/mask_pilot12.json",
+  "items": [
+    {
+      "config": "continuations",
+      "task_id": "6774a05e18ea0dba85f905e3"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717dd7a1c86eaf48ae7"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edbe260b367c78ca07f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a0e75fcaf2976f9c2"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3145008ba956213c3"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992767c26e3533f441684"
+    }
+  ],
+  "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527"
+}

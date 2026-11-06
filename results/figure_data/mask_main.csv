@@ -1,0 +1,6 @@
+series,condition,assessable_n,dishonest,deception_percent
+full1000,baseline,729,441,60.493827
+full1000,caa,741,421,56.815115
+full1000,sttp,739,451,61.028417
+full1000,rank2,728,420,57.692308
+full1000,pooled,729,423,58.024691

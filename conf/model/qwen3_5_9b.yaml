@@ -1,0 +1,11 @@
+name: qwen3_5_9b
+hf_id: Qwen/Qwen3.5-9B
+revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a      # asserted equal to steering.experiment.REVISION
+local_dir: ${paths.cluster_root}/models/Qwen3.5-9B      # weights are not committed; see models/README.md
+# Fixed by steering.experiment.load (recorded here for readability, not overridable):
+dtype: bfloat16
+attn_implementation: sdpa
+decoding: greedy
+enable_thinking: false
+steered_layers: [8, 12, 16, 20, 24]
+weight_verification: models/base/base_weight_verification.json

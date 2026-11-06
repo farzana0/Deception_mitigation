@@ -1,0 +1,38 @@
+{
+  "python": "3.10.12",
+  "executable": "/usr/bin/python3",
+  "packages": {
+    "torch": {
+      "version": "2.7.0",
+      "module_file": "/usr/lib/python3/dist-packages/torch/__init__.py"
+    },
+    "transformers": {
+      "version": "5.20.2",
+      "module_file": "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/__init__.py"
+    },
+    "datasets": {
+      "version": "5.1.0",
+      "module_file": "/home/ubuntu/.local/lib/python3.10/site-packages/datasets/__init__.py"
+    },
+    "scikit-learn": {
+      "version": "0.23.2",
+      "module_file": "/usr/lib/python3/dist-packages/sklearn/__init__.py"
+    },
+    "Pillow": {
+      "version": "12.3.0",
+      "module_file": "/lambda/nfs/fs-cand-nov05/deps/PIL/__init__.py"
+    },
+    "Jinja2": {
+      "version": "3.1.6",
+      "module_file": "/lambda/nfs/fs-cand-nov05/deps/jinja2/__init__.py"
+    },
+    "numpy": {
+      "version": "1.21.5",
+      "module_file": "/usr/lib/python3/dist-packages/numpy/__init__.py"
+    },
+    "pandas": {
+      "version": "1.3.5",
+      "module_file": "/usr/lib/python3/dist-packages/pandas/__init__.py"
+    }
+  }
+}

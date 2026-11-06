@@ -1,0 +1,30 @@
+# Entry point: python -m cais task=<task> [model=..] [intervention=..] [dataset=..] [judge_model=..] [judge_rubric=..]
+# Every run writes its fully resolved config to <hydra run dir>/resolved_config.yaml.
+defaults:
+  - task: rebuild
+  - model: qwen3_5_9b
+  - intervention: baseline
+  - dataset: mask_full1000
+  - judge_model: gpt_oss_20b
+  - judge_rubric: mask_official
+  - _self_
+
+seed: 42                      # torch.manual_seed in steering.experiment.load; judge request seed
+
+paths:
+  repo: ${repo_root:}         # this checkout (resolved by the CLI)
+  outputs: ${paths.repo}/outputs
+  # Large inputs that are never committed: base weights, raw datasets, upstream checkouts.
+  cluster_root: /lambda/nfs/fs-cand-nov05
+  data_root: ${paths.cluster_root}/data
+  repos_root: ${paths.cluster_root}/repos
+  run: ${paths.outputs}/${task.run_name}
+
+hydra:
+  run:
+    dir: ${paths.run}/hydra/${now:%Y%m%d-%H%M%S}_${task.name}_${intervention.name}
+  sweep:
+    dir: ${paths.run}/hydra/${now:%Y%m%d-%H%M%S}_multirun
+    subdir: ${hydra.job.num}_${task.name}_${intervention.name}
+  job:
+    chdir: false

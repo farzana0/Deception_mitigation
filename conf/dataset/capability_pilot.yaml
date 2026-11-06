@@ -1,0 +1,6 @@
+name: capability_pilot
+kind: capability
+# Fixed in steering.capability: first N test indices sorted by SHA256(benchmark+index).
+benchmarks:
+  mmlu: {path: cais__mmlu/all/test, n_items: 30, max_new_tokens: 32}
+  gsm8k: {path: openai__gsm8k/main/test, n_items: 10, max_new_tokens: 512}

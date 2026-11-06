@@ -1,0 +1,11 @@
+condition,benchmark,paired_n,correct,accuracy
+baseline,mmlu,30,21,0.7
+caa,mmlu,30,21,0.7
+sttp,mmlu,30,21,0.7
+rank2,mmlu,30,21,0.7
+pooled,mmlu,30,20,0.6666666666666666
+baseline,gsm8k,10,8,0.8
+caa,gsm8k,10,8,0.8
+sttp,gsm8k,10,8,0.8
+rank2,gsm8k,10,9,0.9
+pooled,gsm8k,10,10,1.0

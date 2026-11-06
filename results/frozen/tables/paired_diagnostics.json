@@ -1,0 +1,9 @@
+{
+  "primary_paired_n": 1000,
+  "all_five_assessable_n": 559,
+  "rank2_vs_pooled": {
+    "paired_assessable_n": 645,
+    "rank2_dishonest": 383,
+    "pooled_dishonest": 380
+  }
+}

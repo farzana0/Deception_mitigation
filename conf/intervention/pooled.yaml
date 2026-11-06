@@ -1,0 +1,5 @@
+name: pooled
+description: Pooled-control schedule; per-layer CAA directions repeated across position bins, same budget as rank2.
+fit: models/steering_fits/fit.pt
+locked_settings: models/locked/locked_settings.json
+setting: {condition: pooled, strength: 0.1}

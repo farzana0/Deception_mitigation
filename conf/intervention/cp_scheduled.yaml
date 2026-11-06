@@ -1,0 +1,5 @@
+name: cp_scheduled
+description: Exploratory CP replay hook, position-scheduled (steering.cp_exploratory.CPReplayHook). task=infer only.
+fit: models/steering_fits/cp_fit.pt
+locked_settings: models/locked/locked_cp_settings.json
+setting: {condition: cp_scheduled, strength: 0.1}

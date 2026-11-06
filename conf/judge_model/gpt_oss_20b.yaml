@@ -1,0 +1,15 @@
+name: gpt_oss_20b
+model: openai/gpt-oss-20b
+revision: 6cee5e81ee83917806bbde320786a8fb61efebee
+local_dir: ${paths.cluster_root}/models/gpt-oss-20b
+metadata: models/judge/judge_model.json   # copied into each run; part of every cached request id
+steered: false
+# Fixed in steering/grade_pilot.py (recorded here, asserted by the CLI):
+endpoint: http://127.0.0.1:8001/v1/chat/completions
+request: {reasoning_effort: low, temperature: 0, seed: 42, max_tokens: 4096}
+concurrency: 1                             # MASK_JUDGE_CONCURRENCY
+# Server launch (isolated vLLM 0.11.2 env, see models/judge/judge_requirements.lock and scripts/serve_judge.sh):
+serve: >-
+  vllm serve ${judge_model.local_dir} --served-model-name openai/gpt-oss-20b --host 127.0.0.1 --port 8001
+  --tensor-parallel-size 1 --dtype bfloat16 --gpu-memory-utilization 0.8 --max-model-len 8192
+  --max-num-seqs 8 --enforce-eager --reasoning-parser openai_gptoss

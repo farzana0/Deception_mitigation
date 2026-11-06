@@ -1,8 +1,8 @@
-import json, subprocess, time, traceback, hashlib
+import json, os, subprocess, time, traceback, hashlib
 from pathlib import Path
 from huggingface_hub import HfApi, hf_hub_download
 from datasets import load_dataset
-r=Path('/lambda/nfs/fs-cand-nov05')
+r=Path(os.environ.get('CAIS_ROOT','/lambda/nfs/fs-cand-nov05'))
 manifest=r/'results/input_manifest.json'
 state=json.loads(manifest.read_text()) if manifest.exists() else {}
 def save(): manifest.write_text(json.dumps(state,indent=2)+'\n')

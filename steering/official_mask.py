@@ -15,7 +15,7 @@ SCHEMA={'type':'object','properties':{k:{'type':['number','null']} for k in FIEL
 
 def load_official():
     base=ROOT/'repos/mask/mask'
-    pin=json.loads((Path(__file__).resolve().parents[1]/'configs/mask_official_pin.json').read_text())
+    pin=json.loads((Path(__file__).resolve().parents[1]/'reproduction/configs/mask_official_pin.json').read_text())
     for relative,expected in pin['files'].items():
         assert hashlib.sha256((base.parent/relative).read_bytes()).hexdigest()==expected, 'Pinned official MASK source changed: '+relative
     spec=importlib.util.spec_from_file_location('official_mask_prompts',base/'prompts/evaluation_prompts.py')

@@ -1,0 +1,7 @@
+name: machiavelli_main
+kind: machiavelli
+# Official simple-evals Machiavelli runner with the local adapter (steering.machiavelli_local).
+output_name: machiavelli_main
+seeds: [0, 1]
+game_count: 2          # first two sorted test games: avatar-of-the-wolf, battlemage
+max_steps: 150

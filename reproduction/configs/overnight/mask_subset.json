@@ -1,0 +1,54 @@
+{
+  "selection": "First two task IDs per config sorted by SHA256(config+task_id), fixed before generation",
+  "items": [
+    {
+      "config": "continuations",
+      "task_id": "6774a05e18ea0dba85f905e3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f00038ebd02880862"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717dd7a1c86eaf48ae7"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171dc22a7099fc92147d"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edbe260b367c78ca07f"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134d75a35a2d0514b8d4_dd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a0e75fcaf2976f9c2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "F76613075E93"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3145008ba956213c3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca781df6a20474deefa"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992767c26e3533f441684"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015afb63dfdabe513c345"
+    }
+  ],
+  "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527"
+}

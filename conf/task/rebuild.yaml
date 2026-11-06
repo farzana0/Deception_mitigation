@@ -1,0 +1,8 @@
+# Offline rebuild of the main tables, figures, report and paired examples from saved evidence.
+# No model, judge or network calls. Compares every output with results/frozen/.
+name: rebuild
+run_name: rebuild
+evidence_manifest: evidence/MANIFEST.json
+frozen: results/frozen
+examples_manifest: data/manifests/mask_pilot12.json   # items shown as paired prompt/response examples
+examples_judgments: experiments/results/steering_run/judge_gptoss_full/items.jsonl

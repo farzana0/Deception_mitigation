@@ -1,0 +1,5 @@
+# Table, figure, paired examples and frozen-evidence comparison for a fresh MASK run.
+name: report
+run_name: runs/${dataset.name}
+compare_generations_with: evidence/mask/generations          # saved token IDs from the reported runs
+compare_judgments_with: evidence/mask/judge_full1000/items.jsonl.gz

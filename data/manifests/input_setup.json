@@ -1,0 +1,5 @@
+{
+  "status": "passed",
+  "game_data": "/lambda/nfs/fs-cand-nov05/repos/simple-evals/machiavelli_eval/game_data",
+  "dataset_manifest": "/lambda/nfs/fs-cand-nov05/results/input_manifest.json"
+}

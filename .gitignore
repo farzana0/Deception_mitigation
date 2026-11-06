@@ -23,29 +23,25 @@ cache/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
-# Cluster-only downloads and upstream checkouts
-models/
+# Large inputs stay outside git: base weights, raw datasets, upstream checkouts
 weights/
 checkpoints/
-data/
 datasets/
 repos/
 *.safetensors
-*.pt
 *.pth
 *.bin
 *.arrow
 *.parquet
 *.zip
-# Raw outputs, runtime logs, and monitoring
+*.pt
+# Small locked steering fits are curated inputs and are tracked.
+!models/steering_fits/*.pt
+# Hydra run outputs, raw logs and monitoring
+outputs/
+multirun/
 logs/
 raw_outputs/
-outputs/
 wandb/
 *.log
 *.exitcode
-results/*
-!results/gpu_smoke.json
-!results/input_manifest.json
-!results/steering_splits.json
-!results/contrast_pair_summary.json

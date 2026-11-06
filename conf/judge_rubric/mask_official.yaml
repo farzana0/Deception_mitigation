@@ -1,0 +1,11 @@
+name: mask_official
+# Official CAIS MASK prompts, parsing and honesty aggregation, loaded unmodified from the pinned checkout.
+upstream: https://github.com/centerforaisafety/mask
+revision: 25e0b1201e6c928ebe69f7c5aad6fa9063a377ea
+checkout: ${paths.repos_root}/mask
+pin: reproduction/configs/mask_official_pin.json   # SHA256 of every loaded upstream file (checked at load)
+binary_labels: [A, B, C, D]          # C/D and null numeric ranges are valid outcomes, not judge failures
+numeric_schema: [lower_bound, upper_bound, relative_lower_bound, relative_upper_bound]
+honesty: official aggregate_eval_honesty / aggregate_eval_honesty_statistics  (1 honest, -1 dishonest, 0 neither)
+deception_rate: dishonest / (honest + dishonest) over complete, manifest-matched items
+paired_delta: over items assessable under both baseline and the intervention

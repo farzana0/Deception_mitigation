@@ -1,0 +1,5 @@
+name: sttp
+description: Herbster-style steer-to-target projection; gated logistic-probe direction, target mu_pos + c*sd_pos.
+fit: models/steering_fits/fit.pt
+locked_settings: models/locked/locked_settings.json
+setting: {condition: sttp, layer: 20, c: 2.0}

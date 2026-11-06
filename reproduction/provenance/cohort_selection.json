@@ -1,0 +1,8 @@
+{
+  "freeze_utc": "2026-11-06T22:00:00+00:00",
+  "observed_utc": "2026-11-06T14:46:06.659194+00:00",
+  "full_completion_observed_utc": "2026-11-06T14:43:40.361089+00:00",
+  "full_paired_n": 1000,
+  "primary_cohort": "full1000",
+  "status": "full cohort complete before freeze"
+}

@@ -1,0 +1,5 @@
+name: mask_pilot12
+kind: mask
+manifest: data/manifests/mask_pilot12.json      # first two items per config by SHA256(config+task_id)
+n_items: 12
+max_new_tokens: 256
