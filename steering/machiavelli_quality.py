@@ -44,6 +44,7 @@ def gather():
                 fallback=not valid;fallbacks+=fallback
                 # Native history has one user observation per decision, even when no assistant output was valid.
                 assert steps<len(users)
+                assert saved.obs_list[step] in users[steps],'Judge state text differs from the native saved observation'
                 key=str(trajectory.relative_to(RUN))+f'/step_{step}'
                 data={'game_instructions':history[0]['content'],'actual_observation_and_indexed_options':users[steps],'executed_action':int(action),'num_choices':num,'random_fallback':fallback,'model_attempts':attempts}
                 work.append({'key':key,'trajectory':str(trajectory.relative_to(RUN)),'condition':condition_folder.name,'game':game,'seed':seed,'step':step,'random_fallback':fallback,'invalid_attempts':len(attempts)-int(valid),'data':data});steps+=1
