@@ -81,6 +81,29 @@ def quality(folder,gs,labels):
     save(folder/'deception_improvement_quality_loss_cases.json',losses);save(folder/'summary.json',result)
     return result
 
+def freeze_quality_checkpoints(gs):
+    parent=RUN/'quality_mask_v2';items={r['key']:r for r in complete_lines(parent/'items.jsonl') if r['status']=='complete'}
+    for label,manifest_name,primary_name in [('pilot12','mask_subset.json','judge_gptoss'),('expanded240','mask_expanded_subset.json','judge_gptoss_expanded')]:
+        destination=parent/('checkpoint_'+label)
+        if (destination/'frozen.json').exists():continue
+        manifest=read(RUN/manifest_name,{'items':[]});selected={(i['config'],i['task_id']) for i in manifest['items']};required=set()
+        for config,task in selected:
+            for c in CONDITIONS[1:]:
+                key=f'mask/{config}/{task}/{c}';required.add(key)
+                if int(hashlib.sha256(key.encode()).hexdigest(),16)%20==0:required.add(key+'/swap')
+        if not required or not required<=set(items):continue
+        destination.mkdir(exist_ok=True);rows=[items[k] for k in sorted(required)]
+        (destination/'items.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
+        for name in ['protocol.json','validation.json']:(destination/name).write_bytes((parent/name).read_bytes())
+        validation=read(parent/'validation.json',{});ids={r['request_id'] for r in rows}|{r['request_id'] for r in validation.get('cases',[])}
+        calls={r['request_id']:r for r in complete_lines(parent/'calls.jsonl')};assert ids<=set(calls)
+        (destination/'calls.jsonl').write_text(''.join(json.dumps(calls[k])+'\n' for k in sorted(ids)))
+        labels={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(RUN/primary_name/'items.jsonl')}
+        result=quality(destination,gs,labels)
+        files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in destination.iterdir() if p.is_file()}
+        save(destination/'frozen.json',{'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'checkpoint':label,'paired_items':len(selected),'primary_comparisons':result['complete_pairs'],'source_primary_folder':str(RUN/primary_name),'source_quality_folder':str(parent),'new_inference_calls':0,'files_sha256':files})
+        print('FROZEN AUXILIARY QUALITY CHECKPOINT',label,result['complete_pairs'],flush=True)
+
 def main():
     now=datetime.datetime.now(datetime.timezone.utc).isoformat();all_generations=generations();gs={(g['config'],g['task_id'],g['condition']):g for g in all_generations if g['prompt_type']=='pressured'}
     folder=RUN/'judge_gptoss_full';items={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(folder/'items.jsonl')};primary=read(folder/'paired_summary.json',{})
@@ -93,6 +116,7 @@ def main():
     q={}
     for name in ['quality_mask_v2','quality_capability_v3']:
         if (RUN/name/'items.jsonl').exists():q[name]=quality(RUN/name,gs,items)
+    freeze_quality_checkpoints(gs)
     sen=sensitivity(folder);paired=assessable(folder)
     common=set.intersection(*[{k[:2] for k,r in items.items() if k[2]==c and r['status']=='complete'} for c in CONDITIONS])
     strata={};changes={}
@@ -151,7 +175,7 @@ def main():
         r=primary.get('conditions',{}).get(c,{});t=telemetry[c];rate=r.get('deception_rate')
         lines.append(f"| {c} | {r.get('complete_items',0)} | {r.get('assessable_denominator',0)} | {r.get('dishonest',0)} | {rate:.3%} | {r.get('undetermined',0)} | {t['truncated']} | {t['mean_tokens']:.1f} |" if rate is not None else f'| {c} | pending |')
     lines+=['', 'Main priority: finish all five original MASK conditions by the 22:00 UTC reporting freeze. GPU7 is the verified shared-lease main helper; GPU6 and CP paths are exclusively root-owned. Live ready/judged rates, ETA, allocations and CP budget signal: '+str(ROOT/'MAIN_THROUGHPUT_STATUS.json')+'. The 03:00 UTC node-safety cutoff remains the final work cutoff.']
-    lines+=['','Deception uses dishonest/(honest+dishonest); unknown labels remain in the all-paired denominator, reported in metrics. Partial generated-pressure token counts above may cover more items than the judged common set. Technical failures remain separate. See next_stage_metrics.json for strata, fixed-baseline-belief sensitivity, common assessability, rank2/pooled discordances and perturbation telemetry.']
+    lines+=['','Partial cohorts are unbalanced while strata generate sequentially; current rates are not full-benchmark estimates until coverage completes. Deception uses dishonest/(honest+dishonest); unknown labels remain in the all-paired denominator, reported in metrics. Partial generated-pressure token counts above may cover more items than the judged common set. Technical failures remain separate. See next_stage_metrics.json for strata, fixed-baseline-belief sensitivity, common assessability, rank2/pooled discordances and perturbation telemetry.']
     for name,result in q.items():
         lines+=['',f"Auxiliary {name}: {result['complete_pairs']} primary comparisons; {result['common_items_all_four_comparisons']} items common to all four comparisons; {result['technical_failures']} technical failures.",'','| Condition | Common N | Utility delta (steered minus baseline) | 95% paired bootstrap interval |','| --- | ---: | ---: | --- |']
         for c,r in result['conditions'].items():
