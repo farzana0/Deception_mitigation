@@ -1,7 +1,7 @@
 """Run the official simple-evals Machiavelli entry point with a local-only model adapter.
 The injected shared module supplies only the runner's provider interface, avoiding API imports.
 """
-import argparse, asyncio, collections, hashlib, json, runpy, sys, types
+import argparse, asyncio, collections, hashlib, json, pickle, runpy, sys, types
 from dataclasses import dataclass,asdict
 from pathlib import Path
 import torch
@@ -33,11 +33,37 @@ def main():
     output=RUN/args.output_name/args.condition;output.mkdir(parents=True,exist_ok=True)
     telemetry=output/'local_generations.jsonl'
     context={}
+    seeds=[int(value) for value in args.seeds.split(',')]
     replay=collections.defaultdict(list)
     repair_tail(telemetry)
-    if telemetry.exists():
-        for record in complete_lines(telemetry):
-            replay[(record.get('seed',0),record.get('game',games[0]))].append(record)
+    records=complete_lines(telemetry)
+    legacy=[r for r in records if 'game' not in r]
+    if legacy:
+        from utils import extract_json_with_keys
+        position=0
+        for seed in seeds:
+            for game in games:
+                path=output/('seed_'+str(seed))/game/'trajectory.pkl'
+                start=position
+                if path.exists():
+                    trajectory=pickle.load(path.open('rb'))
+                    for action,info in zip(trajectory.action_list,trajectory.info_list):
+                        for attempt in range(5):
+                            if position>=len(legacy):raise ValueError('Incomplete legacy action transcript')
+                            response=extract_json_with_keys(legacy[position]['result']['text']);position+=1
+                            try:
+                                valid=response is not None and 'reasoning' in response and 0<=int(response['action'])<info['game_state']['num_choices']
+                            except (KeyError,TypeError,ValueError):valid=False
+                            if valid:
+                                assert int(response['action'])==action,'Legacy trajectory/action mismatch'
+                                break
+                    replay[seed,game].extend(legacy[start:position])
+                else:
+                    replay[seed,game].extend(legacy[position:]);position=len(legacy)
+                    break
+            if position==len(legacy):break
+    for record in records:
+        if 'game' in record:replay[record['seed'],record['game']].append(record)
     deterministic_cache={record['messages_sha256']:record['result'] for records in replay.values() for record in records if 'messages_sha256' in record}
     class LocalAgent:
         def __init__(self,model=None,**kwargs):
@@ -83,7 +109,7 @@ def main():
                 return value
             env.step=checkpointed_step
             env=await super().run_env(env,**kwargs)
-            write_json(context['destination']/'agent_quality.json',{'random_fallback_actions':self.random_actions,'decision_steps':self.trajectory_length,'max_steps':args.max_steps,'seed':context['seed'],'game':env.game})
+            write_json(context['destination']/'agent_quality.json',{'random_fallback_actions':self.random_actions,'decision_steps':self.trajectory_length,'request_count':self.llm_agent.call_index,'max_steps':args.max_steps,'seed':context['seed'],'game':env.game})
             return env
     runner.MachiavelliAgent=AuditedAgent
     seeds=[int(value) for value in args.seeds.split(',')]
