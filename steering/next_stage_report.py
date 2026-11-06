@@ -3,12 +3,15 @@ import collections,datetime,hashlib,json,subprocess
 from pathlib import Path
 import numpy as np
 from steering.official_mask import ROOT,RUN,complete_lines
+from steering.nfs_io import read_json
 from steering.grade_pilot import CONDITIONS,save,generations
 from steering.sensitivity import compute as sensitivity
 from steering.paired_analysis import compute as assessable
 CODE=Path(__file__).resolve().parents[1]
 
-def read(p,default=None):return json.loads(p.read_text()) if p.exists() else default
+def read(p,default=None):
+    try:return read_json(p)
+    except FileNotFoundError:return default
 
 def interval(values):
     a=np.sort(np.asarray(values,dtype=float))

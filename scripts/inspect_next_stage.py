@@ -1,14 +1,16 @@
 """One-shot read-only progress/health snapshot; no launch/restart/timer behavior."""
-import collections,datetime,json,subprocess,urllib.request
+import collections,datetime,json,subprocess,urllib.request,sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from steering.nfs_io import read_json,read_text
 ROOT=Path('/lambda/nfs/fs-cand-nov05');RUN=ROOT/'results/steering_run'
 def read(path,default):
-    try:return json.loads(path.read_text())
-    except (FileNotFoundError,json.JSONDecodeError):return default
+    try:return read_json(path)
+    except FileNotFoundError:return default
 
 def lines(path):
     if not path.exists():return []
-    return [json.loads(l) for l in path.read_text().splitlines(keepends=True) if l.endswith('\n')]
+    return [json.loads(l) for l in read_text(path).splitlines(keepends=True) if l.endswith('\n')]
 
 def main():
     p=read(RUN/'judge_gptoss_full/paired_summary.json',{});out={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'MASK_paired':p.get('paired_complete_items',0),'MASK_judge_call_statuses':p.get('judge_call_statuses',{}),'auxiliary':{},'attention':[]}
