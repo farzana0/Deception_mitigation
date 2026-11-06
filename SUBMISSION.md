@@ -76,7 +76,7 @@ Retrieve missing large inputs using the pinned manifest, including Machiavelli `
 python3 scripts/download_inputs.py
 ```
 
-The downloader reads existing pinned revisions from `results/input_manifest.json`. MASK/MMLU/GSM8K test datasets are already included. For an entirely new data download, preserve this manifest before running it. Generated contrast pairs and extraction/calibration split manifests are included. Data preparation implementations are `scripts/finalize_inputs.py`, `scripts/generate_pairs.py` and `steering/experiment.py`; do not recalibrate locked settings for reproduction.
+The workspace leaves repos empty so the downloader can clone real Git checkouts; the packaged upstream tree is an offline source archive. The downloader reads existing pinned revisions from `results/input_manifest.json`. MASK/MMLU/GSM8K test datasets are already included. For an entirely new data download, preserve this manifest before running it. Generated contrast pairs and extraction/calibration split manifests are included. Data preparation implementations are `scripts/finalize_inputs.py`, `scripts/generate_pairs.py` and `steering/experiment.py`; do not recalibrate locked settings for reproduction.
 
 After retrieving game data, link `../repos/simple-evals/machiavelli_eval/game_data` to `../../../data/machiavelli/extracted/game_data` if needed. Benchmark launchers and exact flags are documented in `NEXT_STAGE_REPRODUCIBILITY.md` and `NEXT_STAGE_RESUME.sh` in the working source. The latter prints commands; run only intended workers, after checking processes. Existing saved runs skip completed items. For a new replication, archive existing outputs first while retaining locked settings, fit and manifests.
 
