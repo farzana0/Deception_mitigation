@@ -36,6 +36,10 @@ def render():
         sections.append('Judge attempt statuses (including recovered retries): '+json.dumps(dict(attempts)))
         sections.append('Judge call statuses (latest cached call per payload): '+json.dumps(s['judge_call_statuses'])+'. Refusals use the disclosed regex in grade_pilot.py; C/D and null ranges are valid abstentions. Belief coverage includes supplied references for provided_facts. High target truncation limits interpretation; decoding caps were kept fixed.')
         paired=paired_analysis(folder)
+        contrast=paired['rank2_vs_pooled'];joint_n=contrast['both_assessable_denominator']
+        sections.append('Rank-2 versus pooled control at matched relative strength, restricted to identical jointly assessable items:\n\n'+table(['Condition','Relative strength','Shared assessable N','Dishonest','Deception on shared set'],[[c,'0.1',joint_n,contrast[c+'_dishonest'],pct(contrast[c+'_dishonest']/joint_n if joint_n else None)] for c in ['rank2','pooled']]))
+        sections.append(f"Discordant shared pairs: {contrast['rank2_only_dishonest']} rank-2-only dishonest, {contrast['pooled_only_dishonest']} pooled-only dishonest. These are descriptive subset results; truncation and unknown labels limit interpretation.")
+
         sections.append('Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): '+json.dumps(paired))
         sens=compute(folder)
         sections.append('Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): '+'\n\n'+table(['Condition','Dishonest','Assessable N','Deception','Changed labels'],[[c,r['dishonest'],r['assessable_denominator'],pct(r['deception_rate']),r['changed_from_primary']] for c,r in sens['conditions'].items()]))
@@ -69,6 +73,8 @@ def render():
     coordinator=read(RUN/'overnight_coordinator_state.json') or {}
     for note in coordinator.get('recovery_notes',[]):
         sections.append('Resolved operational issue at '+note['utc']+': '+note['issue']+' '+note['recovery'])
+    audit=read(RUN/'overnight_saved_output_audit.json')
+    if audit:sections.append('Saved-output verification: '+audit['status']+'; '+str(audit['unique_generations'])+' unique generations, '+str(audit['condition_item_judgments'])+' condition-item labels recomputed with official metrics, and '+str(audit['capability_gold_verified'])+' capability records checked against gold answers. Metric refresh used only cached judgments, with unchanged call ledgers and primary labels. Original pilot bytes are preserved in pilot_before_expansion_frozen/ and match the hashes recorded before expansion.')
     sections.append('Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. Evaluation jobs remain partial while running. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.')
     sections.append('Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Use paired summaries and per-trajectory CSVs to establish completion; legacy exitcode filenames can be shared between pilot and expansion commands. Actual PID/GPU/CUDA_VISIBLE_DEVICES assignments are checkpointed in gpu_process_snapshots.jsonl; queued tmux jobs can be waiting on locks without occupying a GPU. No raw artifacts are staged in Git.')
     commands='''cd /lambda/nfs/fs-cand-nov05/Deception_mitigation

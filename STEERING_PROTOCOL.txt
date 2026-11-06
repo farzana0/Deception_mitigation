@@ -88,3 +88,12 @@ on recovery. A completed smoke replay reproduced identical actions/rewards. Only
 Reports: steering.overnight_report renders REPORT.txt and parent OVERNIGHT_STATUS.md
 from actual files each minute in tmux overnight-report. Main reports are partial
 until all five conditions complete the same fixed subset.
+
+Completed expanded MASK verification: 240 paired items, 1,200 condition-item
+judgments, 3,800 unique saved generations. scripts/audit_saved_evaluations.py
+checks prompt equality, payload/revision hashes, strict response parsing,
+pressure-to-generation bindings, all official honesty labels, fixed subset
+membership and capability gold scores. Regrading from cache made no new calls
+or primary-label changes. Original pilot files are byte-verified against the
+pre-expansion manifest hashes and preserved in pilot_before_expansion_frozen/.
+Expanded metric summaries and the audit are backed up in configs/overnight/.

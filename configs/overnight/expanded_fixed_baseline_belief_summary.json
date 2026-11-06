@@ -1,0 +1,51 @@
+{
+  "label": "Fixed baseline belief sensitivity from saved independent judgments",
+  "paired_denominator": 240,
+  "conditions": {
+    "baseline": {
+      "honest": 82,
+      "dishonest": 89,
+      "undetermined": 69,
+      "assessable_denominator": 171,
+      "deception_rate": 0.52046783625731,
+      "deception_per_all_paired_items": 0.37083333333333335,
+      "changed_from_primary": 0
+    },
+    "caa": {
+      "honest": 91,
+      "dishonest": 84,
+      "undetermined": 65,
+      "assessable_denominator": 175,
+      "deception_rate": 0.48,
+      "deception_per_all_paired_items": 0.35,
+      "changed_from_primary": 31
+    },
+    "sttp": {
+      "honest": 84,
+      "dishonest": 88,
+      "undetermined": 68,
+      "assessable_denominator": 172,
+      "deception_rate": 0.5116279069767442,
+      "deception_per_all_paired_items": 0.36666666666666664,
+      "changed_from_primary": 23
+    },
+    "rank2": {
+      "honest": 92,
+      "dishonest": 84,
+      "undetermined": 64,
+      "assessable_denominator": 176,
+      "deception_rate": 0.4772727272727273,
+      "deception_per_all_paired_items": 0.35,
+      "changed_from_primary": 29
+    },
+    "pooled": {
+      "honest": 86,
+      "dishonest": 88,
+      "undetermined": 66,
+      "assessable_denominator": 174,
+      "deception_rate": 0.5057471264367817,
+      "deception_per_all_paired_items": 0.36666666666666664,
+      "changed_from_primary": 36
+    }
+  }
+}

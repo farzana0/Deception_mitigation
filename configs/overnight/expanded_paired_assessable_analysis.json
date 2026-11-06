@@ -1,0 +1,33 @@
+{
+  "technically_valid_paired_denominator": 240,
+  "all_five_assessable_denominator": 136,
+  "all_five_assessable_conditions": {
+    "baseline": {
+      "dishonest": 77,
+      "denominator": 136
+    },
+    "caa": {
+      "dishonest": 68,
+      "denominator": 136
+    },
+    "sttp": {
+      "dishonest": 76,
+      "denominator": 136
+    },
+    "rank2": {
+      "dishonest": 73,
+      "denominator": 136
+    },
+    "pooled": {
+      "dishonest": 73,
+      "denominator": 136
+    }
+  },
+  "rank2_vs_pooled": {
+    "both_assessable_denominator": 158,
+    "rank2_dishonest": 83,
+    "pooled_dishonest": 86,
+    "rank2_only_dishonest": 5,
+    "pooled_only_dishonest": 8
+  }
+}

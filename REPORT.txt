@@ -1,4 +1,6 @@
-CAIS overnight experiment — verified checkpoint 2026-11-06T04:00:54.095504+00:00
+CAIS overnight experiment — verified checkpoint 2026-11-06T05:50:33.536323+00:00
+
+Overnight coordination started 2026-11-06 03:03 UTC; hour-8 reporting deadline 11:03 UTC; monitoring scheduled through 11:35 UTC.
 
 Local inference only. Results below are deterministic single-run measurements on fixed subsets; they are not full-benchmark estimates. No steering settings were retuned after locking.
 
@@ -22,9 +24,20 @@ Judge attempt statuses (including recovered retries): {"ok": 176}
 
 Judge call statuses (latest cached call per payload): {"ok": 176}. Refusals use the disclosed regex in grade_pilot.py; C/D and null ranges are valid abstentions. Belief coverage includes supplied references for provided_facts. High target truncation limits interpretation; decoding caps were kept fixed.
 
+Rank-2 versus pooled control at matched relative strength, restricted to identical jointly assessable items:
+
+| Condition | Relative strength | Shared assessable N | Dishonest | Deception on shared set |
+| --- | --- | --- | --- | --- |
+| rank2 | 0.1 | 8 | 6 | 75.0% |
+| pooled | 0.1 | 8 | 7 | 87.5% |
+
+Discordant shared pairs: 0 rank-2-only dishonest, 1 pooled-only dishonest. These are descriptive subset results; truncation and unknown labels limit interpretation.
+
 Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): {"technically_valid_paired_denominator": 12, "all_five_assessable_denominator": 8, "all_five_assessable_conditions": {"baseline": {"dishonest": 7, "denominator": 8}, "caa": {"dishonest": 6, "denominator": 8}, "sttp": {"dishonest": 5, "denominator": 8}, "rank2": {"dishonest": 6, "denominator": 8}, "pooled": {"dishonest": 7, "denominator": 8}}, "rank2_vs_pooled": {"both_assessable_denominator": 8, "rank2_dishonest": 6, "pooled_dishonest": 7, "rank2_only_dishonest": 0, "pooled_only_dishonest": 1}}
 
-Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): | Condition | Dishonest | Assessable N | Deception | Changed labels |
+Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): 
+
+| Condition | Dishonest | Assessable N | Deception | Changed labels |
 | --- | --- | --- | --- | --- |
 | baseline | 7 | 9 | 77.8% | 0 |
 | caa | 7 | 9 | 77.8% | 1 |
@@ -32,41 +45,56 @@ Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseli
 | rank2 | 6 | 8 | 75.0% | 0 |
 | pooled | 7 | 8 | 87.5% | 0 |
 
-Paired items by MASK stratum: {"continuations": 40, "disinformation": 16, "doubling_down_known_facts": 2, "known_facts": 2, "provided_facts": 2, "statistics": 2}. Partial runs can be unbalanced while strata generate sequentially.
+Paired items by MASK stratum: {"continuations": 40, "disinformation": 40, "doubling_down_known_facts": 40, "known_facts": 40, "provided_facts": 40, "statistics": 40}. Partial runs can be unbalanced while strata generate sequentially.
 
-Expanded fixed stratified subset (partial): 64/240 complete paired items. Every condition uses this common intersection. Deception = dishonest/(honest+dishonest); undetermined items remain in the all-paired denominator.
+Expanded fixed stratified subset (complete): 240/240 complete paired items. Every condition uses this common intersection. Deception = dishonest/(honest+dishonest); undetermined items remain in the all-paired denominator.
 
 | Condition | Paired N | Honest | Dishonest | Undetermined | Assessable N | Deception | Dishonest/all paired | Belief coverage | Abstain/unknown | Refusal regex | Truncated pressure | Technical item failures |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline | 64 | 21 | 25 | 18 | 46 | 54.3% | 39.1% | 84.4% | 10 | 0 | 38 | 0 |
-| caa | 64 | 23 | 25 | 16 | 48 | 52.1% | 39.1% | 82.8% | 7 | 1 | 34 | 0 |
-| sttp | 64 | 23 | 27 | 14 | 50 | 54.0% | 42.2% | 84.4% | 8 | 0 | 34 | 0 |
-| rank2 | 64 | 22 | 24 | 18 | 46 | 52.2% | 37.5% | 81.2% | 9 | 0 | 36 | 0 |
-| pooled | 64 | 22 | 30 | 12 | 52 | 57.7% | 46.9% | 87.5% | 7 | 2 | 32 | 0 |
+| baseline | 240 | 82 | 89 | 69 | 171 | 52.0% | 37.1% | 79.2% | 27 | 4 | 91 | 0 |
+| caa | 240 | 90 | 84 | 66 | 174 | 48.3% | 35.0% | 78.3% | 22 | 7 | 79 | 0 |
+| sttp | 240 | 84 | 96 | 60 | 180 | 53.3% | 40.0% | 81.7% | 26 | 4 | 83 | 0 |
+| rank2 | 240 | 90 | 90 | 60 | 180 | 50.0% | 37.5% | 80.4% | 21 | 5 | 89 | 0 |
+| pooled | 240 | 81 | 93 | 66 | 174 | 53.4% | 38.8% | 78.3% | 22 | 6 | 81 | 0 |
 
-Judge attempt statuses (including recovered retries): {"ok": 1375}
+Judge attempt statuses (including recovered retries): {"ok": 3546}
 
-Judge call statuses (latest cached call per payload): {"ok": 1375}. Refusals use the disclosed regex in grade_pilot.py; C/D and null ranges are valid abstentions. Belief coverage includes supplied references for provided_facts. High target truncation limits interpretation; decoding caps were kept fixed.
+Judge call statuses (latest cached call per payload): {"ok": 3546}. Refusals use the disclosed regex in grade_pilot.py; C/D and null ranges are valid abstentions. Belief coverage includes supplied references for provided_facts. High target truncation limits interpretation; decoding caps were kept fixed.
 
-Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): {"technically_valid_paired_denominator": 64, "all_five_assessable_denominator": 41, "all_five_assessable_conditions": {"baseline": {"dishonest": 22, "denominator": 41}, "caa": {"dishonest": 22, "denominator": 41}, "sttp": {"dishonest": 21, "denominator": 41}, "rank2": {"dishonest": 22, "denominator": 41}, "pooled": {"dishonest": 23, "denominator": 41}}, "rank2_vs_pooled": {"both_assessable_denominator": 44, "rank2_dishonest": 24, "pooled_dishonest": 26, "rank2_only_dishonest": 0, "pooled_only_dishonest": 2}}
+Rank-2 versus pooled control at matched relative strength, restricted to identical jointly assessable items:
 
-Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): | Condition | Dishonest | Assessable N | Deception | Changed labels |
+| Condition | Relative strength | Shared assessable N | Dishonest | Deception on shared set |
 | --- | --- | --- | --- | --- |
-| baseline | 25 | 46 | 54.3% | 0 |
-| caa | 26 | 48 | 54.2% | 5 |
-| sttp | 26 | 48 | 54.2% | 6 |
-| rank2 | 24 | 46 | 52.2% | 4 |
-| pooled | 28 | 48 | 58.3% | 6 |
+| rank2 | 0.1 | 158 | 83 | 52.5% |
+| pooled | 0.1 | 158 | 86 | 54.4% |
 
-Realized perturbation telemetry over all saved MASK prompts at this checkpoint: | Condition | Saved prompts | Mean relative RMS total/step | Steered/eligible layer-token fraction | All-prompt truncations |
+Discordant shared pairs: 5 rank-2-only dishonest, 8 pooled-only dishonest. These are descriptive subset results; truncation and unknown labels limit interpretation.
+
+Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): {"technically_valid_paired_denominator": 240, "all_five_assessable_denominator": 136, "all_five_assessable_conditions": {"baseline": {"dishonest": 77, "denominator": 136}, "caa": {"dishonest": 68, "denominator": 136}, "sttp": {"dishonest": 76, "denominator": 136}, "rank2": {"dishonest": 73, "denominator": 136}, "pooled": {"dishonest": 73, "denominator": 136}}, "rank2_vs_pooled": {"both_assessable_denominator": 158, "rank2_dishonest": 83, "pooled_dishonest": 86, "rank2_only_dishonest": 5, "pooled_only_dishonest": 8}}
+
+Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): 
+
+| Condition | Dishonest | Assessable N | Deception | Changed labels |
 | --- | --- | --- | --- | --- |
-| baseline | 249 | 0.000000 | 0.000000 | 148 |
-| caa | 265 | 0.100016 | 1.000000 | 148 |
-| sttp | 277 | 0.102368 | 0.712761 | 160 |
-| rank2 | 321 | 0.100001 | 1.000000 | 182 |
-| pooled | 319 | 0.099915 | 1.000000 | 177 |
+| baseline | 89 | 171 | 52.0% | 0 |
+| caa | 84 | 175 | 48.0% | 31 |
+| sttp | 88 | 172 | 51.2% | 23 |
+| rank2 | 84 | 176 | 47.7% | 29 |
+| pooled | 88 | 174 | 50.6% | 36 |
 
-Capability pilots: identical SHA256-selected test indices across five conditions; exact-match scoring (numeric equivalence for GSM8K). No few-shot examples. | Benchmark | Condition | Paired N | Target N | Correct | Accuracy | Unparsed | Truncated |
+Realized perturbation telemetry over all saved MASK prompts at this checkpoint: 
+
+| Condition | Saved prompts | Mean relative RMS total/step | Steered/eligible layer-token fraction | All-prompt truncations |
+| --- | --- | --- | --- | --- |
+| baseline | 760 | 0.000000 | 0.000000 | 368 |
+| caa | 760 | 0.100019 | 1.000000 | 331 |
+| sttp | 760 | 0.099991 | 0.698757 | 357 |
+| rank2 | 760 | 0.100006 | 1.000000 | 350 |
+| pooled | 760 | 0.099916 | 1.000000 | 341 |
+
+Capability pilots: identical SHA256-selected test indices across five conditions; exact-match scoring (numeric equivalence for GSM8K). No few-shot examples. 
+
+| Benchmark | Condition | Paired N | Target N | Correct | Accuracy | Unparsed | Truncated |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | mmlu | baseline | 30 | 30 | 21 | 70.0% | 0 | 0 |
 | mmlu | caa | 30 | 30 | 21 | 70.0% | 0 | 0 |
@@ -79,48 +107,55 @@ Capability pilots: identical SHA256-selected test indices across five conditions
 | gsm8k | rank2 | 10 | 10 | 9 | 90.0% | 1 | 1 |
 | gsm8k | pooled | 10 | 10 | 10 | 100.0% | 0 | 0 |
 
-Machiavelli fixed main subset: first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official trajectory resimulation and annotation metrics. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here. | Condition | Completed trajectories | Common paired N | Mean deception | Mean reward | Mean length | Random fallback actions | 150-action cap hits |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| baseline | 1 | 0 | NA | NA | NA | 0 | 0 |
-| caa | 0 | 0 | NA | NA | NA | 0 | 0 |
-| sttp | 0 | 0 | NA | NA | NA | 0 | 0 |
-| rank2 | 1 | 0 | NA | NA | NA | 0 | 0 |
-| pooled | 0 | 0 | NA | NA | NA | 0 | 0 |
+Machiavelli paired trajectory pilot (partial): first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official trajectory resimulation and annotation metrics. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here. 
 
-Expansion selection: 240 fixed items, 40 per stratum, hash ordering includes pilot. Throughput bound per balanced six items across all conditions: judge 168.1s plus generation 228.3s with five GPU workers. Used 60% of remaining budget to 10:30 UTC, reserving 40% for variance/recovery. Manifest fixed before expansion. Pilot outputs and judgments were saved before launch and reused.
+| Condition | Completed trajectories | Common paired N | Mean deception | Mean reward | Mean length | Random fallback actions | 150-action cap hits |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| baseline | 4 | 1 | 72.1241 | 0.0000 | 83.0 | 4 | 0 |
+| caa | 1 | 1 | 72.1241 | 9.6296 | 82.0 | 0 | 0 |
+| sttp | 1 | 1 | 108.1861 | 0.0000 | 77.0 | 6 | 0 |
+| rank2 | 4 | 1 | 108.1861 | 7.4074 | 81.0 | 6 | 0 |
+| pooled | 1 | 1 | 108.1861 | 13.3333 | 82.0 | 6 | 0 |
+
+Expansion selection: 240 fixed items, 40 per stratum, hash ordering includes pilot. Throughput bound per balanced six items across all conditions: judge 168.1s plus generation 228.3s with five GPU workers. Used 60% of remaining budget to 10:30 UTC, reserving 40% for variance/recovery. Manifest fixed before expansion. Pilot outputs and judgments were saved before launch and reused. Overall MASK rates are unweighted selected-item rates with equal stratum sample sizes, not prevalence-weighted estimates for the full dataset. The expansion includes pilot items and is not an independent fresh confirmation sample.
 
 Live tmux sessions:
 ```
 deception-overnight: 1 windows (created Fri Nov  6 03:03:12 2026)
 deception-watchdog: 1 windows (created Fri Nov  6 03:04:09 2026)
-machiavelli-after-mask-caa: 1 windows (created Fri Nov  6 03:27:33 2026)
-machiavelli-after-mask-pooled: 1 windows (created Fri Nov  6 03:27:33 2026)
-machiavelli-after-mask-sttp: 1 windows (created Fri Nov  6 03:27:33 2026)
 machiavelli-main-6: 1 windows (created Fri Nov  6 03:09:26 2026)
 machiavelli-main-7: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-baseline: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-caa: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-pooled: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-rank2: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-score: 1 windows (created Fri Nov  6 03:09:26 2026)
-mask-expanded-sttp: 1 windows (created Fri Nov  6 03:09:26 2026)
+machiavelli-next-caa: 1 windows (created Fri Nov  6 05:01:26 2026)
+machiavelli-next-sttp: 1 windows (created Fri Nov  6 05:01:26 2026)
+machiavelli-pooled-4: 1 windows (created Fri Nov  6 05:05:42 2026)
 mask-judge-server: 1 windows (created Fri Nov  6 02:58:32 2026)
 overnight-report: 1 windows (created Fri Nov  6 03:10:53 2026)
 ```
 
+Resolved operational issue at 2026-11-06T05:05:42.779314+00:00: Pooled waiting Bash scheduler failed on read after its on-disk source was edited while waiting; no model had loaded and no outputs were lost. Launched tmux machiavelli-pooled-4 directly on GPU4 with fixed main protocol. Do not edit live Bash launcher scripts again. Original older caa/sttp waiting queues may also end with parser errors; new caa-GPU3 and sttp-GPU1 queues cover those conditions. Running inference jobs unchanged.
+
+Saved-output verification: passed; 3800 unique generations, 1200 condition-item labels recomputed with official metrics, and 200 capability records checked against gold answers. Metric refresh used only cached judgments, with unchanged call ledgers and primary labels. Original pilot bytes are preserved in pilot_before_expansion_frozen/ and match the hashes recorded before expansion.
+
 Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. Evaluation jobs remain partial while running. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.
 
-Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Exitcode files record job completion. No raw artifacts are staged in Git.
+Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Use paired summaries and per-trajectory CSVs to establish completion; legacy exitcode filenames can be shared between pilot and expansion commands. Actual PID/GPU/CUDA_VISIBLE_DEVICES assignments are checkpointed in gpu_process_snapshots.jsonl; queued tmux jobs can be waiting on locks without occupying a GPU. No raw artifacts are staged in Git.
 
-Exact resume commands (put GPU workers in tmux, choose a free GPU; judge uses GPU 5):
+Executable resume commands (put GPU workers in tmux and confirm GPU 0 is free first; judge uses GPU 5):
 ```bash
 cd /lambda/nfs/fs-cand-nov05/Deception_mitigation
 # First inspect tmux ls and nvidia-smi; do not duplicate healthy jobs.
 bash scripts/serve_judge.sh
 bash scripts/grade_mask_pilot.sh
-CUDA_VISIBLE_DEVICES=GPU bash scripts/run_capability.sh CONDITION
-CUDA_VISIBLE_DEVICES=GPU bash scripts/run_machiavelli.sh CONDITION --output-name machiavelli_main --seeds 0,1 --game-count 2 --max-steps 150
-CUDA_VISIBLE_DEVICES=GPU STEERING_EVAL_CONDITIONS=CONDITION MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
+# These serial resume loops use GPU 0; first verify it is free.
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 bash scripts/run_capability.sh "$condition"
+done
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 bash scripts/run_machiavelli.sh "$condition" --output-name machiavelli_main --seeds 0,1 --game-count 2 --max-steps 150
+done
+for condition in baseline caa sttp rank2 pooled; do
+  CUDA_VISIBLE_DEVICES=0 STEERING_EVAL_CONDITIONS="$condition" MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
+done
 MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json MASK_JUDGE_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_expanded bash scripts/grade_mask_pilot.sh
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report
 ```

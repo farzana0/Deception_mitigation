@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "utc": "2026-11-06T05:46:40.368146+00:00",
+  "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527",
+  "fit_sha256": "c91b5cf44cb01dbda927caa6b0686bb5b7940065473e3fa58bf6057f9fd08c77",
+  "paired_mask_items": 240,
+  "condition_item_judgments": 1200,
+  "unique_generations": 3800,
+  "identical_duplicate_generations": 0,
+  "identical_prompt_groups": 760,
+  "generation_counts": {
+    "baseline": 760,
+    "caa": 760,
+    "sttp": 760,
+    "pooled": 760,
+    "rank2": 760
+  },
+  "judge_calls_verified": 3546,
+  "primary_honesty_recomputed": 1200,
+  "cache_only_refresh": true,
+  "original_pilot_hashes_preserved": "/lambda/nfs/fs-cand-nov05/results/steering_run/pilot_before_expansion_frozen",
+  "capability_gold_verified": 200,
+  "capability": {
+    "baseline": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8
+      }
+    },
+    "caa": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8
+      }
+    },
+    "sttp": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8
+      }
+    },
+    "rank2": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 9
+      }
+    },
+    "pooled": {
+      "mmlu": {
+        "n": 30,
+        "correct": 20
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 10
+      }
+    }
+  },
+  "multiple_gsm_answer_markers": [],
+  "rank2_vs_pooled": {
+    "both_assessable_denominator": 158,
+    "rank2_dishonest": 83,
+    "pooled_dishonest": 86,
+    "rank2_only_dishonest": 5,
+    "pooled_only_dishonest": 8
+  },
+  "normalization_updates": {
+    "judge_gptoss": 0,
+    "judge_gptoss_expanded": 0
+  }
+}
