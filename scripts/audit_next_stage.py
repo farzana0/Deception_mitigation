@@ -152,7 +152,7 @@ def main():
     frozen=json.loads((RUN/'next_stage_frozen_hashes.json').read_text())
     for relative,expected in frozen.items():assert digest(ROOT/relative)==expected,('Frozen checkpoint changed',relative)
     audit['status']='passed';save(RUN/'next_stage_final_audit.json',audit)
-    completion={'completion':True,'utc':audit['utc'],'full_mask_items':1000,'conditions':CONDITIONS,'audit':str(RUN/'next_stage_final_audit.json'),'report':str(CODE/'NEXT_STAGE_REPORT.md'),'metrics':str(RUN/'next_stage_metrics.json'),'reproducibility':str(CODE/'NEXT_STAGE_REPRODUCIBILITY.md')}
+    completion={'completion':True,'scope':'Original five-condition main MASK and planned quality/capability/Machiavelli audits. Root-owned CP experiment is separate.','root_owned_cp_separate':True,'utc':audit['utc'],'full_mask_items':1000,'conditions':CONDITIONS,'audit':str(RUN/'next_stage_final_audit.json'),'report':str(CODE/'NEXT_STAGE_REPORT.md'),'metrics':str(RUN/'next_stage_metrics.json'),'reproducibility':str(CODE/'NEXT_STAGE_REPRODUCIBILITY.md')}
     for destination in [RUN/'next_stage_complete.json',ROOT/'results/next_stage_complete.json',CODE/'results/next_stage_complete.json']:save(destination,completion)
     print(json.dumps(audit,indent=2),flush=True)
 if __name__=='__main__':main()
