@@ -4,7 +4,8 @@ ROOT=/lambda/nfs/fs-cand-nov05
 cd "$ROOT/Deception_mitigation"
 gpu=$1
 condition=$2
-while tmux has-session -t "mask-expanded-$condition" 2>/dev/null; do
+wait_condition=${3:-$condition}
+while tmux has-session -t "mask-expanded-$wait_condition" 2>/dev/null; do
     sleep 60
 done
 while [[ $(nvidia-smi --id="$gpu" --query-gpu=memory.used --format=csv,noheader,nounits) -gt 100 ]]; do
