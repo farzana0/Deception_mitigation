@@ -13,3 +13,18 @@ for c in ['baseline','caa','sttp','rank2','pooled']:
   text=p.read_text();steps=re.findall(r'([^\r\n]+):\s+\d+%[^\r\n]*?(\d+)/150',text)
   print('MACHIAVELLI',c,'saved',len(list((run/'machiavelli_main'/c).glob('seed_*/*/metrics.csv'))),'last_step',steps[-1] if steps else None,'oom',text.count('CUDA out of memory'),'tracebacks',text.count('Traceback (most recent call last)'))
 print(subprocess.run(['nvidia-smi','--query-gpu=index,memory.used,utilization.gpu','--format=csv,noheader'],capture_output=True,text=True).stdout.strip())
+
+# Preserve actual process-to-GPU assignments without recording other environment values.
+apps=subprocess.run(['nvidia-smi','--query-compute-apps=pid,gpu_uuid,used_memory','--format=csv,noheader,nounits'],capture_output=True,text=True).stdout
+snapshot={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'processes':[]}
+for line in apps.splitlines():
+    fields=[v.strip() for v in line.split(',')]
+    if len(fields)!=3:continue
+    pid,uuid,memory=fields
+    try:
+        proc=Path('/proc')/pid
+        command=proc.joinpath('cmdline').read_bytes().replace(b'\0',b' ').decode(errors='replace').strip()
+        cuda=next((v.split(b'=',1)[1].decode(errors='replace') for v in proc.joinpath('environ').read_bytes().split(b'\0') if v.startswith(b'CUDA_VISIBLE_DEVICES=')),None)
+    except (OSError,ProcessLookupError):continue
+    snapshot['processes'].append({'pid':int(pid),'gpu_uuid':uuid,'memory_mib':memory,'command':command,'CUDA_VISIBLE_DEVICES':cuda})
+with (run/'gpu_process_snapshots.jsonl').open('a') as f:f.write(json.dumps(snapshot)+'\n')
