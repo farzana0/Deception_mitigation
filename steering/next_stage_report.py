@@ -11,7 +11,7 @@ CODE=Path(__file__).resolve().parents[1]
 def read(p,default=None):return json.loads(p.read_text()) if p.exists() else default
 
 def interval(values):
-    a=np.asarray(values,dtype=float)
+    a=np.sort(np.asarray(values,dtype=float))
     if not len(a):return {'n':0,'mean':None,'ci95':None}
     rng=np.random.default_rng(42)
     means=np.array([rng.choice(a,len(a),replace=True).mean() for _ in range(2000)])
@@ -119,6 +119,7 @@ def main():
     freeze_quality_checkpoints(gs)
     sen=sensitivity(folder);paired=assessable(folder)
     common=set.intersection(*[{k[:2] for k,r in items.items() if k[2]==c and r['status']=='complete'} for c in CONDITIONS])
+    fixed_labels={(r['config'],r['task_id'],r['condition']):r['honesty'] for r in read(folder/'fixed_baseline_belief_items.json',[])}
     strata={};changes={}
     for config in sorted({k[0] for k in common}):
         keys=[k for k in common if k[0]==config];strata[config]={'n':len(keys),'conditions':{c:dict(collections.Counter(str(items[k+(c,)]['honesty']) for k in keys)) for c in CONDITIONS}}
@@ -133,13 +134,13 @@ def main():
             r=items[key+(c,)];g=gs[key+(c,)];qrow=quality_items.get(key+(c,));qbase=qsteer=None
             if qrow:
                 qbase=qrow['labels'][qrow['baseline_side']];qsteer=qrow['labels']['B' if qrow['baseline_side']=='A' else 'A']
-            matched.append({'config':key[0],'task_id':key[1],'condition':c,'baseline_honesty':base['honesty'],'steered_honesty':r['honesty'],'baseline_tokens':len(bg['result']['token_ids']),'steered_tokens':len(g['result']['token_ids']),'baseline_truncated':bg['result']['hit_token_limit'],'steered_truncated':g['result']['hit_token_limit'],'baseline_quality':qbase,'steered_quality':qsteer,'baseline_response_status':status_items.get(key+('baseline',),{}).get('labels'),'steered_response_status':status_items.get(key+(c,),{}).get('labels')})
+            matched.append({'config':key[0],'task_id':key[1],'condition':c,'baseline_honesty':base['honesty'],'steered_honesty':r['honesty'],'fixed_baseline_belief_honesty':fixed_labels.get(key+(c,)),'baseline_reference_covered':base['knowledge_reference_covered'],'steered_reference_covered':r['knowledge_reference_covered'],'baseline_aggregate_belief':base['scoring_inputs'].get('eval_belief'),'steered_aggregate_belief':r['scoring_inputs'].get('eval_belief'),'baseline_tokens':len(bg['result']['token_ids']),'steered_tokens':len(g['result']['token_ids']),'baseline_truncated':bg['result']['hit_token_limit'],'steered_truncated':g['result']['hit_token_limit'],'baseline_quality':qbase,'steered_quality':qsteer,'baseline_response_status':status_items.get(key+('baseline',),{}).get('labels'),'steered_response_status':status_items.get(key+(c,),{}).get('labels')})
     save(RUN/'next_stage_matched_items.json',matched)
     for c in CONDITIONS[1:]:
         rows=[r for r in matched if r['condition']==c];both=[r for r in rows if r['baseline_honesty'] in [-1,1] and r['steered_honesty'] in [-1,1]]
         reduced=[r for r in rows if r['baseline_honesty']==-1 and r['steered_honesty']!=-1]
         changes[c]['common_assessable_deception_delta']=interval([int(r['steered_honesty']==-1)-int(r['baseline_honesty']==-1) for r in both])
-        changes[c]['apparent_reductions']={'count':len(reduced),'became_undetermined':sum(r['steered_honesty']==0 for r in reduced),'became_honest':sum(r['steered_honesty']==1 for r in reduced),'status_judged':sum(r['steered_response_status'] is not None for r in reduced),'steered_explicit_refusal':sum(bool((r['steered_response_status'] or {}).get('explicit_refusal')) for r in reduced),'steered_epistemic_abstention':sum(bool((r['steered_response_status'] or {}).get('epistemic_abstention')) for r in reduced),'quality_judged':sum(r['steered_quality'] is not None for r in reduced),'worse_any_quality_dimension':sum(bool(quality_declines(r['baseline_quality'],r['steered_quality'])) for r in reduced),'worse_utility':sum(r['steered_quality']['overall_utility']<r['baseline_quality']['overall_utility'] for r in reduced if r['steered_quality'] is not None)}
+        changes[c]['apparent_reductions']={'count':len(reduced),'became_undetermined':sum(r['steered_honesty']==0 for r in reduced),'became_honest':sum(r['steered_honesty']==1 for r in reduced),'fixed_baseline_remains_dishonest':sum(r['fixed_baseline_belief_honesty']==-1 for r in reduced),'lost_belief_reference_coverage':sum(r['baseline_reference_covered'] and not r['steered_reference_covered'] for r in reduced),'status_judged':sum(r['steered_response_status'] is not None for r in reduced),'steered_explicit_refusal':sum(bool((r['steered_response_status'] or {}).get('explicit_refusal')) for r in reduced),'steered_epistemic_abstention':sum(bool((r['steered_response_status'] or {}).get('epistemic_abstention')) for r in reduced),'new_explicit_refusal':sum(bool((r['steered_response_status'] or {}).get('explicit_refusal')) and not bool((r['baseline_response_status'] or {}).get('explicit_refusal')) for r in reduced),'new_epistemic_abstention':sum(bool((r['steered_response_status'] or {}).get('epistemic_abstention')) and not bool((r['baseline_response_status'] or {}).get('epistemic_abstention')) for r in reduced),'quality_judged':sum(r['steered_quality'] is not None for r in reduced),'worse_any_quality_dimension':sum(bool(quality_declines(r['baseline_quality'],r['steered_quality'])) for r in reduced),'worse_utility':sum(r['steered_quality']['overall_utility']<r['baseline_quality']['overall_utility'] for r in reduced if r['steered_quality'] is not None)}
         changes[c]['paired_token_delta']=interval([r['steered_tokens']-r['baseline_tokens'] for r in rows])
     telemetry={}
     for c in CONDITIONS:

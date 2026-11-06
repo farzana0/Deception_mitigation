@@ -99,6 +99,13 @@ def main():
     result,sources,gs=asyncio.run(audit_mask());audit={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'MASK':result,'auxiliary':{}}
     mw=mask_work(sources);assert sum(not w['swap'] for w in mw)==4000
     audit['auxiliary']['mask_quality']=audit_aux('quality_mask_v2',mw,len(mw))
+    for label,manifest_name in [('pilot12','mask_subset.json'),('expanded240','mask_expanded_subset.json')]:
+        selected={(r['config'],r['task_id']) for r in json.loads((RUN/manifest_name).read_text())['items']}
+        subset=[w for w in mw if (w['config'],w['task_id']) in selected]
+        name='quality_mask_v2/checkpoint_'+label
+        frozen=json.loads((RUN/name/'frozen.json').read_text())
+        for filename,expected in frozen['files_sha256'].items():assert digest(RUN/name/filename)==expected
+        audit['auxiliary'][name]=audit_aux(name,subset,len(subset))
     audit['auxiliary']['capability_quality']=audit_aux('quality_capability_v3',capability_work(),160)
     audit['auxiliary']['response_status']=audit_response_status(gs)
     cap=json.loads((RUN/'capability_extraction_v1/summary.json').read_text());assert cap['records']==200
