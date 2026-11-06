@@ -22,6 +22,15 @@ def main():
     out['fixed_state_generations']=len(lines(RUN/'machiavelli_counterfactual/generations.jsonl'))
     out['capability_extraction_complete']=(RUN/'capability_extraction_v1/summary.json').exists()
     out['sessions']=subprocess.run(['tmux','list-sessions','-F','#S'],capture_output=True,text=True).stdout.splitlines()
+    sessions=set(out['sessions']);budget=read(ROOT/'MAIN_THROUGHPUT_STATUS.json',{})
+    if (RUN/'mask_dynamic_activation.json').exists():
+        ready=budget.get('ready',{}).get('ready_by_condition',{})
+        for c in ['baseline','caa','sttp','rank2','pooled']:
+            if ready.get(c,0)<1000 and 'mask-full-'+c not in sessions:out['attention'].append('Main generation worker absent: '+c)
+        if any(ready.get(c,0)<1000 for c in ['baseline','caa','sttp','rank2','pooled']) and 'mask-main-gpu7' not in sessions:out['attention'].append('Main GPU7 helper absent before generation completion')
+    if out['MASK_paired']<1000 and 'mask-full-judge' not in sessions:out['attention'].append('Primary MASK judge client absent')
+    for name,session in [('quality_mask_v2','quality-mask'),('machiavelli_quality_v1','machiavelli-quality')]:
+        if out['auxiliary'][name]['complete']<out['auxiliary'][name]['target'] and session not in sessions:out['attention'].append(name+': worker absent')
     try:
         with urllib.request.urlopen('http://127.0.0.1:8001/health',timeout=5) as f:out['judge_http']=f.status
     except Exception as e:out['judge_http']=str(e);out['attention'].append('Judge health failed')
