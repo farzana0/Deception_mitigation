@@ -1,0 +1,85 @@
+{
+  "label": "Completed fixed paired capability pilots",
+  "conditions": {
+    "baseline": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21,
+        "accuracy": 0.7,
+        "unparsed": 0,
+        "truncated": 0
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8,
+        "accuracy": 0.8,
+        "unparsed": 2,
+        "truncated": 2
+      }
+    },
+    "caa": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21,
+        "accuracy": 0.7,
+        "unparsed": 0,
+        "truncated": 0
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8,
+        "accuracy": 0.8,
+        "unparsed": 2,
+        "truncated": 2
+      }
+    },
+    "sttp": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21,
+        "accuracy": 0.7,
+        "unparsed": 0,
+        "truncated": 0
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 8,
+        "accuracy": 0.8,
+        "unparsed": 2,
+        "truncated": 2
+      }
+    },
+    "rank2": {
+      "mmlu": {
+        "n": 30,
+        "correct": 21,
+        "accuracy": 0.7,
+        "unparsed": 0,
+        "truncated": 0
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 9,
+        "accuracy": 0.9,
+        "unparsed": 1,
+        "truncated": 1
+      }
+    },
+    "pooled": {
+      "mmlu": {
+        "n": 30,
+        "correct": 20,
+        "accuracy": 0.6666666666666666,
+        "unparsed": 0,
+        "truncated": 0
+      },
+      "gsm8k": {
+        "n": 10,
+        "correct": 10,
+        "accuracy": 1.0,
+        "unparsed": 0,
+        "truncated": 0
+      }
+    }
+  }
+}

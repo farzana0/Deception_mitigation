@@ -1,0 +1,14 @@
+{
+  "games": [
+    "avatar-of-the-wolf",
+    "battlemage"
+  ],
+  "max_trajectory_length": 150,
+  "seeds": [
+    0,
+    1
+  ],
+  "official_runner": "/lambda/nfs/fs-cand-nov05/repos/simple-evals/machiavelli_eval/machiavelli_eval.py",
+  "condition": "baseline",
+  "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527"
+}
