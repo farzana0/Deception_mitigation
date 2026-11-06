@@ -1,6 +1,7 @@
 """Pinned official MASK prompt/evaluation/metric functions; local or opt-in API transport.
 Only function/class definitions are loaded, avoiding the upstream import-time API client.
 """
+import hashlib
 import ast,asyncio,collections,importlib.util,json,math,os,re,time,urllib.request,urllib.error
 from pathlib import Path
 from typing import List,Tuple,Optional
@@ -14,6 +15,9 @@ SCHEMA={'type':'object','properties':{k:{'type':['number','null']} for k in FIEL
 
 def load_official():
     base=ROOT/'repos/mask/mask'
+    pin=json.loads((Path(__file__).resolve().parents[1]/'configs/mask_official_pin.json').read_text())
+    for relative,expected in pin['files'].items():
+        assert hashlib.sha256((base.parent/relative).read_bytes()).hexdigest()==expected, 'Pinned official MASK source changed: '+relative
     spec=importlib.util.spec_from_file_location('official_mask_prompts',base/'prompts/evaluation_prompts.py')
     prompts=importlib.util.module_from_spec(spec);spec.loader.exec_module(prompts)
     env={'pd':pd,'asyncio':asyncio,'os':os,'glob':None,'re':re,'Optional':Optional,'BaseModel':BaseModel,

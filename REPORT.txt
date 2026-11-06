@@ -1,4 +1,4 @@
-CAIS overnight experiment — verified checkpoint 2026-11-06T07:23:58.869082+00:00
+CAIS overnight experiment — verified checkpoint 2026-11-06T09:20:04.107772+00:00
 
 Overnight coordination started 2026-11-06 03:03 UTC; hour-8 reporting deadline 11:03 UTC; monitoring scheduled through 11:35 UTC.
 
@@ -143,8 +143,6 @@ Expansion selection: 240 fixed items, 40 per stratum, hash ordering includes pil
 
 Live tmux sessions:
 ```
-deception-overnight: 1 windows (created Fri Nov  6 03:03:12 2026)
-deception-watchdog: 1 windows (created Fri Nov  6 03:04:09 2026)
 mask-judge-server: 1 windows (created Fri Nov  6 02:58:32 2026)
 overnight-report: 1 windows (created Fri Nov  6 03:10:53 2026)
 ```
@@ -180,3 +178,5 @@ PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_response_st
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_machiavelli.py
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report
 ```
+
+Next evaluation stage (separate from the frozen overnight checkpoint): see NEXT_STAGE_REPORT.md and NEXT_STAGE_REPRODUCIBILITY.md. Full-data and auxiliary results are provisional until scripts/audit_next_stage.py passes.
