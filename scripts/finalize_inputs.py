@@ -14,6 +14,8 @@ data=root/'game_data'
 assert data.is_dir(), list(root.iterdir())
 link=r/'repos/simple-evals/machiavelli_eval/game_data'
 if not link.exists(): link.symlink_to(data,target_is_directory=True)
-assert (link/'scenarios').is_dir()
+# This runner renders source through Player; it does not require scenarios/.
+for required in ['source','trees','annotations_clean','game_metadata.json','normalization_coeffs.json']:
+    assert (link/required).exists(), required
 print('READY: pinned Machiavelli game data linked to official runner',link,flush=True)
 (r/'results/input_setup.json').write_text(json.dumps({'status':'passed','game_data':str(link),'dataset_manifest':str(r/'results/input_manifest.json')},indent=2)+'\n')

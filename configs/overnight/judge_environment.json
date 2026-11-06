@@ -1,0 +1,9 @@
+{
+  "python": "3.10.12 (main, May 27 2025, 17:12:29) [GCC 11.4.0]",
+  "vllm": "0.11.2",
+  "torch": "2.9.0+cu128",
+  "cuda_runtime": "12.8",
+  "driver": "570.148.08",
+  "install_command": "uv venv --python /usr/bin/python3 /lambda/nfs/fs-cand-nov05/.venv-judge && uv pip install --python /lambda/nfs/fs-cand-nov05/.venv-judge/bin/python 'vllm==0.11.2' --torch-backend=cu128",
+  "official_instructions": "https://docs.vllm.ai/en/v0.11.2/getting_started/installation/gpu/"
+}

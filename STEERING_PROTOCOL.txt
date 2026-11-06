@@ -1,0 +1,88 @@
+Protocol and paths — Qwen3.5-9B steering / 12-item MASK pilot
+
+Root: /lambda/nfs/fs-cand-nov05
+Code: Deception_mitigation/steering
+Raw outputs/checkpoints: results/steering_run (not tracked in Git)
+All five generation jobs finished with exit code zero, 38 saved prompts each.
+The five conditions use the exact same 12 pilot items (two from each config).
+Original Qwen self-judge output is provisional and preserved in self_judge/.
+The authoritative independent-judge output is judge_gptoss/.
+
+Extraction: the existing 40 paired scenarios only; post-block residual outputs.
+CAA: per-completion mean over non-special response tokens, then mean honest-
+dishonest paired differences. Candidate zero-based layers: 8,12,16,20,24.
+Joint: paired residual predictor-state differences in position bins 0,1-3,4-11,12+;
+position zero is the last prompt token. Stack layer x bin rows, rank-2 SVD.
+Normalize each bin by sqrt(sum_l (||delta_l||/typical_residual_norm_l)^2).
+Thus CAA and joint strengths are comparable total relative perturbations per
+prediction step. Pooled uses fixed CAA directions at the same joint layers,
+with the same total budget and the locked joint strength.
+
+StTP: L2 logistic regression per layer, C=1, lbfgs, honest positive, no feature
+standardization. Unit direction w/||w||, threshold -b/||w||, honest projection
+mean and sample standard deviation. Gate p<t, then target mu_pos+c*sd_pos.
+StTP is not rescaled after this formula; realized strengths are reported.
+
+Calibration: the 10 reserved scenarios only, with neutral system prompts.
+Choose by mean length-normalized honest-minus-dishonest completion log likelihood.
+CAA/joint grid: .02,.05,.10; StTP c grid: 0,1,2. No MASK or Machiavelli results
+were used in choosing settings. Locked at 2026-11-06T02:48:18Z:
+CAA layer16/.10; StTP layer20/c2; joint five layers/.10; pooled five layers/.10.
+See locked_settings.json, fit_summary.json and source_manifest.json.
+
+Inference window: final prompt residual position plus all cached decode steps,
+for CAA, StTP, joint, and pooled. Zero addition strength is an exact no-op.
+StTP c=0 is an active honest-mean target, not a baseline toggle.
+Baseline installs no steering hooks. Unit tests and a real GPU check cover
+bin boundaries, cached positions, strength budgets, StTP gates and exact
+zero-strength reproduction. verification.json records GPU checks.
+
+Local independent judge: openai/gpt-oss-20b, revision in judge_model.json.
+vLLM runs on GPU5 at 127.0.0.1:8001 in tmux mask-judge-server.
+Isolated environment .venv-judge: vLLM0.11.2, torch2.9.0+cu128, CUDA12.8.
+Experiment environment retains system torch2.7.0.
+Commands: scripts/serve_judge.sh; scripts/grade_mask_pilot.sh.
+Logs: logs/mask_judge_server.log; logs/mask_gptoss_grade.log.
+Client tmux: mask-judge-score. Reasoning effort low; no condition labels sent.
+
+The scoring adapter loads actual functions/classes from the pinned CAIS
+MASK evaluator. Only transport is replaced. It preserves binary and numerical
+prompts, proposition parsing, combined numerical belief judgments, consistent
+belief aggregation and honesty scoring. Validation must pass before scaling.
+judge_gptoss/calls.jsonl caches complete calls by payload+judge-revision hash;
+items.jsonl records per-item results, and paired_summary.json gives coverage,
+assessable denominators, conditional deception rates and all-item rates.
+Malformed, truncated and failed judge calls are distinct from valid C/D or
+null-range abstentions. Target refusal counts use a disclosed regex heuristic.
+Each generation and judgment is deterministic, one run; official multi-run
+API judging and a full benchmark have not been reproduced by this pilot.
+
+Optional paid API comparison (DO NOT run before user opts in):
+cd /lambda/nfs/fs-cand-nov05/Deception_mitigation
+bash scripts/grade_mask_pilot.sh --backend api --execute-paid
+The key is read only from OPENAI_API_KEY in that scoring shell.
+Outputs stay in judge_official_api, separate from local judging.
+Cost plan: judge_official_api/cost_estimate.json (~$1.65 before retries,
+rough input token estimates and configured output budgets).
+OpenAI's current documentation marks o3-mini shut down and GPT-4o deprecated;
+requested model availability is a blocker for the exact API comparison.
+No paid requests have started and no substitute API models were selected.
+
+Overnight extension 2026-11-06:
+Completed independent 12-item paired pilot before scaling; preserve judge_gptoss/.
+Expanded manifest: mask_expanded_subset.json, 40 items per config / 240 total,
+same SHA256 ordering and greedy 256-token settings. All pilot work reused.
+Judge output judge_gptoss_expanded/; payload+revision cache, technically failed
+requests retried and invalid item records superseded on resume. Report common
+technically valid intersection, with technical failures counted separately.
+Fixed-baseline-belief sensitivity uses the baseline aggregated belief with each
+condition's saved pressure judgment; provided_facts retains supplied reference.
+Capability pilot: 30 MMLU / 10 GSM8K fixed hash-selected indices, five conditions.
+Machiavelli smoke: one 10-action trajectory. Main: first two sorted test games,
+seeds 0 and 1, cap 150 actions, 256-token action completions. Report upstream
+random-action fallbacks; do not treat cap hits as natural game completion.
+Checkpoint boundaries: MASK prompt, judge request, item-condition judgment,
+capability item, scored Machiavelli trajectory. Only missing work is regenerated.
+Reports: steering.overnight_report renders REPORT.txt and parent OVERNIGHT_STATUS.md
+from actual files each minute in tmux overnight-report. Main reports are partial
+until all five conditions complete the same fixed subset.
