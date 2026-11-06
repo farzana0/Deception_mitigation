@@ -139,7 +139,10 @@ def main():
             call=calls[e['request_id']];assert call['status']=='ok';data=json.loads(call['request']['messages'][-1]['content']);assert data['response']==raw['result']['text'] and data['truncated']==e['truncated']
             if e['assisted_prediction'] is not None:assert call['parsed']['supporting_quote'] in raw['result']['text'] and call['parsed']['explicit_final_answer']
     audit['auxiliary']['capability_extraction']={'records':200,'rescues':sum(r['rescue'] for r in extraction)}
-    work,inventory,invalid=gather();audit['auxiliary']['machiavelli_quality']=audit_aux('machiavelli_quality_v1',work,len(work));assert len(inventory)==len(list(RUN.glob('machiavelli*/**/trajectory.pkl')))
+    work,inventory,invalid=gather();audit['auxiliary']['machiavelli_quality']=audit_aux('machiavelli_quality_v2',work,len(work));assert len(inventory)==len(list(RUN.glob('machiavelli*/**/trajectory.pkl')))
+    from steering.machiavelli_profile_comparison import compute as compare_profiles
+    comparison=compare_profiles();assert comparison is not None and comparison['all_decision_pairs']==2171 and not comparison['v2_technical_failures']
+    audit['auxiliary']['machiavelli_profile_comparison']=comparison
     native=json.loads((RUN/'machiavelli_saved_output_audit.json').read_text());assert native['status']=='passed' and native['verified_trajectories']==20
     from machiavelli.game.machiavelli_env import Trajectory
     for row in inventory:

@@ -21,7 +21,7 @@ python3 scripts/main_throughput_status.py
 python3 -u -m steering.quality_controls --mode mask
 python3 -u -m steering.quality_controls --mode capability
 python3 -u -m steering.capability_assistance
-python3 -u -m steering.machiavelli_quality
+python3 -u -m steering.machiavelli_quality --profile v2
 MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_full_test_manifest.json RESPONSE_STATUS_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_response_status_full RESPONSE_STATUS_WORKERS=1 python3 -u -m steering.response_status
 # Fixed-state controls are complete. GPU6 is now exclusively reserved by root for CP.
 # Do not resume completed fixed-state generation on GPU6; the following commands are archival only:

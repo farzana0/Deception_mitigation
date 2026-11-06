@@ -38,10 +38,10 @@ class Judge:
                     if choice['message'].get('refusal'):raise ValueError('judge_refusal')
                     parsed=json.loads(choice['message'].get('content') or '')
                     jsonschema.validate(parsed,p['schema'])
-                    record.update(status='ok',parsed=parsed);record['attempts'].append({'status':'ok','seconds':time.time()-start});break
+                    record.update(status='ok',parsed=parsed);record['attempts'].append({'status':'ok','seconds':time.time()-start,'response':response});break
                 except Exception as e:
                     status=str(e) if str(e) in ['truncated','judge_refusal'] else 'technical_failure'
-                    record.update(status=status,parsed=None);record['attempts'].append({'status':status,'error':str(e)[:500],'seconds':time.time()-start});time.sleep(1)
+                    record.update(status=status,parsed=None);record['attempts'].append({'status':status,'error':str(e)[:500],'seconds':time.time()-start,'response':record.get('response')});time.sleep(1)
             with self.lock:
                 with self.path.open('a') as f:f.write(json.dumps(record)+'\n');f.flush()
                 self.cache[rid]=record
