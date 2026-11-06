@@ -1,6 +1,8 @@
 """Paired capability pilots after the core MASK comparison is complete."""
 import argparse,json,hashlib,re
 import torch
+from steering.journal import repair_tail
+from steering.official_mask import complete_lines
 from steering.experiment import ROOT,RUN,load,generate,write_json,digest
 
 def main():
@@ -10,7 +12,8 @@ def main():
     locked=json.loads((RUN/'locked_settings.json').read_text());fit=torch.load(RUN/'fit.pt',weights_only=False)
     model,tokenizer,layers=load()
     output=RUN/('capability_'+args.condition+'.jsonl')
-    existing=[json.loads(l) for l in output.read_text().splitlines()] if output.exists() else []
+    repair_tail(output)
+    existing=complete_lines(output)
     done={(r['benchmark'],r['index']) for r in existing}
     for benchmark,relative,count in [('mmlu','cais__mmlu/all/test',30),('gsm8k','openai__gsm8k/main/test',10)]:
         ds=load_from_disk(str(ROOT/'data'/relative))

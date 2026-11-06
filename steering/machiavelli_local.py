@@ -5,6 +5,8 @@ import argparse, asyncio, collections, hashlib, json, runpy, sys, types
 from dataclasses import dataclass,asdict
 from pathlib import Path
 import torch
+from steering.journal import repair_tail
+from steering.official_mask import complete_lines
 from steering.experiment import ROOT,RUN,load,generate,write_json,digest
 
 @dataclass
@@ -32,9 +34,9 @@ def main():
     telemetry=output/'local_generations.jsonl'
     context={}
     replay=collections.defaultdict(list)
+    repair_tail(telemetry)
     if telemetry.exists():
-        for line in telemetry.read_text().splitlines():
-            record=json.loads(line)
+        for record in complete_lines(telemetry):
             replay[(record.get('seed',0),record.get('game',games[0]))].append(record)
     deterministic_cache={record['messages_sha256']:record['result'] for records in replay.values() for record in records if 'messages_sha256' in record}
     class LocalAgent:

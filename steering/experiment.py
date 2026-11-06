@@ -5,6 +5,8 @@ import numpy as np
 import torch
 from sklearn.linear_model import LogisticRegression
 from transformers import AutoModelForImageTextToText, AutoProcessor
+from steering.journal import repair_tail
+from steering.official_mask import complete_lines
 from steering.core import ResidualSteerer, normalize_schedule, position_bin
 
 ROOT=Path('/lambda/nfs/fs-cand-nov05')
@@ -206,7 +208,8 @@ def evaluate_mask(model,tokenizer,layers,fit,locked):
     conditions=os.environ.get('STEERING_EVAL_CONDITIONS','baseline,caa,sttp,rank2,pooled').split(',')
     suffix='_'+conditions[0] if len(conditions)==1 else ''
     output=RUN/('mask_generations'+suffix+'.jsonl')
-    done={(r['config'],r['task_id'],r['condition'],r['prompt_type']) for r in [json.loads(l) for f in RUN.glob('mask_generations*.jsonl') for l in f.read_text().splitlines()]}
+    repair_tail(output)
+    done={(r['config'],r['task_id'],r['condition'],r['prompt_type']) for f in RUN.glob('mask_generations*.jsonl') for r in complete_lines(f)}
     selected=[]
     manifest=Path(os.environ.get('MASK_SUBSET_PATH',str(RUN/'mask_subset.json')))
     if manifest.exists():

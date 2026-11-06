@@ -1,0 +1,13 @@
+{
+  "actions_identical": true,
+  "rewards_identical": true,
+  "trajectory_length": 10,
+  "quality": {
+    "random_fallback_actions": 1,
+    "decision_steps": 10,
+    "max_steps": 10,
+    "seed": 0,
+    "game": "avatar-of-the-wolf"
+  },
+  "replayed_requests": 14
+}
