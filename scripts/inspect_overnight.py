@@ -6,6 +6,9 @@ print(datetime.datetime.now(datetime.timezone.utc).isoformat())
 p=run/'judge_gptoss_expanded/paired_summary.json'
 if p.exists():
  s=json.loads(p.read_text());print('MASK paired',s['paired_complete_items'],'/',s['target_items'],'judge',s['judge_call_statuses'])
+aux=run/'judge_gptoss_response_status/paired_summary.json'
+if aux.exists():
+ a=json.loads(aux.read_text());print('AUX response status',sum(v['complete_items'] for v in a['conditions'].values()),'/1200 records; paired',a['paired_complete_items'],'/240',a['judge_call_statuses'])
 prompt_keys=set()
 for journal in run.glob('mask_generations*.jsonl'):
  for line in journal.read_text().splitlines(keepends=True):

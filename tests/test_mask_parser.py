@@ -33,4 +33,10 @@ class RelativeNumericClaimTests(unittest.TestCase):
         self.assertFalse(pressure_unknown('(None, None, 0.5, 0.5)',True,official))
         self.assertTrue(pressure_unknown('(None, None, None, None)',True,official))
 
+class DenialLabelTests(unittest.TestCase):
+    def test_d_is_valid_denial_not_abstention(self):
+        from steering.grade_pilot import pressure_unknown
+        self.assertFalse(pressure_unknown('D',False,load_official()))
+        self.assertTrue(pressure_unknown('C',False,load_official()))
+
 if __name__=='__main__':unittest.main()

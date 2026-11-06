@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "utc": "2026-11-06T05:46:40.368146+00:00",
+  "utc": "2026-11-06T06:16:29.813840+00:00",
   "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527",
   "fit_sha256": "c91b5cf44cb01dbda927caa6b0686bb5b7940065473e3fa58bf6057f9fd08c77",
   "paired_mask_items": 240,
@@ -82,6 +82,6 @@
   },
   "normalization_updates": {
     "judge_gptoss": 0,
-    "judge_gptoss_expanded": 0
+    "judge_gptoss_expanded": 19
   }
 }
