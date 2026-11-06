@@ -1,7 +1,7 @@
 """Run the official simple-evals Machiavelli entry point with a local-only model adapter.
 The injected shared module supplies only the runner's provider interface, avoiding API imports.
 """
-import argparse, asyncio, json, runpy, sys, types
+import argparse, asyncio, collections, hashlib, json, runpy, sys, types
 from dataclasses import dataclass,asdict
 from pathlib import Path
 import torch
@@ -30,16 +30,38 @@ def main():
     model,tokenizer,layers=load()
     output=RUN/args.output_name/args.condition;output.mkdir(parents=True,exist_ok=True)
     telemetry=output/'local_generations.jsonl'
+    context={}
+    replay=collections.defaultdict(list)
+    if telemetry.exists():
+        for line in telemetry.read_text().splitlines():
+            record=json.loads(line)
+            replay[(record.get('seed',0),record.get('game',games[0]))].append(record)
+    deterministic_cache={record['messages_sha256']:record['result'] for records in replay.values() for record in records if 'messages_sha256' in record}
     class LocalAgent:
         def __init__(self,model=None,**kwargs):
             self.model=model or 'local/'+args.condition
-            self.all_token_usage=Usage();self.max_token_usage=Usage()
+            self.all_token_usage=Usage();self.max_token_usage=Usage();self.call_index=0
         async def async_completions(self,messages,**kwargs):
-            result,_=generate(model,tokenizer,layers,fit,messages,locked['settings'][args.condition],max_new_tokens=256)
+            key=(context['seed'],context['game'])
+            message_hash=hashlib.sha256(json.dumps(messages,sort_keys=True).encode()).hexdigest()
+            cached=replay[key]
+            if self.call_index<len(cached):
+                record=cached[self.call_index]
+                assert record.get('messages_sha256',message_hash)==message_hash,'Checkpoint conversation mismatch'
+                result=record['result']
+            else:
+                if message_hash in deterministic_cache:
+                    result=deterministic_cache[message_hash]
+                else:
+                    result,_=generate(model,tokenizer,layers,fit,messages,locked['settings'][args.condition],max_new_tokens=256)
+                    deterministic_cache[message_hash]=result
+                record={'condition':args.condition,'seed':context['seed'],'game':context['game'],'call_index':self.call_index,'messages_sha256':message_hash,'result':result,'settings_sha256':digest(RUN/'locked_settings.json')}
+                with telemetry.open('a') as f:f.write(json.dumps(record)+'\n');f.flush()
+                replay[key].append(record)
+            self.call_index+=1
             usage=Usage(input_tokens=len(tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=True,enable_thinking=False,return_dict=False)),output_tokens=len(result['token_ids']))
             usage.total_tokens=usage.input_tokens+usage.output_tokens
             self.all_token_usage=sum_usage([self.all_token_usage,usage]);self.max_token_usage=max_usage([self.max_token_usage,usage])
-            with telemetry.open('a') as f:f.write(json.dumps({'condition':args.condition,'result':result,'settings_sha256':digest(RUN/'locked_settings.json')})+'\n')
             return types.SimpleNamespace(content=result['text'])
     shared=types.ModuleType('shared');shared.__path__=[]
     agents=types.ModuleType('shared.llm_agents');agents.LLMAgent=LocalAgent
@@ -48,10 +70,16 @@ def main():
     shared.sum_token_usage=sum_usage;shared.get_max_token_usage=max_usage
     sys.modules['shared']=shared;sys.modules['shared.llm_agents']=agents
     import machiavelli_eval as runner
-    context={}
     OriginalAgent=runner.MachiavelliAgent
     class AuditedAgent(OriginalAgent):
         async def run_env(self,env,**kwargs):
+            step=env.step
+            def checkpointed_step(action):
+                value=step(action)
+                env.trajectory.save(context['destination']/'trajectory.checkpoint')
+                write_json(context['destination']/'agent_checkpoint.json',{'history':self.history,'random_fallback_actions':self.random_actions,'decision_steps':self.trajectory_length})
+                return value
+            env.step=checkpointed_step
             env=await super().run_env(env,**kwargs)
             write_json(context['destination']/'agent_quality.json',{'random_fallback_actions':self.random_actions,'decision_steps':self.trajectory_length,'max_steps':args.max_steps,'seed':context['seed'],'game':env.game})
             return env
@@ -65,7 +93,7 @@ def main():
             runner.MachiavelliEnv.reset=lambda self, *a, _seed=seed, **kw: original_reset(self,seed=_seed)
             for game in games:
                 destination=output/('seed_'+str(seed))/game
-                context.update(destination=destination,seed=seed)
+                context.update(destination=destination,seed=seed,game=game)
                 destination.mkdir(parents=True,exist_ok=True)
                 if (destination/'metrics.csv').exists():continue
                 if not (destination/'trajectory.pkl').exists():

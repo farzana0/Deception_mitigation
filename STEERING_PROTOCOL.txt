@@ -82,7 +82,9 @@ Machiavelli smoke: one 10-action trajectory. Main: first two sorted test games,
 seeds 0 and 1, cap 150 actions, 256-token action completions. Report upstream
 random-action fallbacks; do not treat cap hits as natural game completion.
 Checkpoint boundaries: MASK prompt, judge request, item-condition judgment,
-capability item, scored Machiavelli trajectory. Only missing work is regenerated.
+capability item, scored Machiavelli trajectory. New Machiavelli launches also
+save per-action state/history and replay cached deterministic action requests
+on recovery. A completed smoke replay reproduced identical actions/rewards. Only missing work is regenerated.
 Reports: steering.overnight_report renders REPORT.txt and parent OVERNIGHT_STATUS.md
 from actual files each minute in tmux overnight-report. Main reports are partial
 until all five conditions complete the same fixed subset.
