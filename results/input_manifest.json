@@ -1,0 +1,169 @@
+{
+  "activation-steering-4-honesty": {
+    "url": "https://github.com/Tara-Research/activation-steering-4-honesty",
+    "revision": "68a7791ddc7240242dfb0af327580b9a07a19817",
+    "path": "/lambda/nfs/fs-cand-nov05/repos/activation-steering-4-honesty"
+  },
+  "mask": {
+    "url": "https://github.com/centerforaisafety/mask",
+    "revision": "25e0b1201e6c928ebe69f7c5aad6fa9063a377ea",
+    "path": "/lambda/nfs/fs-cand-nov05/repos/mask"
+  },
+  "simple-evals": {
+    "url": "https://github.com/centerforaisafety/simple-evals",
+    "revision": "8e53435ff2985b0f32ea7ceb7e92c3a175f2c0f3",
+    "path": "/lambda/nfs/fs-cand-nov05/repos/simple-evals"
+  },
+  "cais/MASK": {
+    "revision": "4602b84dd9e2ca05c6e1eafbc14e556e908ac1bb",
+    "splits": {
+      "continuations": {
+        "split": "test",
+        "rows": 176,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/continuations/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "belief_elicit_1",
+          "belief_elicit_2",
+          "belief_elicit_3",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      },
+      "disinformation": {
+        "split": "test",
+        "rows": 125,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/disinformation/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "belief_elicit_1",
+          "belief_elicit_2",
+          "belief_elicit_3",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      },
+      "doubling_down_known_facts": {
+        "split": "test",
+        "rows": 120,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/doubling_down_known_facts/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "dd_turn_1_prompt",
+          "dd_turn_1_response",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "belief_elicit_1",
+          "belief_elicit_2",
+          "belief_elicit_3",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      },
+      "known_facts": {
+        "split": "test",
+        "rows": 209,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/known_facts/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "belief_elicit_1",
+          "belief_elicit_2",
+          "belief_elicit_3",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      },
+      "provided_facts": {
+        "split": "test",
+        "rows": 274,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/provided_facts/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      },
+      "statistics": {
+        "split": "test",
+        "rows": 96,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__MASK/statistics/test",
+        "columns": [
+          "task_id",
+          "system_prompt",
+          "user_prompt",
+          "type",
+          "proposition",
+          "ground_truth",
+          "belief_elicit_1",
+          "delivery",
+          "formatted_ground_truth",
+          "canary"
+        ]
+      }
+    }
+  },
+  "cais/mmlu": {
+    "revision": "c30699e8356da336a370243923dbaf21066bb9fe",
+    "splits": {
+      "all": {
+        "split": "test",
+        "rows": 14042,
+        "path": "/lambda/nfs/fs-cand-nov05/data/cais__mmlu/all/test",
+        "columns": [
+          "question",
+          "subject",
+          "choices",
+          "answer"
+        ]
+      }
+    }
+  },
+  "openai/gsm8k": {
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "splits": {
+      "main": {
+        "split": "test",
+        "rows": 1319,
+        "path": "/lambda/nfs/fs-cand-nov05/data/openai__gsm8k/main/test",
+        "columns": [
+          "question",
+          "answer"
+        ]
+      }
+    }
+  },
+  "justinphan3110/machiavelli": {
+    "revision": "3637164d9066ea3b08872fff87ce21657b6e159a",
+    "path": "/lambda/nfs/fs-cand-nov05/data/machiavelli/game_data.zip",
+    "extracted": "/lambda/nfs/fs-cand-nov05/data/machiavelli/extracted"
+  },
+  "errors": []
+}

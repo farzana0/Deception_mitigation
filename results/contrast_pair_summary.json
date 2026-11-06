@@ -1,0 +1,10 @@
+{
+  "pairs": 50,
+  "extraction_pairs": 40,
+  "calibration_pairs": 10,
+  "completions": 100,
+  "token_limit_hits": 0,
+  "raw_output_path": "/lambda/nfs/fs-cand-nov05/results/qwen_contrast_pairs.jsonl",
+  "raw_output_sha256": "f5a2a73fe7090a197181b9205057596dbb49fbd33dc182f0b4bb88af0fa69f5f",
+  "comparative_evaluation_completed": false
+}

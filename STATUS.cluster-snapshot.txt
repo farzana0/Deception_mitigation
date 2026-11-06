@@ -1,0 +1,14 @@
+Cluster status at backup checkpoint, 2026-11-06 UTC
+Workspace: /lambda/nfs/fs-cand-nov05
+Node termination: 2026-11-07T04:00:00Z; NFS persists.
+No running tmux jobs at inspection. Existing source paths were left intact.
+
+Model download complete; GPU smoke test passed.
+All requested input downloads and Machiavelli ZIP extraction completed.
+Machiavelli runner setup failed: game_data/scenarios is absent in the bundle.
+All 50 contrast pairs completed, with 40 extraction and 10 calibration IDs.
+No steering-method comparison, held-out scoring, or final figures exist.
+Method specifications and local evaluation adapters remain pending.
+
+Full artifact paths and commands are documented in README.md.
+Original cluster logs and raw outputs stay in the parent workspace.

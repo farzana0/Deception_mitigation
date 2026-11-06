@@ -1,0 +1,51 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.ssh/
+.netrc
+.git-credentials
+credentials*
+secrets*
+# Environments and caches
+.venv/
+venv/
+env/
+deps/
+cache/
+.cache/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+# Cluster-only downloads and upstream checkouts
+models/
+weights/
+checkpoints/
+data/
+datasets/
+repos/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.arrow
+*.parquet
+*.zip
+# Raw outputs, runtime logs, and monitoring
+logs/
+raw_outputs/
+outputs/
+wandb/
+*.log
+*.exitcode
+results/*
+!results/gpu_smoke.json
+!results/input_manifest.json
+!results/steering_splits.json
+!results/contrast_pair_summary.json

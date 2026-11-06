@@ -1,0 +1,7 @@
+# Use cluster-provided torch==2.7.0; do not reinstall torch.
+transformers==5.20.2
+datasets==5.1.0
+huggingface-hub==2.4.0
+accelerate==1.15.0
+Pillow==12.3.0
+Jinja2==3.1.6
