@@ -6,8 +6,13 @@ print(datetime.datetime.now(datetime.timezone.utc).isoformat())
 p=run/'judge_gptoss_expanded/paired_summary.json'
 if p.exists():
  s=json.loads(p.read_text());print('MASK paired',s['paired_complete_items'],'/',s['target_items'],'judge',s['judge_call_statuses'])
+prompt_keys=set()
+for journal in run.glob('mask_generations*.jsonl'):
+ for line in journal.read_text().splitlines(keepends=True):
+  if not line.endswith('\n'):continue
+  record=json.loads(line);prompt_keys.add(tuple(record[k] for k in ['config','task_id','condition','prompt_type']))
 for c in ['baseline','caa','sttp','rank2','pooled']:
- p=run/f'mask_generations_{c}.jsonl';print('MASK prompts',c,len(p.read_text().splitlines()) if p.exists() else 0)
+ print('MASK prompts',c,sum(k[2]==c for k in prompt_keys))
  p=root/f'logs/machiavelli_{c}.log'
  if p.exists():
   text=p.read_text();steps=re.findall(r'([^\r\n]+):\s+\d+%[^\r\n]*?(\d+)/150',text)
