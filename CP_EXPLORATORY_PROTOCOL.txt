@@ -1,0 +1,49 @@
+CP exploratory scheduled/static ablation — predeclared 2026-11-06 UTC
+
+Only CP-scheduled and CP-static are run today, using one rank2 canonical-
+polyadic coefficient tensor W[layer,positionbin,hidden] and identical24 IDs.
+Five layers8,12,16,20,24; bins1-3,4-11,12+ count consumed response tokens.
+Both variants skip offset0. Pair members share a neutral fact-preserving
+prompt, equal-shaped all-causal replay and shared non-padding/non-EOS token
+offsets. Existing per-layer residual scales are retained. Train on40 pairs,
+reserve10 pairs. Loss is mean softplus(-honest_minus_dishonest_score)
++0.01/2 squared Frobenius norm(W), W=sum_r A[:,r] B[:,r] C[:,r].
+Classification ranking is8/10 on calibration; training40/40. CPU fitting.
+One common alpha=.1 selected on only10 calibration pairs using average
+scheduled/static length-normalized honest-minus-dishonest log likelihood.
+
+Static averages raw W over the3 eligible bins before joint normalization.
+Scheduled uses W perbin. Both jointly normalize across layers to the same
+RMS-relative per-step budget. Actual calibration smoke: scheduled .100075,
+static .100206. Zero-strength tokens/logits and cached offsets/bin boundaries
+passed. Shared prompt position0 activations are exactly equal in all50 pairs.
+An initial differing-padding-mask diagnostic was quarantined before pilot
+judging; causal right-padding replay corrected the kernel-path mismatch.
+
+Persistent artifacts: /lambda/nfs/fs-cand-nov05/results/cp_exploratory.
+Predeclared protocol and24 IDs are copied in configs/. No pilot outcome
+was used in selection. CP stays separate from the main five-condition table.
+GPU6 only; GPU7 stays reserved for main acceleration. cp-pilot waits for
+post-acceleration main throughput verification, then applies a conservative
+both-condition completion gate before21:15UTC. cp-judge uses the same local
+GPT-OSS/official MASK functions and separately records refusal/abstention.
+The original fit/settings files are never overwritten. Main freeze22:00UTC.
+
+Commands (only resume failed jobs; don't duplicate healthy sessions):
+  bash scripts/run_cp_prepare.sh   #initial gate only; already completed
+  bash scripts/run_cp_pilot.sh     #checkpointed two-mode generation + capacity gate
+  bash scripts/run_cp_judge.sh     #checkpointed official grading + paired report
+Logs live in parent logs/cp_{prepare,pilot,judge}.log.
+
+Primary contrast: static -> scheduled dishonest-to-honest and honest-to-
+dishonest, shared-assessable N, own/fixed-baseline-belief deception, coverage,
+refusals and truncation. Existing baseline/CAA/StTP/SVD/pooled outputs give
+context. Old methods include position0 and CAA uses one layer, so cross-
+method contrasts evaluate whole methods, not only tensor factorization.
+
+FOLLOW-UP ONLY, NOT TODAY:
+1. Same-loss unfolded rank2 using exactly the same shared-prompt training
+   tensors, regularization, window and calibration protocol; isolates CP's
+   separate layer/position profiles from the objective/input change.
+2. Rank/regularization sensitivity using extraction/calibration only.
+3. Layer-coverage and offset0/window ablations, separately predeclared.
