@@ -1,5 +1,5 @@
 # Pinned official MASK aggregation / judge-response / generation-linkage audit of a frozen package
-# (scripts/verify_mask_evidence.py). Needs the frozen submission directory incl. datasets and upstream code.
+# (scripts/verify_mask_evidence.py). Needs the frozen results package directory incl. datasets and upstream code.
 name: audit
 run_name: audit
 package: ???

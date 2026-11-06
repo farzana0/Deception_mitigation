@@ -1,4 +1,4 @@
-# Offline rebuild only (no GPU): python -m cais task=rebuild
+# Offline rebuild only (no GPU): python -m honesty task=rebuild
 # Verified in a fresh venv: tables, report.md, figure data and examples match results/frozen/ byte for byte.
 hydra-core==1.3.2
 omegaconf==2.3.1

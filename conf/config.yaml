@@ -1,4 +1,4 @@
-# Entry point: python -m cais task=<task> [model=..] [intervention=..] [dataset=..] [judge_model=..] [judge_rubric=..]
+# Entry point: python -m honesty task=<task> [model=..] [intervention=..] [dataset=..] [judge_model=..] [judge_rubric=..]
 # Every run writes its fully resolved config to <hydra run dir>/resolved_config.yaml.
 defaults:
   - task: rebuild

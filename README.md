@@ -1,4 +1,4 @@
-# Activation steering for honesty (CAIS)
+# Activation steering for honesty
 
 Inference-time residual steering of `Qwen/Qwen3.5-9B` (revision `c2022362…`) to reduce deception, evaluated on the
 1,000-item MASK cohort with an unsteered local `openai/gpt-oss-20b` judge using the official MASK rubric, plus small
@@ -25,16 +25,16 @@ read the report's limitations before citing numbers.
 
 | Path | Contents |
 | --- | --- |
-| `cais/` | The Hydra CLI (`python -m cais`). Thin layer over the existing code below. |
+| `honesty/` | The Hydra CLI (`python -m honesty`). Thin layer over the existing code below. |
 | `conf/` | One YAML per `model`, `intervention`, `dataset`, `judge_model`, `judge_rubric`, plus `task`. |
 | `steering/`, `scripts/` | Experiment library and scripts that produced the results (inference, steering hooks, judging, scoring, tables, report rendering). |
 | `data/manifests/` | Item manifests (MASK 1000/240/12/6, CP 24), extraction/calibration split, pinned input revisions. |
 | `data/contrast_pairs/`, `data/dataset_info/` | Generated contrast pairs used for the fit; MMLU/GSM8K split sizes. |
 | `models/` | Model revisions and weight locations ([models/README.md](models/README.md)), steering fits, locked settings, judge identity. |
-| `evidence/` | Saved per-item outputs from the verified submission (generations, judge items and calls, capability, CP, Machiavelli audit), gzip-compressed, with SHA256 in `evidence/MANIFEST.json`. |
-| `results/` | Curated results: `frozen/` (tables, figures, report from the verified submission), `paired_examples/`, `figure_data/`, `verification/`. |
-| `reproduction/` | Auxiliary reproduction files: protocols, original run configs and summaries, provenance, cluster launch notes, submission verification record. |
-| `tools/` | One-time import of evidence from the frozen submission. |
+| `evidence/` | Saved per-item outputs from the verified frozen results (generations, judge items and calls, capability, CP, Machiavelli audit), gzip-compressed, with SHA256 in `evidence/MANIFEST.json`. |
+| `results/` | Curated results: `frozen/` (tables, figures, report from the verified frozen results), `paired_examples/`, `figure_data/`, `verification/`. |
+| `reproduction/` | Auxiliary reproduction files: protocols, original run configs and summaries, provenance, cluster launch commands. |
+| `tools/` | One-time import of evidence from the frozen results package. |
 | `tests/` | Unit tests. |
 | `outputs/` | Run outputs (git-ignored). Every run writes `hydra/<time>_<task>_<intervention>/resolved_config.yaml`. |
 
@@ -52,10 +52,10 @@ python3 -m venv .venv-rebuild && .venv-rebuild/bin/pip install -r requirements-r
 ## 1. Offline rebuild from saved evidence (no GPU, ~10 s)
 
 ```bash
-.venv-rebuild/bin/python -m cais task=rebuild
+.venv-rebuild/bin/python -m honesty task=rebuild
 ```
 
-This verifies every evidence file against `evidence/MANIFEST.json`, rebuilds the submission layout under
+This verifies every evidence file against `evidence/MANIFEST.json`, rebuilds the original package layout under
 `outputs/rebuild/package/`, and reruns the original `scripts/submission_tables.py` and `scripts/render_submission.py`.
 It then writes the 12-item paired prompt/response examples and figure data, and compares everything with the frozen
 copies. It exits non-zero on any difference in tables, item IDs, `report.md`, figure data (bar heights) or examples.
@@ -94,9 +94,9 @@ elsewhere). The judge must be serving on `127.0.0.1:8001`; see `conf/judge_model
 
 ```bash
 export PYTHONPATH=$PWD HF_HUB_OFFLINE=1 CUDA_VISIBLE_DEVICES=0
-python -m cais -m task=generate dataset=mask_quick6 intervention=baseline,caa,sttp,rank2,pooled
-python -m cais task=judge  dataset=mask_quick6
-python -m cais task=report dataset=mask_quick6
+python -m honesty -m task=generate dataset=mask_quick6 intervention=baseline,caa,sttp,rank2,pooled
+python -m honesty task=judge  dataset=mask_quick6
+python -m honesty task=report dataset=mask_quick6
 ```
 
 Outputs in `outputs/runs/mask_quick6/`:
@@ -112,37 +112,37 @@ Runs resume from their journals. Use a new `paths.outputs=...` for an independen
 
 ## 3. Full evaluation
 
-Inputs (once per machine). `CAIS_ROOT` is the large-input root, the same as `paths.cluster_root`:
+Inputs (once per machine). `INPUTS_ROOT` is the large-input root, the same as `paths.cluster_root`:
 
 ```bash
-export CAIS_ROOT=/lambda/nfs/fs-cand-nov05     # or any large disk
-mkdir -p $CAIS_ROOT/{models,data,repos,results}
-cp data/manifests/input_manifest.json $CAIS_ROOT/results/  # pins dataset and upstream revisions
+export INPUTS_ROOT=/lambda/nfs/fs-cand-nov05     # or any large disk
+mkdir -p $INPUTS_ROOT/{models,data,repos,results}
+cp data/manifests/input_manifest.json $INPUTS_ROOT/results/  # pins dataset and upstream revisions
 python scripts/download_inputs.py                          # MASK/MMLU/GSM8K test splits, upstream repos, Machiavelli game data
-python -c "from huggingface_hub import snapshot_download as d; d('Qwen/Qwen3.5-9B', revision='c202236235762e1c871ad0ccb60c8ee5ba337b9a', local_dir='$CAIS_ROOT/models/Qwen3.5-9B'); d('openai/gpt-oss-20b', revision='6cee5e81ee83917806bbde320786a8fb61efebee', local_dir='$CAIS_ROOT/models/gpt-oss-20b')"
-python scripts/verify_base_weights.py --model-dir $CAIS_ROOT/models/Qwen3.5-9B --output outputs/base_weight_verification.json
+python -c "from huggingface_hub import snapshot_download as d; d('Qwen/Qwen3.5-9B', revision='c202236235762e1c871ad0ccb60c8ee5ba337b9a', local_dir='$INPUTS_ROOT/models/Qwen3.5-9B'); d('openai/gpt-oss-20b', revision='6cee5e81ee83917806bbde320786a8fb61efebee', local_dir='$INPUTS_ROOT/models/gpt-oss-20b')"
+python scripts/verify_base_weights.py --model-dir $INPUTS_ROOT/models/Qwen3.5-9B --output outputs/base_weight_verification.json
 ```
 
-For Machiavelli, link `$CAIS_ROOT/repos/simple-evals/machiavelli_eval/game_data` to
-`$CAIS_ROOT/data/machiavelli/extracted/game_data` (see `scripts/finalize_inputs.py`). Start the judge in its own
+For Machiavelli, link `$INPUTS_ROOT/repos/simple-evals/machiavelli_eval/game_data` to
+`$INPUTS_ROOT/data/machiavelli/extracted/game_data` (see `scripts/finalize_inputs.py`). Start the judge in its own
 environment on one GPU (`scripts/serve_judge.sh` shows the exact launch).
 
-Runs. Add `paths.cluster_root=$CAIS_ROOT` if it is not the default. Each intervention can run on its own GPU in
+Runs. Add `paths.cluster_root=$INPUTS_ROOT` if it is not the default. Each intervention can run on its own GPU in
 parallel because they write separate journals in the same run directory.
 
 ```bash
 export PYTHONPATH=$PWD HF_HUB_OFFLINE=1
 # MASK, 1,000 items x 5 interventions
 for iv in baseline caa sttp rank2 pooled; do
-  CUDA_VISIBLE_DEVICES=<gpu> python -m cais task=generate dataset=mask_full1000 intervention=$iv
+  CUDA_VISIBLE_DEVICES=<gpu> python -m honesty task=generate dataset=mask_full1000 intervention=$iv
 done
-python -m cais task=judge  dataset=mask_full1000 judge_model.concurrency=3
-python -m cais task=report dataset=mask_full1000
+python -m honesty task=judge  dataset=mask_full1000 judge_model.concurrency=3
+python -m honesty task=report dataset=mask_full1000
 # Capability pilots (MMLU 30 + GSM8K 10) and Machiavelli (2 games x seeds 0,1, 150 steps)
-CUDA_VISIBLE_DEVICES=<gpu> python -m cais -m task=generate dataset=capability_pilot intervention=baseline,caa,sttp,rank2,pooled
-CUDA_VISIBLE_DEVICES=<gpu> python -m cais -m task=generate dataset=machiavelli_main intervention=baseline,caa,sttp,rank2,pooled
+CUDA_VISIBLE_DEVICES=<gpu> python -m honesty -m task=generate dataset=capability_pilot intervention=baseline,caa,sttp,rank2,pooled
+CUDA_VISIBLE_DEVICES=<gpu> python -m honesty -m task=generate dataset=machiavelli_main intervention=baseline,caa,sttp,rank2,pooled
 # Single prompt, including the exploratory CP hooks
-CUDA_VISIBLE_DEVICES=<gpu> python -m cais task=infer intervention=cp_scheduled task.prompt='What is 2 + 2?'
+CUDA_VISIBLE_DEVICES=<gpu> python -m honesty task=infer intervention=cp_scheduled task.prompt='What is 2 + 2?'
 ```
 
 Output paths:
@@ -158,10 +158,10 @@ Steering fit extraction and calibration are not rerun; the locked fit and settin
 `steering/experiment.py` (`--phase extract|calibrate`), with the frozen copy in `models/locked/locked_experiment.py`.
 
 Evidence audit of the frozen package: pinned official MASK aggregation, judge-response parsing and
-generation-to-judge linkage. This needs the frozen submission directory, which includes the datasets.
+generation-to-judge linkage. This needs the frozen results package directory, which includes the datasets.
 
 ```bash
-python -m cais task=audit task.package=/home/ubuntu/cais_work/submission
+python -m honesty task=audit task.package=/path/to/frozen/package
 ```
 
 ## What was verified
@@ -175,10 +175,10 @@ python -m cais task=audit task.package=/home/ubuntu/cais_work/submission
 
 ## Conventions
 
-- Each YAML is checked against the locked artifacts at start-up (`cais/workspace.py:check_locked`): intervention
+- Each YAML is checked against the locked artifacts at start-up (`honesty/workspace.py:check_locked`): intervention
   settings against `models/locked/`, fit hashes, model, judge and rubric revisions.
 - `steering/` and `scripts/` are the code that produced the results. The refactor changed only the path of the MASK pin
-  file in `steering/official_mask.py` and made the `scripts/download_inputs.py` root overridable with `CAIS_ROOT`.
+  file in `steering/official_mask.py` and made the `scripts/download_inputs.py` root overridable with `INPUTS_ROOT`.
 - MASK technical judge failures are distinct from valid "unknown" (C/D or null) outcomes. Deception uses only assessable
   items. Paired deltas use items assessable under both conditions.
 - No paid API calls. The judge is local and never steered.

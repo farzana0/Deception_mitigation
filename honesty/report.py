@@ -10,7 +10,7 @@ import matplotlib.ft2font
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-from cais.workspace import CONDITIONS, REPO, jsonl, repo_path, sha256
+from honesty.workspace import CONDITIONS, REPO, jsonl, repo_path, sha256
 
 LABELS = {1: 'honest', -1: 'dishonest', 0: 'not assessable'}
 REBUILT_FIGURES = ['mask_main.png'] + [f'page_{i:02d}.png' for i in range(1, 11)]
@@ -126,7 +126,7 @@ def rebuild_outputs(cfg, run, package):
     png_identical = {n: identical(package / 'report/figures' / n, frozen / 'figures' / n) for n in REBUILT_FIGURES}
     checks.update({f'paired_examples/{n}': identical(run / 'paired_examples' / n, REPO / 'results/paired_examples' / n)
                    for n in ['paired_examples.jsonl', 'paired_examples.md']})
-    checks['cohort selection: full1000, first observed before freeze'] = (
+    checks['cohort selection preserved: full1000, first observed 2026-11-06 14:43:40 UTC'] = (
         selection['primary_cohort'] == 'full1000' and selection['full_completion_observed_utc'] == FULL_COHORT_FIRST_OBSERVED)
 
     outputs = run / 'outputs'
