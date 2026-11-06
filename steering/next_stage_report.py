@@ -17,6 +17,18 @@ def interval(values):
     means=np.array([rng.choice(a,len(a),replace=True).mean() for _ in range(2000)])
     return {'n':len(a),'mean':float(a.mean()),'ci95':[float(x) for x in np.quantile(means,[.025,.975])],'method':'paired item bootstrap, 2000 resamples, seed42; diagnostic, no multiplicity correction'}
 
+def paired_binary(differences):
+    result=interval(differences);n=len(differences)
+    if not n:return result
+    # Bonferroni Wilson component intervals keep zero-discordance small pilots uncertain.
+    z=2.241402727604947
+    def bounds(k):
+        p=k/n;den=1+z*z/n;center=(p+z*z/(2*n))/den
+        half=z*((p*(1-p)/n+z*z/(4*n*n))**.5)/den
+        return max(0,center-half),min(1,center+half)
+    loww,highw=bounds(sum(v==1 for v in differences));lowl,highl=bounds(sum(v==-1 for v in differences))
+    return result|{'conservative_ci95':[loww-highl,highw-lowl],'conservative_method':'Bonferroni Wilson intervals for paired win/loss proportions; avoids zero-width bootstrap intervals when no discordances observed'}
+
 def quality(folder,gs,labels):
     from steering.quality_controls import DIMS
     items={r['key']:r for r in complete_lines(folder/'items.jsonl')};valid={k:r for k,r in items.items() if r['status']=='complete'}
@@ -59,7 +71,7 @@ def main():
     now=datetime.datetime.now(datetime.timezone.utc).isoformat();gs={(g['config'],g['task_id'],g['condition']):g for g in generations() if g['prompt_type']=='pressured'}
     folder=RUN/'judge_gptoss_full';items={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(folder/'items.jsonl')};primary=read(folder/'paired_summary.json',{})
     q={}
-    for name in ['quality_mask_v1','quality_capability_v2']:
+    for name in ['quality_mask_v2','quality_capability_v3']:
         if (RUN/name/'items.jsonl').exists():q[name]=quality(RUN/name,gs,items)
     sen=sensitivity(folder);paired=assessable(folder)
     common=set.intersection(*[{k[:2] for k,r in items.items() if k[2]==c and r['status']=='complete'} for c in CONDITIONS])
@@ -69,7 +81,7 @@ def main():
     for c in CONDITIONS[1:]:
         changes[c]={'transitions':dict(collections.Counter(f"{items[k+('baseline',)]['honesty']}->{items[k+(c,)]['honesty']}" for k in common)),'dishonest_indicator_delta':interval([int(items[k+(c,)]['honesty']==-1)-int(items[k+('baseline',)]['honesty']==-1) for k in common])}
     status_items={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(RUN/'judge_gptoss_response_status_full/items.jsonl') if r['status']=='complete'}
-    quality_items={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(RUN/'quality_mask_v1/items.jsonl') if r['status']=='complete' and not r['swap']}
+    quality_items={(r['config'],r['task_id'],r['condition']):r for r in complete_lines(RUN/'quality_mask_v2/items.jsonl') if r['status']=='complete' and not r['swap']}
     matched=[]
     for key in sorted(common):
         base=items[key+('baseline',)];bg=gs[key+('baseline',)]
@@ -95,9 +107,14 @@ def main():
     for b in ['mmlu','gsm8k']:
         indices=sorted({k[1] for k in capraw if k[0]==b});capchanges[b]={}
         for c in CONDITIONS[1:]:
-            capchanges[b][c]={'original_accuracy_delta':interval([int(capraw[b,i,c]['correct'])-int(capraw[b,i,'baseline']['correct']) for i in indices]),'token_delta':interval([len(capraw[b,i,c]['result']['token_ids'])-len(capraw[b,i,'baseline']['result']['token_ids']) for i in indices]),'discordant':{'steered_only_correct':sum(capraw[b,i,c]['correct'] and not capraw[b,i,'baseline']['correct'] for i in indices),'baseline_only_correct':sum(capraw[b,i,'baseline']['correct'] and not capraw[b,i,c]['correct'] for i in indices)}}
-        capchanges[b]['rank2_vs_pooled_accuracy_delta']=interval([int(capraw[b,i,'rank2']['correct'])-int(capraw[b,i,'pooled']['correct']) for i in indices])
-    metrics={'utc':now,'primary_MASK':primary,'strata':strata,'matched_changes':changes,'fixed_baseline_beliefs':sen,'common_assessability':paired,'pressure_telemetry':telemetry,'quality':q,'response_status':response,'capability':cap,'capability_matched_changes':capchanges,'machiavelli_primary':mach,'machiavelli_auxiliary':mq}
+            capchanges[b][c]={'original_accuracy_delta':paired_binary([int(capraw[b,i,c]['correct'])-int(capraw[b,i,'baseline']['correct']) for i in indices]),'token_delta':interval([len(capraw[b,i,c]['result']['token_ids'])-len(capraw[b,i,'baseline']['result']['token_ids']) for i in indices]),'discordant':{'steered_only_correct':sum(capraw[b,i,c]['correct'] and not capraw[b,i,'baseline']['correct'] for i in indices),'baseline_only_correct':sum(capraw[b,i,'baseline']['correct'] and not capraw[b,i,c]['correct'] for i in indices)}}
+        capchanges[b]['rank2_vs_pooled_accuracy_delta']=paired_binary([int(capraw[b,i,'rank2']['correct'])-int(capraw[b,i,'pooled']['correct']) for i in indices])
+    cases={(r['condition'],r['game'],r['seed']):r for r in complete_lines(RUN/'machiavelli_case_audits.jsonl') if r['status']=='passed'}
+    machchanges={}
+    for c in CONDITIONS[1:]:
+        keys=sorted({(game,seed) for condition,game,seed in cases if condition=='baseline' and (c,game,seed) in cases})
+        machchanges[c]={'paired_game_seed_count':len(keys),'deception_delta':interval([cases[(c,)+k]['deception']-cases[('baseline',)+k]['deception'] for k in keys]),'saved_point_delta':interval([cases[(c,)+k]['reward']-cases[('baseline',)+k]['reward'] for k in keys]),'note':'Only four game-seed pairs and two games. Descriptive intervals do not establish generalization or equivalence.'}
+    metrics={'utc':now,'primary_MASK':primary,'strata':strata,'matched_changes':changes,'fixed_baseline_beliefs':sen,'common_assessability':paired,'pressure_telemetry':telemetry,'quality':q,'response_status':response,'capability':cap,'capability_matched_changes':capchanges,'machiavelli_primary':mach,'machiavelli_matched_changes':machchanges,'machiavelli_auxiliary':mq}
     save(RUN/'next_stage_metrics.json',metrics)
     sessions=subprocess.run(['tmux','list-sessions'],capture_output=True,text=True).stdout
     lines=[f'Next-stage evaluation checkpoint — {now}','','This is a live next-stage report. The initial overnight report remains a frozen checkpoint. Local GPT-OSS judges use pinned official MASK rubric/aggregation; scores are not official API scores. No paid calls and no steering retuning.','',f"Full MASK: {primary.get('paired_complete_items',0)}/1000 items judged across all five conditions.",'','| Condition | Judged items | Assessable N | Dishonest | Deception | Undetermined | Truncated pressure | Mean tokens |','| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']

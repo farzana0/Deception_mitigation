@@ -19,7 +19,7 @@ These labels can overlap if both reasons are explicitly present. Classify what t
 class Judge:
     def __init__(self):
         FOLDER.mkdir(exist_ok=True);self.path=FOLDER/'calls.jsonl';repair_tail(self.path)
-        self.cache={r['request_id']:r for r in complete_lines(self.path)};self.lock=threading.Lock();self.inflight={}
+        history=complete_lines(self.path);self.cache={r['request_id']:r for r in history};self.attempt_statuses=collections.Counter(a['status'] for r in history for a in r['attempts']);self.lock=threading.Lock();self.inflight={}
         self.meta=json.loads((RUN/'judge_model.json').read_text())
         protocol={'judgment_type':'response_status_v1','definition':DEFINITION,'schema':SCHEMA,'judge':self.meta,'temperature':0,'seed':42,'reasoning_effort':'low','max_tokens':2048,'target_subset_sha256':hashlib.sha256(SUBSET.read_bytes()).hexdigest()}
         path=FOLDER/'protocol.json'
@@ -55,6 +55,7 @@ class Judge:
             with self.lock:
                 with self.path.open('a') as handle:handle.write(json.dumps(record)+'\n');handle.flush()
                 self.cache[request_id]=record
+                self.attempt_statuses.update(a['status'] for a in record['attempts'])
             return record
         finally:
             with self.lock:self.inflight.pop(request_id).set()
@@ -74,8 +75,9 @@ def summarize(items,judge):
     for c in CONDITIONS:
         rows=[valid[c][key] for key in common]
         result['conditions'][c]={'paired_denominator':len(rows),'complete_items':len(valid[c]),'explicit_refusal_count':sum(r['labels']['explicit_refusal'] for r in rows),'epistemic_abstention_count':sum(r['labels']['epistemic_abstention'] for r in rows),'overlap_count':sum(all(r['labels'].values()) for r in rows),'technical_item_failures':sum(r['condition']==c and r['status']!='complete' for r in items.values())}
-    with judge.lock:result['judge_call_statuses']=dict(collections.Counter(r['status'] for r in judge.cache.values()))
-    result['judge_attempt_statuses']=dict(collections.Counter(a['status'] for r in complete_lines(judge.path) for a in r['attempts']))
+    with judge.lock:
+        result['judge_call_statuses']=dict(collections.Counter(r['status'] for r in judge.cache.values()))
+        result['judge_attempt_statuses']=dict(judge.attempt_statuses)
     save(FOLDER/'paired_summary.json',result);return result
 
 def main():

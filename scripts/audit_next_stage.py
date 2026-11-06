@@ -7,7 +7,7 @@ from steering.official_mask import ROOT,RUN,complete_lines,load_official,classif
 from steering.grade_pilot import CONDITIONS,Transport,generations,score_item,save
 from steering.quality_controls import mask_work,capability_work,rows as mask_rows
 from steering.machiavelli_quality import gather
-from steering.machiavelli_counterfactual import prepare
+from steering.machiavelli_counterfactual import prepare,judge_work
 CODE=Path(__file__).resolve().parents[1]
 
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -65,7 +65,13 @@ async def audit_mask():
             records={k[3]:g for k,g in gs.items() if k[:3]==key}
             scored=await score_item(official,transport,sources[config,task],config,c,records)
             for field in ['honesty','status','scoring_inputs','request_ids','settings_sha256','target_response_truncated','knowledge_reference_covered']:
-                assert scored[field]==item[field],(key,field,scored[field],item[field])
+                a,b=scored[field],item[field]
+                if field=='scoring_inputs' and config=='statistics':
+                    a=dict(a);b=dict(b)
+                    # Upstream list(set(intervals)) has process-dependent None hash order.
+                    for value in [a,b]:
+                        if 'eval_belief' in value:value['eval_belief']=set(official['parse_tuple_string'](value['eval_belief']))
+                assert a==b,(key,field,a,b)
             if n%500==0:print('OFFLINE MASK AUDIT',n,'/5000',flush=True)
     assert digest(folder/'calls.jsonl')==before
     return {'generation_records':len(gs),'condition_item_judgments':len(items),'item_pairs':1000,'all_judgments_replayed_from_cache':True,'settings_sha256':settings,'calls_sha256':before},sources,gs
@@ -84,8 +90,8 @@ def audit_response_status(gs):
 def main():
     result,sources,gs=asyncio.run(audit_mask());audit={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'MASK':result,'auxiliary':{}}
     mw=mask_work(sources);assert sum(not w['swap'] for w in mw)==4000
-    audit['auxiliary']['mask_quality']=audit_aux('quality_mask_v1',mw,len(mw))
-    audit['auxiliary']['capability_quality']=audit_aux('quality_capability_v2',capability_work(),160)
+    audit['auxiliary']['mask_quality']=audit_aux('quality_mask_v2',mw,len(mw))
+    audit['auxiliary']['capability_quality']=audit_aux('quality_capability_v3',capability_work(),160)
     audit['auxiliary']['response_status']=audit_response_status(gs)
     cap=json.loads((RUN/'capability_extraction_v1/summary.json').read_text());assert cap['records']==200
     outputs=[r for p in RUN.glob('capability_*.jsonl') for r in complete_lines(p)];assert len(outputs)==200
@@ -115,11 +121,14 @@ def main():
     save(RUN/'next_stage_all_machiavelli_audit.json',{'status':'passed','main_native_replay_count':20,'additional_replays':smoke_replays,'inventory':inventory})
     audit['all_saved_machiavelli_trajectories']={'count':len(inventory),'official_metrics_verified':True,'invalid_attempts':len(invalid),'fallback_actions':sum(r['random_fallback_actions'] for r in inventory)}
     fixed=RUN/'machiavelli_counterfactual_quality_v1/coverage.json';fc=json.loads(fixed.read_text());assert fc['complete']==80 and fc['target_states']==16
-    audit['auxiliary']['fixed_baseline_states']=fc
+    path,manifest=prepare()
+    assert len(manifest['states'])==16 and len(complete_lines(path/'generations.jsonl'))==64
+    audit['auxiliary']['fixed_baseline_states']=audit_aux('machiavelli_counterfactual_quality_v1',judge_work(path,manifest),80)|fc
     # The frozen initial checkpoints are verified by their saved hash manifest.
     frozen=json.loads((RUN/'next_stage_frozen_hashes.json').read_text())
     for relative,expected in frozen.items():assert digest(ROOT/relative)==expected,('Frozen checkpoint changed',relative)
     audit['status']='passed';save(RUN/'next_stage_final_audit.json',audit)
-    save(RUN/'next_stage_complete.json',{'completion':True,'utc':audit['utc'],'full_mask_items':1000,'conditions':CONDITIONS,'audit':str(RUN/'next_stage_final_audit.json'),'report':str(CODE/'NEXT_STAGE_REPORT.md'),'metrics':str(RUN/'next_stage_metrics.json'),'reproducibility':str(CODE/'NEXT_STAGE_REPRODUCIBILITY.md')})
+    completion={'completion':True,'utc':audit['utc'],'full_mask_items':1000,'conditions':CONDITIONS,'audit':str(RUN/'next_stage_final_audit.json'),'report':str(CODE/'NEXT_STAGE_REPORT.md'),'metrics':str(RUN/'next_stage_metrics.json'),'reproducibility':str(CODE/'NEXT_STAGE_REPRODUCIBILITY.md')}
+    for destination in [RUN/'next_stage_complete.json',ROOT/'results/next_stage_complete.json',CODE/'results/next_stage_complete.json']:save(destination,completion)
     print(json.dumps(audit,indent=2),flush=True)
 if __name__=='__main__':main()
