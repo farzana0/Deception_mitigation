@@ -71,7 +71,7 @@ which changes text antialiasing (1–2% of pixels) but not the plotted data.
 | Figure data | `outputs/rebuild/figure_data/mask_main.csv` |
 | Check results | `outputs/rebuild/verification.json` |
 
-## 2. Quick fresh rerun on a fixed subset (1 GPU + judge, ~1 h)
+## 2. Quick fresh rerun on a fixed subset (1 GPU + judge, ~20 min)
 
 `mask_quick6` is the first item per MASK configuration of the 12-item pilot manifest. Those pilot items are the two
 lowest `SHA256(config + task_id)` items per configuration over the full test split, so the selection does not depend on
@@ -168,10 +168,10 @@ python -m cais task=audit task.package=/home/ubuntu/cais_work/submission
 
 | Command | Status |
 | --- | --- |
-| 1. `task=rebuild` from a clean clone in a fresh venv | **Verified.** See `results/verification/rebuild_clean_checkout.json` |
-| 2. `task=generate/judge/report dataset=mask_quick6` | See `results/verification/quick6/` |
+| 1. `task=rebuild` from a clean clone in a fresh venv | **Verified.** Fails on any mismatch: 8 tables, item IDs, `report.md`, figure data, 12 paired examples (`results/verification/rebuild_clean_checkout.json`) |
+| 2. `task=generate/judge/report dataset=mask_quick6` | **Verified** on one idle A100: 95/95 generations token-identical to the saved evidence, 30/30 judge labels identical, identical table (`results/verification/quick6/`). Six items cannot separate the interventions; this is a reproduction check, not a result. |
 | 3. Full evaluation, capability, Machiavelli, `task=infer`, `task=audit` | Documented only, not rerun in this refactor. The original outputs are the saved evidence. |
-| `python -m unittest tests.test_cli` | Verified (config composition, locked settings, manifests, evidence hashes) |
+| `python -m unittest discover -s tests` | Verified: all 10 modules pass, including the new `test_cli` for config composition, locked settings, manifests and evidence hashes |
 
 ## Conventions
 

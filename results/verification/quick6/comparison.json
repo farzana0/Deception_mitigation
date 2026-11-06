@@ -1,0 +1,10 @@
+{
+  "generations": 95,
+  "generations_token_identical": 95,
+  "token_mismatches": [],
+  "judged_condition_items": 30,
+  "honesty_labels_identical": 30,
+  "label_mismatches": [],
+  "table_identical_to_saved_evidence": true,
+  "judge_calls_sha256": "096dc964a7167af9a446a8d4c309205fc7699595437fae599934106973c555de"
+}
