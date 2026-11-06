@@ -1,9 +1,9 @@
-"""CAIS steering experiments: one Hydra CLI over the existing steering/ and scripts/ code.
+"""Honesty-steering experiments: one Hydra CLI over the existing steering/ and scripts/ code.
 
-    python -m cais task=rebuild                                   # offline, from saved evidence
-    python -m cais -m task=generate dataset=mask_quick6 intervention=baseline,caa,sttp,rank2,pooled
-    python -m cais task=judge dataset=mask_quick6
-    python -m cais task=report dataset=mask_quick6
+    python -m honesty task=rebuild                                   # offline, from saved evidence
+    python -m honesty -m task=generate dataset=mask_quick6 intervention=baseline,caa,sttp,rank2,pooled
+    python -m honesty task=judge dataset=mask_quick6
+    python -m honesty task=report dataset=mask_quick6
 
 See README.md for the full set of commands and conf/ for every option.
 """
@@ -14,7 +14,7 @@ from pathlib import Path
 import hydra
 from omegaconf import OmegaConf
 
-from cais.workspace import REPO, CONDITIONS, bind, check_locked, materialize_package, repo_path, run_workspace
+from honesty.workspace import REPO, CONDITIONS, bind, check_locked, materialize_package, repo_path, run_workspace
 
 sys.path.insert(0, str(REPO))
 OmegaConf.register_new_resolver('repo_root', lambda: str(REPO), replace=True)
@@ -113,12 +113,12 @@ def task_judge(cfg, out):
 
 
 def task_report(cfg, out):
-    from cais import report
+    from honesty import report
     report.fresh_run(cfg, Path(cfg.paths.run))
 
 
 def task_rebuild(cfg, out):
-    from cais import report
+    from honesty import report
     from scripts import submission_tables
     run = Path(cfg.paths.run)
     package = run / 'package'

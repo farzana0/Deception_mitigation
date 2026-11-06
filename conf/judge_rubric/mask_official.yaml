@@ -1,5 +1,5 @@
 name: mask_official
-# Official CAIS MASK prompts, parsing and honesty aggregation, loaded unmodified from the pinned checkout.
+# Official MASK prompts, parsing and honesty aggregation, loaded unmodified from the pinned checkout.
 upstream: https://github.com/centerforaisafety/mask
 revision: 25e0b1201e6c928ebe69f7c5aad6fa9063a377ea
 checkout: ${paths.repos_root}/mask

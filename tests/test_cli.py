@@ -3,8 +3,8 @@ import json, unittest
 
 from hydra import compose, initialize_config_dir
 
-from cais.workspace import REPO, check_locked, repo_path, sha256
-import cais.cli  # noqa: F401  (registers the repo_root resolver)
+from honesty.workspace import REPO, check_locked, repo_path, sha256
+import honesty.cli  # noqa: F401  (registers the repo_root resolver)
 
 GROUPS = {g: sorted(p.stem for p in (REPO / 'conf' / g).glob('*.yaml'))
           for g in ['task', 'model', 'intervention', 'dataset', 'judge_model', 'judge_rubric']}

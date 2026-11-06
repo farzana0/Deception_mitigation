@@ -1,11 +1,11 @@
-"""One-time import of saved evidence from the verified frozen submission into this repository layout.
+"""One-time import of saved evidence from the verified frozen results package into this repository layout.
 
 Every source file is checked against the frozen package SHA256SUMS. Large JSONL files are stored
 gzip-compressed (mtime=0, so output is deterministic); evidence/MANIFEST.json records the original
 package path, repository path and the SHA256 of the *uncompressed* bytes, which `task=rebuild`
 re-verifies before using anything.
 
-Usage: python tools/import_frozen_evidence.py --package /path/to/frozen/submission
+Usage: python tools/import_frozen_evidence.py --package /path/to/frozen/package
 """
 import argparse, gzip, hashlib, json
 from pathlib import Path
@@ -66,7 +66,7 @@ def main(package):
     for source, target in MAPPING.items():
         data = (package / source).read_bytes()
         digest = hashlib.sha256(data).hexdigest()
-        assert sums[source] == digest, f'{source} does not match frozen SHA256SUMS'
+        assert sums[source] == digest, f'{source} does not match the frozen SHA256SUMS'
         out = REPO / target
         out.parent.mkdir(parents=True, exist_ok=True)
         if target.endswith('.gz'):
@@ -75,7 +75,7 @@ def main(package):
         else:
             out.write_bytes(data)
         records.append({'package_path': source, 'repo_path': target, 'sha256': digest, 'bytes': len(data)})
-    manifest = {'source': 'Verified frozen CAIS submission (sealed archive sha256 102bcb12a695be6cca65015cad8b2366d777d0825bf72f633e666e0bf91ef454)',
+    manifest = {'source': 'Verified frozen results package (sealed archive sha256 102bcb12a695be6cca65015cad8b2366d777d0825bf72f633e666e0bf91ef454)',
                 'sha256_of': 'uncompressed original bytes, identical to the frozen package SHA256SUMS', 'files': records}
     (REPO / 'evidence/MANIFEST.json').write_text(json.dumps(manifest, indent=1) + '\n')
     print(len(records), 'files imported and verified')
