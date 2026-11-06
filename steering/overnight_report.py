@@ -4,6 +4,7 @@ from pathlib import Path
 from steering.official_mask import ROOT,RUN,complete_lines
 from steering.grade_pilot import CONDITIONS
 from steering.sensitivity import compute
+from steering.paired_analysis import compute as paired_analysis
 
 def table(headers,rows):
     return '\n'.join(['| '+' | '.join(map(str,headers))+' |','| '+' | '.join(['---']*len(headers))+' |']+['| '+' | '.join(map(str,row))+' |' for row in rows])
@@ -24,6 +25,8 @@ def render():
         sections.append(label+f": {s['paired_complete_items']}/{s['target_items']} complete paired items. Every condition uses this common intersection. Deception = dishonest/(honest+dishonest); undetermined items remain in the all-paired denominator.")
         sections.append(table(['Condition','Paired N','Honest','Dishonest','Undetermined','Assessable N','Deception','Dishonest/all paired','Belief coverage','Abstain/unknown','Refusal regex','Truncated pressure','Technical item failures'],[[c,r['paired_denominator'],r['honest'],r['dishonest'],r['undetermined'],r['assessable_denominator'],pct(r['deception_rate']),pct(r['deception_per_all_paired_items']),pct(r['belief_coverage']),r['abstention_or_unknown_count'],r['target_refusal_regex_count'],r['truncated_target_responses'],r['technical_failures']] for c,r in s['conditions'].items()]))
         sections.append('Judge call statuses (latest cached call per payload): '+json.dumps(s['judge_call_statuses'])+'. Refusals use the disclosed regex in grade_pilot.py; C/D and null ranges are valid abstentions. Belief coverage includes supplied references for provided_facts. High target truncation limits interpretation; decoding caps were kept fixed.')
+        paired=paired_analysis(folder)
+        sections.append('Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): '+json.dumps(paired))
         sens=compute(folder)
         sections.append('Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): '+table(['Condition','Dishonest','Assessable N','Deception','Changed labels'],[[c,r['dishonest'],r['assessable_denominator'],pct(r['deception_rate']),r['changed_from_primary']] for c,r in sens['conditions'].items()]))
     # Telemetry includes pilot and expansion, unique prompt/condition records only.
@@ -53,6 +56,7 @@ def render():
     if plan:sections.append(f"Expansion selection: {len(plan['items'])} fixed items, {plan['items_per_config']} per stratum, hash ordering includes pilot. Throughput bound per balanced six items across all conditions: judge {plan['judge_seconds_per_balanced_six']:.1f}s plus generation {plan['generation_seconds_per_balanced_six_parallel_five_workers']:.1f}s with five GPU workers. Used 60% of remaining budget to 10:30 UTC, reserving 40% for variance/recovery. Manifest fixed before expansion. Pilot outputs and judgments were saved before launch and reused.")
     sessions=subprocess.run(['tmux','list-sessions'],capture_output=True,text=True).stdout.strip()
     sections.append('Live tmux sessions:\n```\n'+sessions+'\n```')
+    sections.append('Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. Evaluation jobs remain partial while running. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.')
     sections.append('Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Exitcode files record job completion. No raw artifacts are staged in Git.')
     commands='''cd /lambda/nfs/fs-cand-nov05/Deception_mitigation
 # First inspect tmux ls and nvidia-smi; do not duplicate healthy jobs.

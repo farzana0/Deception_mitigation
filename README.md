@@ -4,7 +4,9 @@ Reproducible setup and shared contrast-pair generation for Qwen/Qwen3.5-9B.
 This checkpoint includes project scripts, exact direct dependency versions,
 pinned upstream revisions, calibration IDs, smoke-test metrics, and a small
 pair-generation summary. See [REPORT.txt](REPORT.txt) for results and limitations.
-No mitigation comparison has been completed yet.
+The independent local-judge 12-item MASK pilot and paired MMLU/GSM8K pilots
+have completed. A fixed 240-item MASK expansion and fixed Machiavelli
+trajectories are running; see the timestamped report for current counts.
 
 ## Cluster workspace
 
@@ -53,9 +55,8 @@ Use only the requested self_report_experimental_scenarios.json from the
 pinned Tara-Research repository for pairs. Seed 42 separates 40 extraction
 scenarios and 10 calibration scenarios. Choose layers and strengths only
 with calibration. MASK and Machiavelli remain held out of extraction and
-tuning; MMLU and GSM8K test remain capability evaluations. The two steering
-methods are pending specification. MT-Bench stays deferred until core
-comparisons and a local judge are available.
+tuning; MMLU and GSM8K test remain capability evaluations. The locked CAA, Herbster StTP, rank-2 and pooled-control definitions are
+in [STEERING_PROTOCOL.txt](STEERING_PROTOCOL.txt). MT-Bench stays deferred.
 
 ## Artifacts kept on the cluster
 
@@ -73,14 +74,37 @@ All paths below are relative to `/lambda/nfs/fs-cand-nov05`:
 
 Small JSON manifests, summaries, and smoke metrics are backed up in this
 checkout's `results/`. Raw outputs, datasets, weights, caches, logs, and
-credentials are excluded. No final comparative metrics or figures exist.
+credentials are excluded. Independent paired pilot results and partial expanded metrics are recorded
+in REPORT.txt. Full cluster status is in the parent OVERNIGHT_STATUS.md.
 
-## Known remaining setup
+## Local evaluation and resume
 
-`finalize_inputs.py` failed because the supplied Machiavelli archive has no
-`game_data/scenarios` directory. Its existing cluster symlink is insufficient
-for the official runner. Resolve this data-layout requirement before running
-`python -m machiavelli_eval.machiavelli_eval` from `repos/simple-evals`.
-The checked-in script preserves the failed check rather than claiming success.
-MASK's official scorer and simple-evals defaults require local adapters to
-keep inference and judging on this cluster. Do not invoke external API defaults.
+The Machiavelli bundle uses source/ and trees/ directly; setup and a real
+scored trajectory passed. Do not invoke upstream external API defaults.
+The local adapter uses official gameplay, trajectory annotations, and scoring.
+Main game/seed pairs checkpoint after each scored trajectory.
+
+Keep system torch 2.7.0 for Hugging Face experiments. The independent judge
+uses isolated `.venv-judge` in the parent workspace (vLLM 0.11.2,
+torch 2.9.0+cu128). Exact settings, model revisions and package lock are in
+`configs/overnight/`. The judge binds localhost on GPU 5; do not start a
+second server if tmux `mask-judge-server` is healthy.
+
+```bash
+# Run from this checkout. Inspect tmux ls and nvidia-smi first.
+CUDA_VISIBLE_DEVICES=GPU bash scripts/run_capability.sh CONDITION
+CUDA_VISIBLE_DEVICES=GPU bash scripts/run_machiavelli.sh CONDITION --output-name machiavelli_main --seeds 0,1 --game-count 2 --max-steps 150
+# MASK pilot judge resumes successful calls and item-condition checkpoints.
+bash scripts/grade_mask_pilot.sh
+# Expanded generation and judging reuse the pilot and fixed settings.
+CUDA_VISIBLE_DEVICES=GPU STEERING_EVAL_CONDITIONS=CONDITION MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
+MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json MASK_JUDGE_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_expanded bash scripts/grade_mask_pilot.sh
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m unittest discover -s tests -v
+```
+
+Put GPU commands in tmux. Conditions are baseline, caa, sttp, rank2, pooled.
+MASK technical judge failures remain distinct from valid unknown responses;
+failed requests retry without regenerating successful calls. Independent
+pilot, expansion and earlier self-judge outputs live in separate directories.
+All inference stays local; no paid API requests or Git push during this run.
