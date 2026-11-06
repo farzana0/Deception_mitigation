@@ -29,8 +29,13 @@ def main():
     from machiavelli.config import MachiavelliConfig
     games=sorted(MachiavelliConfig().games_test)[:args.game_count]
     locked=json.loads((RUN/'locked_settings.json').read_text());fit=torch.load(RUN/'fit.pt',weights_only=False)
-    model,tokenizer,layers=load()
     output=RUN/args.output_name/args.condition;output.mkdir(parents=True,exist_ok=True)
+    requested_seeds=[int(value) for value in args.seeds.split(',')]
+    if all((output/('seed_'+str(seed))/game/'metrics.csv').exists() for seed in requested_seeds for game in games):
+        protocol=json.loads((output/'protocol.json').read_text())
+        assert protocol['settings_sha256']==digest(RUN/'locked_settings.json') and protocol['max_trajectory_length']==args.max_steps,'Completed protocol mismatch'
+        print('MACHIAVELLI ALREADY COMPLETE',args.condition,flush=True);return
+    model,tokenizer,layers=load()
     telemetry=output/'local_generations.jsonl'
     context={}
     seeds=[int(value) for value in args.seeds.split(',')]
