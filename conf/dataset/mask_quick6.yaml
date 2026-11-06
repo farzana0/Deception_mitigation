@@ -1,0 +1,5 @@
+name: mask_quick6
+kind: mask
+manifest: data/manifests/mask_quick6.json       # first item per config of mask_pilot12 (quick rerun)
+n_items: 6
+max_new_tokens: 256

@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/lambda/nfs/fs-cand-nov05/.venv-judge/bin/vllm",
+    "serve",
+    "/lambda/nfs/fs-cand-nov05/models/gpt-oss-20b",
+    "--served-model-name",
+    "openai/gpt-oss-20b",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8001",
+    "--tensor-parallel-size",
+    "1",
+    "--dtype",
+    "bfloat16",
+    "--gpu-memory-utilization",
+    "0.8",
+    "--max-model-len",
+    "8192",
+    "--max-num-seqs",
+    "8",
+    "--enforce-eager",
+    "--reasoning-parser",
+    "openai_gptoss",
+    "--disable-log-requests"
+  ],
+  "gpu_index": 5,
+  "gpu": "GPU-1181aa87-9d80-6286-3e00-a0c56019d9d7, NVIDIA A100-SXM4-80GB, 570.148.08",
+  "model": {
+    "model": "openai/gpt-oss-20b",
+    "revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+    "local_path": "/lambda/nfs/fs-cand-nov05/models/gpt-oss-20b"
+  },
+  "host": "127.0.0.1",
+  "reasoning_effort": "low (set on each request)",
+  "attention_backend": "TRITON_ATTN"
+}

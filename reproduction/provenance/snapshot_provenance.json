@@ -1,0 +1,7 @@
+{
+  "source_code_commit": "0783997dd3ed99bcb1af067737080588326b6a0e",
+  "packaging_code_commit": "d54a594f7f1361791608f5beca68f066f3cb7565",
+  "source_root": "/lambda/nfs/fs-cand-nov05",
+  "source_worktree_status": " M NEXT_STAGE_REPORT.md\n M NEXT_STAGE_STATUS.md\n M scripts/main_throughput_status.py\n?? MAIN_THROUGHPUT_STATUS.json\n?? configs/report_freeze.json\n?? scripts/results_snapshot.py\n",
+  "packaging_worktree_status": "?? MAIN_THROUGHPUT_STATUS.json\n"
+}

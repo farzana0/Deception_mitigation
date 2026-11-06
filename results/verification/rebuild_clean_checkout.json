@@ -1,0 +1,63 @@
+{
+  "commit": "eedb7ddf5ae2d250141ac2824fb131d7c807248a",
+  "checkout": "fresh git clone of branch refactor",
+  "environment": "python3 -m venv (no system site-packages) + pip install -r requirements-rebuild.txt",
+  "pip_freeze": [
+    "antlr4-python3-runtime==4.9.3",
+    "cycler==0.12.1",
+    "fonttools==4.65.0",
+    "hydra-core==1.3.2",
+    "kiwisolver==1.5.1",
+    "matplotlib==3.5.1",
+    "numpy==1.21.5",
+    "omegaconf==2.3.1",
+    "packaging==26.3",
+    "pillow==12.3.0",
+    "pyparsing==3.3.3",
+    "python-dateutil==3.0.0",
+    "PyYAML==6.0.3",
+    "six==1.17.0",
+    "tzdata==2026.6"
+  ],
+  "command": "python -m cais task=rebuild",
+  "exit_code": 0,
+  "verification": {
+    "status": "passed",
+    "checks": {
+      "tables/capabilities.csv": true,
+      "tables/cp_exploratory.csv": true,
+      "tables/machiavelli.csv": true,
+      "tables/mask_diagnostics.csv": true,
+      "tables/mask_full1000.csv": true,
+      "tables/mask_original240.csv": true,
+      "tables/paired_diagnostics.json": true,
+      "tables/verified_tables.json": true,
+      "verified_item_ids.json": true,
+      "report.md": true,
+      "figure data: mask_main bar heights": true,
+      "figure_data/mask_main.csv": true,
+      "paired_examples/paired_examples.jsonl": true,
+      "paired_examples/paired_examples.md": true,
+      "cohort selection: full1000, first observed before freeze": true
+    },
+    "png_byte_identical": {
+      "mask_main.png": false,
+      "page_01.png": false,
+      "page_02.png": false,
+      "page_03.png": false,
+      "page_04.png": false,
+      "page_05.png": false,
+      "page_06.png": false,
+      "page_07.png": false,
+      "page_08.png": false,
+      "page_09.png": false,
+      "page_10.png": false
+    },
+    "renderer": {
+      "matplotlib": "3.5.1",
+      "freetype": "2.6.1"
+    },
+    "not_compared": "report.pdf embeds its creation time"
+  },
+  "note": "PNG bytes differ only in text antialiasing (pip wheel FreeType 2.6.1); byte-identical with system matplotlib 3.5.1/FreeType 2.11.1 in the working tree run."
+}

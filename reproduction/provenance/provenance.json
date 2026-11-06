@@ -1,0 +1,9 @@
+{
+  "source_commit": "3482088ed25682ae36bce26bfa26c1c3ddc6596b",
+  "source_dirty": " M NEXT_STAGE_REPORT.md\n M NEXT_STAGE_STATUS.md\n?? MAIN_THROUGHPUT_STATUS.json\n?? configs/report_freeze.json\n?? scripts/results_snapshot.py\n",
+  "source_root": "/lambda/nfs/fs-cand-nov05",
+  "status": "Full MASK cohort complete and verified before freeze; clean GPU reproduction, cluster installation and remote publication pending",
+  "packaging_commit": "d54a594f7f1361791608f5beca68f066f3cb7565",
+  "packaging_branch": "submission/cais-mask1000-20261106",
+  "github_verified": false
+}

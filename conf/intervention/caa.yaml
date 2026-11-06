@@ -1,0 +1,5 @@
+name: caa
+description: Contrastive activation addition at one layer; mean honest-minus-dishonest response residual, scaled to the typical residual norm.
+fit: models/steering_fits/fit.pt
+locked_settings: models/locked/locked_settings.json
+setting: {condition: caa, layer: 16, strength: 0.1}

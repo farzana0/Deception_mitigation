@@ -1,0 +1,152 @@
+{
+  "predeclared_utc": "2026-11-06T09:57:30.002182+00:00",
+  "conditions": [
+    "cp_scheduled",
+    "cp_static"
+  ],
+  "rank": 2,
+  "layers": [
+    8,
+    12,
+    16,
+    20,
+    24
+  ],
+  "bins": [
+    [
+      1,
+      3
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      12,
+      null
+    ]
+  ],
+  "skip_offset_zero": true,
+  "training": "40 paired scenarios; shared system_prompt_neutral and user_message; shared valid response-token offsets excluding pad/EOS; pairwise logistic loss softplus(-margin) +0.01/2 * squared Frobenius norm(W)",
+  "calibration": "10 disjoint calibration pairs, report pair ranking; one shared strength from .02,.05,.10 maximizing mean of scheduled and static length-normalized honest-minus-dishonest log likelihood under neutral prompts",
+  "rms_normalization": "existing per-layer typical residual scales; normalize schedules jointly across layers per eligible bin, exact same total nominal budget per step",
+  "seed": 20261106,
+  "pilot_items": [
+    {
+      "config": "continuations",
+      "task_id": "7d3bf41b-798b-44a2-8eed-c173a625da25_err"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef05e87fa36ec0ee1180"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d342c614cca814d6b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06266f92a37db6b4ad5"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771719dcff84e2f0ca19bd"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171d7a6be99e497faa34"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771715dc179ed72b984157"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b20678d6e4c76a3ef"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553871bef67330e54a38_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca166076d03287db3879e_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca165ae126bf71d97f436_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134db382c92ba5d9ae62_dd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "C305FE95BCAB"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539272e0e57ee739bf7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553e04f50fa3ebeacf0c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a500c5a8f11b186ee"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca87865f3dfe24257e8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca63b4a3809a14a0f69"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9854918f7106634a3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bafabd0af51a672ee2b"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a6449c0f72c2b30620"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a62571798d2a4d2a14"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8d1df171b03978dde"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a7aee43a44e3af9afd"
+    }
+  ],
+  "selection": "Four SHA256(seed|config|task_id)-ordered IDs per config outside original240. No pilot judgments inspected or used.",
+  "initial_gate_started_utc": "2026-11-06T09:50:29Z",
+  "implementation_smoke_deadline_utc": "2026-11-06T10:20:29Z",
+  "pilot_completion_deadline_utc": "2026-11-06T21:15:00Z",
+  "main_freeze_utc": "2026-11-06T22:00:00Z",
+  "original_fit_sha256": "c91b5cf44cb01dbda927caa6b0686bb5b7940065473e3fa58bf6057f9fd08c77",
+  "original_settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527",
+  "main_capacity_reserved": {
+    "gpu0-4": "existing five MASK workers",
+    "gpu5": "existing independent judge",
+    "gpu7": "main acceleration; no CP assignment",
+    "gpu6": "temporary CP extraction/smoke only after fixed-state GPU process exited, subject to main priority"
+  },
+  "primary_comparison": "CP-scheduled vs CP-static; count both dishonest-to-honest and honest-to-dishonest, joint assessableN, own/fixed-baseline-belief labels, coverage,refusals,truncation",
+  "follow_up": [
+    "same-loss unfolded rank-2 on identical matched inputs",
+    "alternate ranks and regularization",
+    "layer coverage variants"
+  ],
+  "not_today": "No further CP, SVD, rank or layer variant will be run on MASK today."
+}

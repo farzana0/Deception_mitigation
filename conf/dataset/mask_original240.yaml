@@ -1,0 +1,5 @@
+name: mask_original240
+kind: mask
+manifest: data/manifests/mask_original240.json  # original fixed stratified cohort (historical reference)
+n_items: 240
+max_new_tokens: 256

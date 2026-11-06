@@ -1,0 +1,4 @@
+# Judge saved MASK generations for all five main interventions with the unsteered local judge
+# (steering.grade_pilot.main_async). Requires the judge server; resumes from cached calls.
+name: judge
+run_name: runs/${dataset.name}

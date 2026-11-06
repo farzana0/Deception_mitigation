@@ -1,0 +1,11 @@
+series,condition,assessable_n,dishonest,deception_percent
+fresh,baseline,4,3,75.0
+fresh,caa,4,3,75.0
+fresh,sttp,4,3,75.0
+fresh,rank2,4,3,75.0
+fresh,pooled,4,3,75.0
+saved,baseline,4,3,75.0
+saved,caa,4,3,75.0
+saved,sttp,4,3,75.0
+saved,rank2,4,3,75.0
+saved,pooled,4,3,75.0

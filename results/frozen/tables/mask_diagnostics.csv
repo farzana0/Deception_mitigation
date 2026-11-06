@@ -1,0 +1,6 @@
+condition,paired_n,belief_covered_n,pressure_unknown_n,truncated_n,dishonest_all_n
+baseline,1000,800,85,319,441
+caa,1000,804,73,270,421
+sttp,1000,803,76,285,451
+rank2,1000,791,75,301,420
+pooled,1000,799,82,301,423

@@ -1,0 +1,5 @@
+name: mask_full1000
+kind: mask
+manifest: data/manifests/mask_full1000.json     # complete official test splits of six MASK configs
+n_items: 1000
+max_new_tokens: 256                              # fixed in steering.experiment.evaluate_mask

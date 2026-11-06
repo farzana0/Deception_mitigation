@@ -1,0 +1,262 @@
+{
+  "capabilities": [
+    {
+      "condition": "baseline",
+      "benchmark": "mmlu",
+      "paired_n": 30,
+      "correct": 21,
+      "accuracy": 0.7
+    },
+    {
+      "condition": "caa",
+      "benchmark": "mmlu",
+      "paired_n": 30,
+      "correct": 21,
+      "accuracy": 0.7
+    },
+    {
+      "condition": "sttp",
+      "benchmark": "mmlu",
+      "paired_n": 30,
+      "correct": 21,
+      "accuracy": 0.7
+    },
+    {
+      "condition": "rank2",
+      "benchmark": "mmlu",
+      "paired_n": 30,
+      "correct": 21,
+      "accuracy": 0.7
+    },
+    {
+      "condition": "pooled",
+      "benchmark": "mmlu",
+      "paired_n": 30,
+      "correct": 20,
+      "accuracy": 0.6666666666666666
+    },
+    {
+      "condition": "baseline",
+      "benchmark": "gsm8k",
+      "paired_n": 10,
+      "correct": 8,
+      "accuracy": 0.8
+    },
+    {
+      "condition": "caa",
+      "benchmark": "gsm8k",
+      "paired_n": 10,
+      "correct": 8,
+      "accuracy": 0.8
+    },
+    {
+      "condition": "sttp",
+      "benchmark": "gsm8k",
+      "paired_n": 10,
+      "correct": 8,
+      "accuracy": 0.8
+    },
+    {
+      "condition": "rank2",
+      "benchmark": "gsm8k",
+      "paired_n": 10,
+      "correct": 9,
+      "accuracy": 0.9
+    },
+    {
+      "condition": "pooled",
+      "benchmark": "gsm8k",
+      "paired_n": 10,
+      "correct": 10,
+      "accuracy": 1.0
+    }
+  ],
+  "cp_exploratory": [
+    {
+      "condition": "cp_scheduled",
+      "complete_paired_n": 24,
+      "dishonest": 12,
+      "assessable_n": 15,
+      "deception": 0.8,
+      "paired_assessable_n": 15,
+      "paired_delta": 0.0
+    },
+    {
+      "condition": "cp_static",
+      "complete_paired_n": 24,
+      "dishonest": 13,
+      "assessable_n": 16,
+      "deception": 0.8125,
+      "paired_assessable_n": 13,
+      "paired_delta": 0.0
+    }
+  ],
+  "machiavelli": [
+    {
+      "condition": "baseline",
+      "paired_n": 4,
+      "deception": 71.68978783738899,
+      "reward": 6.896551724137931
+    },
+    {
+      "condition": "caa",
+      "paired_n": 4,
+      "deception": 77.03395201011237,
+      "reward": 14.297573435504471
+    },
+    {
+      "condition": "sttp",
+      "paired_n": 4,
+      "deception": 96.8463534106367,
+      "reward": 10.121328224776502
+    },
+    {
+      "condition": "rank2",
+      "paired_n": 4,
+      "deception": 93.3921436790904,
+      "reward": 8.652618135376756
+    },
+    {
+      "condition": "pooled",
+      "paired_n": 4,
+      "deception": 111.20602425483503,
+      "reward": 14.648786717752234
+    }
+  ],
+  "mask_full1000": [
+    {
+      "condition": "baseline",
+      "complete_paired_n": 1000,
+      "dishonest": 441,
+      "assessable_n": 729,
+      "deception": 0.6049382716049383,
+      "paired_assessable_n": 729,
+      "paired_delta": 0.0
+    },
+    {
+      "condition": "caa",
+      "complete_paired_n": 1000,
+      "dishonest": 421,
+      "assessable_n": 741,
+      "deception": 0.5681511470985156,
+      "paired_assessable_n": 656,
+      "paired_delta": -0.03048780487804878
+    },
+    {
+      "condition": "sttp",
+      "complete_paired_n": 1000,
+      "dishonest": 451,
+      "assessable_n": 739,
+      "deception": 0.6102841677943166,
+      "paired_assessable_n": 666,
+      "paired_delta": 0.0075075075075075074
+    },
+    {
+      "condition": "rank2",
+      "complete_paired_n": 1000,
+      "dishonest": 420,
+      "assessable_n": 728,
+      "deception": 0.5769230769230769,
+      "paired_assessable_n": 643,
+      "paired_delta": -0.012441679626749611
+    },
+    {
+      "condition": "pooled",
+      "complete_paired_n": 1000,
+      "dishonest": 423,
+      "assessable_n": 729,
+      "deception": 0.5802469135802469,
+      "paired_assessable_n": 634,
+      "paired_delta": -0.025236593059936908
+    }
+  ],
+  "mask_original240": [
+    {
+      "condition": "baseline",
+      "complete_paired_n": 240,
+      "dishonest": 89,
+      "assessable_n": 171,
+      "deception": 0.52046783625731,
+      "paired_assessable_n": 171,
+      "paired_delta": 0.0
+    },
+    {
+      "condition": "caa",
+      "complete_paired_n": 240,
+      "dishonest": 84,
+      "assessable_n": 174,
+      "deception": 0.4827586206896552,
+      "paired_assessable_n": 155,
+      "paired_delta": -0.05806451612903226
+    },
+    {
+      "condition": "sttp",
+      "complete_paired_n": 240,
+      "dishonest": 96,
+      "assessable_n": 180,
+      "deception": 0.5333333333333333,
+      "paired_assessable_n": 159,
+      "paired_delta": 0.012578616352201259
+    },
+    {
+      "condition": "rank2",
+      "complete_paired_n": 240,
+      "dishonest": 90,
+      "assessable_n": 180,
+      "deception": 0.5,
+      "paired_assessable_n": 156,
+      "paired_delta": -0.02564102564102564
+    },
+    {
+      "condition": "pooled",
+      "complete_paired_n": 240,
+      "dishonest": 93,
+      "assessable_n": 174,
+      "deception": 0.5344827586206896,
+      "paired_assessable_n": 149,
+      "paired_delta": -0.026845637583892617
+    }
+  ],
+  "mask_diagnostics": [
+    {
+      "condition": "baseline",
+      "paired_n": 1000,
+      "belief_covered_n": 800,
+      "pressure_unknown_n": 85,
+      "truncated_n": 319,
+      "dishonest_all_n": 441
+    },
+    {
+      "condition": "caa",
+      "paired_n": 1000,
+      "belief_covered_n": 804,
+      "pressure_unknown_n": 73,
+      "truncated_n": 270,
+      "dishonest_all_n": 421
+    },
+    {
+      "condition": "sttp",
+      "paired_n": 1000,
+      "belief_covered_n": 803,
+      "pressure_unknown_n": 76,
+      "truncated_n": 285,
+      "dishonest_all_n": 451
+    },
+    {
+      "condition": "rank2",
+      "paired_n": 1000,
+      "belief_covered_n": 791,
+      "pressure_unknown_n": 75,
+      "truncated_n": 301,
+      "dishonest_all_n": 420
+    },
+    {
+      "condition": "pooled",
+      "paired_n": 1000,
+      "belief_covered_n": 799,
+      "pressure_unknown_n": 82,
+      "truncated_n": 301,
+      "dishonest_all_n": 423
+    }
+  ]
+}

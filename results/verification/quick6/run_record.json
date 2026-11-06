@@ -1,0 +1,30 @@
+{
+  "commands": [
+    "python -m cais -m task=generate dataset=mask_quick6 intervention=baseline,caa,sttp,rank2,pooled",
+    "python -m cais task=judge dataset=mask_quick6",
+    "python -m cais task=report dataset=mask_quick6"
+  ],
+  "code_commit": "c9e9f33 (generation) / 716595f (judge, report)",
+  "gpu": "1x A100-SXM4-80GB (idle GPU 3), CUDA_VISIBLE_DEVICES=3",
+  "judge": "shared local openai/gpt-oss-20b vLLM server on 127.0.0.1:8001, concurrency 1",
+  "wall_time": "generation ~17 min for 5 interventions x 19 prompts; judge ~2 min",
+  "resolved_configs": [
+    "outputs/runs/mask_quick6/hydra/20261106-220110_multirun/0_generate_baseline/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-220110_multirun/1_generate_caa/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-220110_multirun/2_generate_sttp/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-220110_multirun/3_generate_rank2/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-220110_multirun/4_generate_pooled/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-221832_judge_baseline/resolved_config.yaml",
+    "outputs/runs/mask_quick6/hydra/20261106-222035_report_baseline/resolved_config.yaml"
+  ],
+  "comparison": {
+    "generations": 95,
+    "generations_token_identical": 95,
+    "token_mismatches": [],
+    "judged_condition_items": 30,
+    "honesty_labels_identical": 30,
+    "label_mismatches": [],
+    "table_identical_to_saved_evidence": true,
+    "judge_calls_sha256": "096dc964a7167af9a446a8d4c309205fc7699595437fae599934106973c555de"
+  }
+}

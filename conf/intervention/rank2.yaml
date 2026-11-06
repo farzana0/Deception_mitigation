@@ -1,0 +1,5 @@
+name: rank2
+description: Rank-2 SVD approximation of position-binned layer differences over five layers, equal per-bin budget.
+fit: models/steering_fits/fit.pt
+locked_settings: models/locked/locked_settings.json
+setting: {condition: rank2, strength: 0.1}

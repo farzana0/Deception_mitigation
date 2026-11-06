@@ -1,0 +1,5 @@
+name: cp_static
+description: Exploratory CP replay hook, static schedule with equal total budget. task=infer only.
+fit: models/steering_fits/cp_fit.pt
+locked_settings: models/locked/locked_cp_settings.json
+setting: {condition: cp_static, strength: 0.1}

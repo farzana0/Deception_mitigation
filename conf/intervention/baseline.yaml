@@ -1,0 +1,5 @@
+name: baseline
+description: No hooks; unmodified base model.
+fit: models/steering_fits/fit.pt
+locked_settings: models/locked/locked_settings.json
+setting: {condition: baseline}

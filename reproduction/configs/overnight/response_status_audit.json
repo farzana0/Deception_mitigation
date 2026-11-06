@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "utc": "2026-11-06T06:46:29.704854+00:00",
+  "paired_items": 240,
+  "condition_item_labels_verified": 1200,
+  "unique_judge_calls_verified": 1062,
+  "payload_hashes_and_response_bindings_verified": true,
+  "condition_metadata_absent_from_requests": true,
+  "primary_core_calls_sha256": "f918342cfb332a04997324739673b0bf7dd2920f0005c22d475e7f668bdb4a94",
+  "auxiliary_calls_sha256": "7fde55ca0e3b58260311f1514369a8523ee4a9632d0b9086011eb1dbfbc45709",
+  "conditions": {
+    "baseline": {
+      "paired_denominator": 240,
+      "complete_items": 240,
+      "explicit_refusal_count": 64,
+      "epistemic_abstention_count": 1,
+      "overlap_count": 0,
+      "technical_item_failures": 0
+    },
+    "caa": {
+      "paired_denominator": 240,
+      "complete_items": 240,
+      "explicit_refusal_count": 64,
+      "epistemic_abstention_count": 1,
+      "overlap_count": 1,
+      "technical_item_failures": 0
+    },
+    "sttp": {
+      "paired_denominator": 240,
+      "complete_items": 240,
+      "explicit_refusal_count": 61,
+      "epistemic_abstention_count": 0,
+      "overlap_count": 0,
+      "technical_item_failures": 0
+    },
+    "rank2": {
+      "paired_denominator": 240,
+      "complete_items": 240,
+      "explicit_refusal_count": 61,
+      "epistemic_abstention_count": 2,
+      "overlap_count": 1,
+      "technical_item_failures": 0
+    },
+    "pooled": {
+      "paired_denominator": 240,
+      "complete_items": 240,
+      "explicit_refusal_count": 61,
+      "epistemic_abstention_count": 0,
+      "overlap_count": 0,
+      "technical_item_failures": 0
+    }
+  }
+}

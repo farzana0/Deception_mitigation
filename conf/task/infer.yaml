@@ -1,0 +1,5 @@
+# One prompt through the base model with one intervention (greedy, thinking disabled).
+name: infer
+run_name: infer/${intervention.name}
+prompt: What is 2 + 2?
+max_new_tokens: 256

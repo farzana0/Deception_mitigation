@@ -1,0 +1,17 @@
+{
+  "sttp_reference": "https://github.com/Tara-Research/activation-steering-4-honesty/blob/68a7791ddc7240242dfb0af327580b9a07a19817/src/steering/sttp.py",
+  "sttp_reference_sha256": "7120246068f8331737579110abb0834c344397be295054a719b91fccfbada389",
+  "official_mask_revision": "25e0b1201e6c928ebe69f7c5aad6fa9063a377ea",
+  "settings_locked_at_utc": "2026-11-06T02:48:18Z",
+  "files": {
+    "steering/core.py": "6c4ec970516d8d09b34310161ddb84c032ba890cbfb27e1a8b46af0e5d5ced5c",
+    "steering/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "steering/experiment.py": "f1d2876ca7a4434cf8e6cbfcd7a7b120fc2dc52a20649900519cf269ef10b9db",
+    "steering/judge_mask.py": "6addd95ef6647413885e725c030ed4b30bd31a0ab1d0b08662c71bef8a95ef93",
+    "steering/machiavelli_local.py": "1ddca007821ed60392b02fe10641f3cd8ab115d02bb3ada978d5c5d2766222f2",
+    "steering/capability.py": "1eba65d8a0f820c514d6692a52ec87b8a61471cb877416ea60745b8da10f35ac",
+    "steering/official_mask.py": "21497e46b07c04a8a83049b8361943f3183a7f2ad15f858896d9cc2ee5c674e5",
+    "steering/grade_pilot.py": "fb6eb93c6ef5effce79b5b21df9bc96c4b2da70bc5266b032bf9129c155f2ebf",
+    "steering/prepare_api.py": "d3646c052f34ffa5e06ed4d8b0c304319e6a4782cbba3ac0eb6bccb3ba03d950"
+  }
+}

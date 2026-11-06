@@ -1,0 +1,11 @@
+{
+  "freeze_local": "2026-11-06T17:00:00-05:00",
+  "timezone": "America/Toronto",
+  "freeze_utc": "2026-11-06T22:00:00Z",
+  "main_mask_if_full_complete": "All 1000 items only if every condition has a complete technically valid judgment at freeze",
+  "main_mask_if_full_incomplete": "Original fixed 240-item cohort; report expansion separately as partial",
+  "do_not_stop_jobs": true,
+  "settings_remain_locked": true,
+  "capabilities_primary": "Deterministic MMLU broad capability and GSM8K mathematical reasoning on identical fixed test items",
+  "gsm8k_assistance": "Separate supplementary formatting extraction, never overwrite deterministic scores"
+}

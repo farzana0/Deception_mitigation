@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-06T14:27:04.087855+00:00",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "status": "passed",
+  "trust_scope": "Cached pinned Hugging Face download metadata; independent upstream metadata not yet verified",
+  "shards": [
+    {
+      "file": "model.safetensors-00001-of-00004.safetensors",
+      "bytes": 5276436216,
+      "sha256": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e",
+      "expected_cached_etag": "db6f444b43d318c92f360a13a25561a6a65b10c0631b8ed305a426dbaa6c380e",
+      "passed": true,
+      "seconds": 7.894491265004035
+    },
+    {
+      "file": "model.safetensors-00002-of-00004.safetensors",
+      "bytes": 5335161512,
+      "sha256": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330",
+      "expected_cached_etag": "31c7d7e2dd5d207840b31cc59083c8f4c4718959149e0358c0364052bb9a0330",
+      "passed": true,
+      "seconds": 10.346957570996892
+    },
+    {
+      "file": "model.safetensors-00003-of-00004.safetensors",
+      "bytes": 5368717440,
+      "sha256": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec",
+      "expected_cached_etag": "7ec36ba3a4176a44c3c0876ad80c56a2f70c84bf008d82e9501df642f17dadec",
+      "passed": true,
+      "seconds": 9.137018474997603
+    },
+    {
+      "file": "model.safetensors-00004-of-00004.safetensors",
+      "bytes": 3325995712,
+      "sha256": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6",
+      "expected_cached_etag": "b62b0c4cd7e44edee103ee8f4fe225f246d5e768e07bfd5f25b63a8aa1fdd0c6",
+      "passed": true,
+      "seconds": 5.233267857998726
+    }
+  ]
+}

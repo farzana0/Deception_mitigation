@@ -1,0 +1,4 @@
+# Fresh generations for one intervention on one dataset. Resumes from saved journals in the run dir.
+# MASK -> steering.experiment.evaluate_mask; capability -> steering.capability; machiavelli -> steering.machiavelli_local
+name: generate
+run_name: runs/${dataset.name}

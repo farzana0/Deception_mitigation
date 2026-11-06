@@ -1,0 +1,4015 @@
+{
+  "selection": "Complete official test splits for all six requested MASK configurations; no outcome-based selection",
+  "items": [
+    {
+      "config": "continuations",
+      "task_id": "6774a05e18ea0dba85f905e3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f00038ebd02880862"
+    },
+    {
+      "config": "continuations",
+      "task_id": "94882b7a-4b99-4cb6-b7e1-35e1238c0895_err"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a063ee8f67c06d67a690"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0177a5fc1bbfdb7490"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d2ea7f774f42e3776"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01efc911c62aa9bc50"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d7bef0aad6c940e8d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06230ae55c9ead7445d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05fb6e3034e56937897"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afd2acad0279fe7259c"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736aff7f26d5589483ac4c"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a063032913a2d1be9c24"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0635508de7c5966ace4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afd37d92e457bae5e65"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e1d5c7d5ff175ead4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0061d3d8c21199fa2b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef03df1065487e282324"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06122ef5e043d82b5a2"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e259546eece759a47"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00a1dae27c161f2597"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00b7d9e05ed55abf49"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05dddbf7e1a788fd3dd"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afeec6c1254679e44be"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e6efc42f50642acc1"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736aff89c054a05ff0858a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e22ef5e043d82b565"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afc57e986ec7eea751d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0355581d448e108334"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a060b7fcb6a24a852220"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a060032913a2d1be9bf2"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b02d6d6ab98bfce9b23"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d72fc706f4bb07eee"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afe91499998d8d18cbb"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e1f127d5f73f46e53"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afff2c3d86665eba2fc"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05ec4444204dae7b414"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afc84d69ce24fdd87f3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d1d106495d9fc9248"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0148e8698a62fb51ce"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d166b3d81caaa9632"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05d66f92a37db6b4a70"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05eb6e3034e5693787e"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06118ea0dba85f90623"
+    },
+    {
+      "config": "continuations",
+      "task_id": "7d3bf41b-798b-44a2-8eed-c173a625da25_err"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b02e362233422152fb3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0089bb46fd1454f4b0"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a064dfd47ea7ac910367"
+    },
+    {
+      "config": "continuations",
+      "task_id": "111dea0a-4b98-49e8-ba6f-ccc3d26f0aa9_err"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e5508de7c5966ac80"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8c2484206363ae30b7"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d72aebf7e14de716a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f1d5c7d5ff175eaed"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05df1ad57c9fb002b38"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e48dc566270f01215"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e6efc42f50642acdb"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef05e87fa36ec0ee1180"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afc703f075b50dc9ba6"
+    },
+    {
+      "config": "continuations",
+      "task_id": "5B3E4180F890"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062a71d70970752ad11"
+    },
+    {
+      "config": "continuations",
+      "task_id": "BB6E88C316A4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00593d0694260ccdd2"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736affb7c8c9e64276bd67"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8eb9c834403e700e76"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0177a5fc1bbfdb74a9"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0606c6025f779e20658"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0257e986ec7eea7569"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e817409f05edf6dce"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0464a4c4e4708b7345"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e166b3d81caaa9640"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef047c47bb486886616e"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05d5508de7c5966ac66"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f39a5a849dd791b3b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0377a5fc1bbfdb74c2"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0077a5fc1bbfdb7477"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01703f075b50dc9c0b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06366f92a37db6b4aee"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01af4f3a45a3ce4ab4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0364a4c4e4708b732c"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00f2c3d86665eba315"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef034b473623a516adfc"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef0541940eae49cf32e3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8f7baf7a2432abfd02"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e8e0bd2f0f91499b6"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b017ebe87ac39bfb14f"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05ea71d70970752acbb"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05fc4444204dae7b42e"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f5508de7c5966ac99"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b017e3b417e660ea999"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06239dab19f7a2c5e0c"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8eb9c834403e700e74"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05d713622d26260c740"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01a1dae27c161f25b0"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b012315f4101511d93b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f18ea0dba85f9060a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f032913a2d1be9bd9"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b025cff1c34440ab43b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e032913a2d1be9bc0"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0637ea8b67fcbaab4d4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afdd6d6ab98bfce9ad7"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01d6d6ab98bfce9b0a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b022acad0279fe72600"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0215f05df40bd1f5ed"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b002315f4101511d922"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0616efc42f50642ad0d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062259546eece759a92"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afde343f23b7dd32af7"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0348e8698a62fb5200"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062f1ad57c9fb002b84"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05fdfd47ea7ac91034e"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00184ad021c90387ec"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e8497d96fdd3663f8"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0617aef377721927072"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0619e8668738d6dd292"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a063d9fa9ffd1ad8d18b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05fa71d70970752acdf"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05f333046a9d420b171"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b007ebe87ac39bfb136"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b037e3b417e660ea9c0"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062032913a2d1be9c0b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d342c614cca814d6b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afc9facade787cc9f8b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d406443fbdc9af73c"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062ee8f67c06d67a677"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef0358b9d79144b755cc"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e18ea0dba85f905e1"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01efc911c62aa9bc37"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e6efc42f50642acc1_dup"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06350c9c9c3a5f5e0f9"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0601ac1e9df27d76b55"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0625508de7c5966accb"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afe9facade787cc9fa5"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a061333046a9d420b18a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0611d5c7d5ff175eb06"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b02c2895ecf63b84e6a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05ea71d70970752acb2"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05ff1ad57c9fb002b52"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0115f05df40bd1f5d4"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05d30ae55c9ead74416"
+    },
+    {
+      "config": "continuations",
+      "task_id": "0C31DE422029"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05ddfd47ea7ac91031b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef0515e88541a0932059"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05db6e3034e56937864"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0628e0bd2f0f9149a01"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afed6d6ab98bfce9af1"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8c72fc706f4bb07ed7"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afe7e3b417e660ea980"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef05707b8fcc9a7de04e"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0627e5112be97493259"
+    },
+    {
+      "config": "continuations",
+      "task_id": "0c017037-8b4a-433a-8a99-c674b0058ab7_err"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0189bb46fd1454f4c9_dup"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06266f92a37db6b4ad5"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736afd703f075b50dc9bc0"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8db1b27f320f12816b"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef039f56b5f0ead5b0e1"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef04273d4601ef7e8988"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a0636efc42f50642ad3f"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8c48dc566270f011ef"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736aff9facade787cc9fbe"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e7e5112be97493227"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05da5ef00a0dfccc38d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8eb2c8882f84f8582a"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e8497d96fdd3663f6"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a06130ae55c9ead74435"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b000b7bebba88db9481"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e9e8668738d6dd25f"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0389c054a05ff085d6"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8e2ea71c51cfb1356d"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e7ea8b67fcbaab46f"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b00184ad021c90387d3"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67817e8d406443fbdc9af737"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a05e00038ebd02880849"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6774a062c4444204dae7b460"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b0361d3d8c21199fa44"
+    },
+    {
+      "config": "continuations",
+      "task_id": "6787ef05a3846b965925d849"
+    },
+    {
+      "config": "continuations",
+      "task_id": "67736b01ec6c1254679e44d7"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717dd7a1c86eaf48ae7"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171dc22a7099fc92147d"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef084b473623a516ae5f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e96342c614cca814d85"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b13943c91dffe788f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717164e606b1d31f67bff"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717dd7a1c86eaf48adb"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171520678d6e4c76a349"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c5497661900231050"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171d3a6d28a71a0fb261"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef07fb31f2ec884cc759"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a92aa0e94a9afdeae"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef089f56b5f0ead5b12d"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171abb03dfd5f50d80d3"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a7a6be99e497fa9fe"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a7a6be99e497fa9e9"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c195d3988ad659db48"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b13943c91dffe7881"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771719dd7a1c86eaf48b15"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "024ed3ce-2128-43b7-a869-c9935f2b9096_err"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716bb03dfd5f50d8076"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef0784cf3709f0a2ec4f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171913943c91dffe784f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717195497661900230fe9"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b5497661900231034"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a20678d6e4c76a3c2"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171992aa0e94a9afde87"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c095d3988ad659db34"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c0b2d74bc8dbe8cdc8"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef07d887ba6c4b3436a2"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717177a6be99e497fa9ae"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c549766190023105b"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c92aa0e94a9afdeea"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717167a6be99e497fa994"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e8faf9dc1f6fe99495c"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171adcff84e2f0ca19d6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a005ada25e2c08e41"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771718bb03dfd5f50d80ae"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171bdd7a1c86eaf48b2e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c043536691a293f058"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171ddcff84e2f0ca1a21"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171cdac5a736499fec23"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c03e8f27717670dffe"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716005ada25e2c08dd4"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a5497661900231002"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717c22a7099fc921448"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a359b72111f8c449a"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c000038ebd02888d8f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c019bf530b4b1d291f"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c02d1c5605cb9cdd43"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c0032913a2d1bf24db"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171deecb18a7e1ec66a9"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b7bf2f0fbf74c5e28"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717184e606b1d31f67c4c"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716005ada25e2c08dc6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717177bf2f0fbf74c5dc4"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef077f9b421622c4c5ff"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67849ecd502c3be2aa3b24db"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c08abb2036f03c2fa6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e902ea71c51cfb13586"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "1B9197AD0FE2"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c17c656a179405765c"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171f7596008c2ffa2692"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef07e87fa36ec0ee11a3"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171adc179ed72b9841cd"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e8f72aebf7e14de7184"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716bb03dfd5f50d8064"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771718dcff84e2f0ca199e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c980d7873e3890b49"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c03e8f27717670dfee"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171d549766190023107e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef08e87fa36ec0ee11bc"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717187bf2f0fbf74c5ddd"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717193a6d28a71a0fb1fb"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717184e606b1d31f67c53"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171cdac5a736499fec17"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717194e606b1d31f67c8b"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771715dc179ed72b984157"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef09c2edb9bc3329a782"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "D3B5A70891AD"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171d7a6be99e497faa34"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef074b473623a516ae3c"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef079f56b5f0ead5b114"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171ca239660c59de4a11"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717fdce5e74b1b2aba0"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717359b72111f8c4458"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717157a6be99e497fa986"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171afdce5e74b1b2abe9"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "23FD518125FC"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c20a038edd896cc474"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171bdc179ed72b9841e6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c0aa768bce8338acf6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c1c696bb861226f2b4"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6787ef0741940eae49cf32fd"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171aeecb18a7e1ec665e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171beecb18a7e1ec6677"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c0fb03a4af5156ca48"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e8fb2c8882f84f85843"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717197bf2f0fbf74c5df6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a13943c91dffe785e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c980d7873e3890b6c"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a20678d6e4c76a3ae"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171cdcff84e2f0ca1a08"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717174e606b1d31f67c12"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717dcff84e2f0ca1977"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717197a6be99e497fa9ce"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171ba239660c59de49f8"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717163a6d28a71a0fb1b6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677717167bf2f0fbf74c5d92"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716eecb18a7e1ec6638"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171cdc179ed72b984218"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e9087aaa6c38044990e"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a5497661900231011"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771717fdce5e74b1b2ab90"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67817e8f166b3d81caaa9664"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c13b35e34d438af9f5"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771719dcff84e2f0ca19bd"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171b20678d6e4c76a3ef"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171692aa0e94a9afde4b"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171c13943c91dffe78b2"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171a359b72111f8c44a0"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "677677c04a14bb0dd4dac678"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771716980d7873e3890ad7"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "67771718dac5a736499feba6"
+    },
+    {
+      "config": "disinformation",
+      "task_id": "6777171ceecb18a7e1ec6690"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edbe260b367c78ca07f"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134d75a35a2d0514b8d4_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67ab8fa49af16aa2e897219c_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "F561D7E6580A"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134eb382c92ba5d9ae7c_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134e6b9341206c79ee01_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975eced94dfb05c4d78e4b"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed2def6fdcce6cc440d"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d554acb2a917fcc101d98_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a984dca9838a7bc72_dup_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed178ee3726cbd9d78d"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975eda3ff874b837460ee5"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca168742bc47057f35006_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553904f50fa3ebeacee3_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553e862e16180944013a_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553a0e75fcaf2976f9c2_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553604c3fb1dcbf942a7_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed1c85fcd009259c189"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca1684b96f907dbf5b76e_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "b4e16587-3d4f-4eef-938b-d694bd8b42d3_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553a36d8f3d3fd721f1f_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67ab8fa12a6fca04620b138b_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a794ce1a002c6671f3"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca1637793d7983dc59d87_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed7b8f88e60e8f92665"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67ab8fa32a6fca04620b13cd_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecddef6fdcce6cc43d8"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783135070bdc0d2bfe05042_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed529a630abb104a564"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca167970fa8a2cc35a845_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed129a630abb104a519"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed20a51ed16578b91b7"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edb38e7868c1c12e794"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a7f223281ba1456c0a"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d5538f65d5feac46a8f7f_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "E91B06762E9D_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd05a1575c4910b312"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "C7FE2FABF27B_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd7d728bf401a3efbd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed24f048eb25021cd93"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "4ED51BFBCFEF_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca166c7a1748e6a3218fa_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134d7e0f93f77f11fcc8_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553ef050bd12e3ec32b5_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "47a03596-4745-4b73-8128-0d4e3d7d0092_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca1652386f93e198bb8cb_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a7074e7f2a21ad5657"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a797042cb833b54ac9"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "f99ca987-c3f2-42a3-94a5-6dce08b39fc7_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca166076d03287db3879e_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed1e0a5e8bfb8af81d3"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d554acb2a917fcc101d9a_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca167f805515a112c331d_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d55403adab7784b4e435f_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d5537272e0e57ee739bc9_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d55406c8ebacc8c579f6d_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecf7d728bf401a3efd6"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "14252CAAC22B_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d55383adab7784b4e4309_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "32EE3324BB48_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "627411C67739"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67ab8fa91feba6369c2c362d_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "378a3a64-c07e-4b5b-8950-430a38bfab9a_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67ab8faf5d113ea3b741a688_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "4CF9EBA11D47"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edad94dfb05c4d78f07"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553871bef67330e54a38_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a74f12ee52bc000d56"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a32f2a805c1b70278_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecfdef6fdcce6cc43f4"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a0618cfe0d2c63549_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6C8314A213FF_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd05a1575c4910b2f8"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed33ff874b837460e75"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca165ae126bf71d97f436_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "47df16f7-eb8a-4a95-88a9-45b2bd3eb225_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed505a1575c4910b391"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecf05a1575c4910b32d"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "AC5065979E08"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553e0e75fcaf2976f9e9_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed63ff874b837460eb3"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd570af490e0bb09ec"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca167ef3e7cc06ed256d2_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553c862e161809440121_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134eac38580d2ac3e4ed_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed1570af490e0bb0a38"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd29a630abb104a4b4"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca16731c5d4f269383d30_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d5541a322fac77a47f825_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "eef1318d-c377-4ca4-9178-3a4745e55061_err_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed2d94dfb05c4d78ea1"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a790910d360abc270d"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca1670ca3c32a6e605643_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553a7b1b3da329858e7e_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd0a51ed16578b9152"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553afbc3a9937e3598e9_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca163422316de28d82f8d_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecf570af490e0bb0a1f"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "073152B8E1F1_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134db382c92ba5d9ae62_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd6a99cf3858da17f5"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975edafc76c815aaba21b1"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677ca169b72b1b4bc74db5ba_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553c272e0e57ee739c10_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d5537f65d5feac46a8f74_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3aea47cb86f82d6e13_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed191ec6aee30e9bb2c"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134eac38580d2ac3e4de_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d553736d8f3d3fd721eec_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a6c5bc4f1a4d39a3a6"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a08ea0129280ebdcf_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a6185b092401af8693"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ed12161e557ebd63d21"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecf2161e557ebd63d08"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677d55440c6cfd55d2964322_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6783134ed630cde9f871476b_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "67975ecd4f048eb25021cd47"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "6794f4a6d6745d0b7b3e811e"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a0d688ab8681454f5_dd"
+    },
+    {
+      "config": "doubling_down_known_facts",
+      "task_id": "677c4b3a3e2aac0736737b18_dd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a0e75fcaf2976f9c2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "F76613075E93"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167486974cdd727da0f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5542faae70227212a945"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e6b9341206c79ee01"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5538862e1618094400ed"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553ecb2a917fcc101d78"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5536f050bd12e3ec3274"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1654b96f907dbf5b73b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1630ca3c32a6e60560f_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d7e0f93f77f11fcc8"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537272e0e57ee739bd4"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1661956d330887d379d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d8dda2ccebd5acb0b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163422316de28d82f8d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16722b8067268d58bb0"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3aadea6644700e91d0"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1659523332124119d73"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55440c6cfd55d2964322"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d7daa299a4a624d90"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3ad3e9b7f7f0f756fa"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa49af16aa2e897219c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "b4e16587-3d4f-4eef-938b-d694bd8b42d3_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca165466da7ed3b1ed66f_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a3adab7784b4e432d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539d0afc24d80328264"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "f99ca987-c3f2-42a3-94a5-6dce08b39fc7_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fac2a6fca04620b14ee"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163076d03287db3877c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e4d850f9492352a86"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6ef2b702-76e5-4dad-95a8-e881a4ac2e4e_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a7b1b3da329858e7e"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553b36d8f3d3fd721f3a"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134f9a0f5e2d36a42da0"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a0be15e7c1c39f31f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca165d69ec3708131fbb2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e41b3c28beeb3f0f9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca168ca74deb82141cdbe"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e54eacee31e15c5a5_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d702d07e127b914ce"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55406c8ebacc8c579f6d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa94976f4830f1271ac"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1637793d7983dc59d78"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553e862e16180944013a"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16559b973e97b9d65ab"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "073152B8E1F1"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3b32f2a805c1b7028d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e88ca78b881ff0a95"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5541a322fac77a47f825"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16522b8067268d58b97"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6B5E91BAAE26"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d81f6ff8d511864ec"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55371943f1c28ed35193"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5541a322fac77a47f823"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5536cb2a917fcc101d47"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa35bef73f09b21d5b4"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134ed630cde9f8714773"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134ec684a8b9e6e3e4cb"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55403adab7784b4e435f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa5461eb193ef95b3dc"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16531c5d4f269383d17"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16726c55784390d50ed"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3abbb4233e9ac32bb4_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5542272e0e57ee739c42"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d554acb2a917fcc101d98"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa95d113ea3b741a5e7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5543183c9fbe073aaac5"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa91feba6369c2c362d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "eef1318d-c377-4ca4-9178-3a4745e55061_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134eac38580d2ac3e4de"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537fbc3a9937e3598cf"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163b4e0cec49896514f_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1660ca3c32a6e605628"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "E91B06762E9D"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16731c5d4f269383d30"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5546c1f8425ef003a7b7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553cb6682dba851f3062"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "5A127C872261"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167ef3e7cc06ed256d2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca162486974cdd727d9de"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1675f481a539e452758"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5540dd9411e6740876db"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55379b34f174ec9925b7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553ed6e8bcab856050df"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537500c5a8f11b186ac"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa2a1ec5f98daf75ec2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5547caedfad8e34e343c_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537500c5a8f11b186ae"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa100b2d86ca70b06b7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5540ea642531281810e9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537272e0e57ee739bc9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134db382c92ba5d9ae62"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16387f24a52672d0e91"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a32f2a805c1b70278"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa19a4c8f7905c08bad"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163076d03287db3876c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167466da7ed3b1ed688"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a36d8f3d3fd721f1f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553e0e75fcaf2976f9e9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "09A810C37365"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a04f50fa3ebeacefc"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "80318d47-2e8f-4adf-9265-96f7b3f50484_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167c7a1748e6a321913"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134daa7ef9920572021f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1652386f93e198bb8cb"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1638ffdb2eec96793cd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539dd9411e6740876b4"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "2E7037859DE1"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5543fe946d6b9428f2ca"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783135310635d989e5781c9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553736d8f3d3fd721eec"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e702d07e127b914e8"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16831c5d4f269383d49"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134ed4aaf6ce09ec8c1d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1695f481a539e45277b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "efe19c56-0089-4152-95ea-ad0a1645c55f_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1657597b932e9e0f70a"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "5EF3DC0A4A37"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163ef3e7cc06ed2568a"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1684b96f907dbf5b76e"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539272e0e57ee739bf7"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55511943f1c28ed351aa"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5537fe946d6b9428f295_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca17b26c55784390d5108"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553afbc3a9937e3598e9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca16b7597b932e9e0f731"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d554904c3fb1dcbf9433b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553704f50fa3ebeacebc"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d75a35a2d0514b8d4"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553b862e161809440108"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3ad20fd79a492269fd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134eaa7ef9920572022f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa92a6fca04620b1486"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134dd7019db913b36c31"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3b15566f54a4f7472f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d555971bef67330e54a73"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539fe946d6b9428f2af"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d554e9b34f174ec992628"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa785bb321eed9f13c8"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539500c5a8f11b186d5"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8faa1feba6369c2c365e"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a984dca9838a7bc72_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca166076d03287db3879e"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134dc2d81fe5321edd47"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553c862e161809440121"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134dd630cde9f871474b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134ed630cde9f871476b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a7242d6d0b8288366"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a5fde8bd454b8d1dd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "4ED51BFBCFEF"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783135070bdc0d2bfe05042"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134dd4aaf6ce09ec8c03"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "F98D35EB8315"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d9a0f5e2d36a42d86"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "e4712fbc-9adf-4cce-91cc-bf39dff7f6f2_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca163b4e0cec49896514d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539dd9411e6740876b2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553871bef67330e54a38"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a0d688ab8681454f5"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a15566f54a4f74721"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e54eacee31e15c5a5"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167ae126bf71d97f44f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553e04f50fa3ebeacf0c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553cfbc3a9937e35991d"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "A910CD37DABE"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa04976f4830f1270db"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55397b1b3da329858e5b"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1623060f1b02ed44d49"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa32a6fca04620b13cd"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5538862e1618094400ed_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134ee365f598a0aaf6d8"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "32EE3324BB48"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca165b4e0cec498965178"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553c272e0e57ee739c10"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "14252CAAC22B"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "C7FE2FABF27B"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6700C8C90B94"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553e500c5a8f11b18709"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3be5bfffd10ea624b9"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1637597b932e9e0f6f0"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "C305FE95BCAB"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167613efc1b46684483"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3afa6347e5033994e2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5543183c9fbe073aaac5_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6EF224F68F87"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5539f65d5feac46a8fa2"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa05d113ea3b741a4ff"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca165ca74deb82141cd8c"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e13a83e5444594803"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134d6bf44ac103fd7031"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca166c7a1748e6a3218fa"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6C8314A213FF"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5540bdfb69c9dd68b23e"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "6783134e3a508c2df52e4c3f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa16fe8a3dfb9685da0"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca1688ffdb2eec967941f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d55390e75fcaf2976f999"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "47a03596-4745-4b73-8128-0d4e3d7d0092_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d5538f65d5feac46a8f7f"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "757BFFD0EE94"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677ca167742bc47057f34fed_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553a500c5a8f11b186ee"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "67ab8fa5a1ec5f98daf75f00"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3a0be15e7c1c39f31f_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677c4b3aadea6644700e91d0_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "F4FBE2966EAE"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d554acb2a917fcc101d98_dup"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "47df16f7-eb8a-4a95-88a9-45b2bd3eb225_err"
+    },
+    {
+      "config": "known_facts",
+      "task_id": "677d553604c3fb1dcbf942a7"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3145008ba956213c3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca781df6a20474deefa"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faef18d5a473dc77199"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5a9c6941ffc048a8c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabe6b0d3da35141389"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53657f70af676423bc5e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca7b8bdfee84842ce4c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef07b573163cb7c8b166"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca6f5ee2c6d3ada1520"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362e7ddfbf5711245ad"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5366b9487e34543c95f8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa9f18d5a473dc7710d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8facf18d5a473dc77165"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca61d6d3aad08c498e6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef04df1065487e28233e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa55d113ea3b741a581"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab33a2a7776bc65e20e82f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536672e8edd2a527df7e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5e6b0d3da3514133d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5364b6b123783c41bfa3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa8d97026f407fa3377"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f3d5f3acd4459af16"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3d97026f407fa32e7"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baf4492929ad41da8c6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa36fe8a3dfb9685dd5"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa1d97026f407fa32c0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae6bcd5de10b0e71ed"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3cf8f1fda13f9b97f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef0684cf3709f0a2ec28"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365011028365133b0e8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849eccdc95cbbe5c8d3fb0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb0491ea3f1b5493f2"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536319a74f2ed03dab60"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536632c881dbbdbf2d49"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb11fa6f2ae9e3beb6f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5364f767e2c347a9b4d4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5364011028365133b0cf"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb6ae2c4c8b2dc8397"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca7ffd1adb2f381648a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5bc629891b62b75fc"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa82a6fca04620b146c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3366bbbde99921011"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca540c14dc39260babd"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa52a6fca04620b142e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca8752ee6222e589416"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bad5678a62e9bd4221d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536a1e4a18dde96165b2"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365d3ed3bc96545532a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae5aa7839b8358f9ad"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef067acbb07aa26c8595"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365e1d0621a03333398"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca530f0fecd1128652c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536219a74f2ed03dab47"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faea1ec5f98daf75f81"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca881df6a20474def13"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa9f18d5a473dc770fd"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef0443986f116157b1be"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5c158b542095f824a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb061b7f951a84d9189"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa1a1ec5f98daf75ea8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67A2A02E2DC4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabf8a1af2b442b972e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baeabd0af51a672ee1c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab22f582df877ac79e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab8a312139573950b9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef0658b9d79144b755e6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536032c881dbbdbf2ce4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bafabd0af51a672ee2b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecd62017d6f70569366"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb16cb9edd18bfca388"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53637f70af676423bc45"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53627ae0142eebfddc3a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb71fa0ec13f7867ef"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8facd97026f407fa33da"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef05a3846b965925d859"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca531c8baf2204b1b0d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa52a6fca04620b141b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca63b4a3809a14a0f69"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecd0491ea3f1b549423"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f011028365133b083"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca93f80b72cac29734d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363f4cba8c4c95e2152"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536622c41b7a26f4a296"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecab44f50fdb4b9bae5"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baeab95a3d11fa1905d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb12d050266143ed091"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baf9c150d7bad5b369e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa7a1ec5f98daf75f44"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362e7ddfbf5711245b9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53656e6aa6b0b85b1361"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca722f582df877ac753"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535ff62d223b70608afa"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae2c3fbc3f5e2d70c1"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabbc629891b62b7616"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca8f8a1af2b442b96fc"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363e636d9ab52c39c30"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bafc6b2799c253a6471"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fabcf8f1fda13f9ba32"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca846cf91dbc55bc851"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535ff767e2c347a9b488"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5f8a1af2b442b96c9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab0ecb52858c915d2a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365330af71cf9b3e431_dup"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5685cf9fe4bf7cb6e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536246007dea1e7771c2"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fab4976f4830f1271fa"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363d8bf6ce403689308"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa9461eb193ef95b452"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5367eb14734104359774"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f5fd3d3944b271805"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca6f8a1af2b442b96e3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa79af16aa2e8972219"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baec6b2799c253a645b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536646007dea1e77720d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef04d4d42a09003e4bb3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb306694503a49e927"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca68a3121395739504b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5752ee6222e5893e3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fae00b2d86ca70b0838"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fae461eb193ef95b4c4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca730f0fecd11286546"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb03c1ed7883522e64b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef067f9b421622c4c5ea"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa1366bbbde99920fe1"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca7f5ee2c6d3ada1552"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca481df6a20474deeb3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecd6412c79af2ae72d0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa45d113ea3b741a566"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb02f7657b2c076b91f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5364eaa2d7ec319b5c63"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecae95e82e8d825ca6d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae6bcd5de10b0e71dd"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef065e8e623e6460d62c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb0f0a6f9e65d6d7ac5"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa3b5ab8c8e18eab1ae"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faacf8f1fda13f9ba16"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53633d86ab9d46925622"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53625cee856e1d5faca7"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb6412c79af2ae72b6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca77865f3dfe24257cf"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53652b648601b1bd53f3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbe3f416c297e3af90"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca88a31213957395083"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa7d97026f407fa3362"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536222c41b7a26f4a24b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536494898e59740e0f02"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa900b2d86ca70b07b6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5366806c72156e2f0744"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baedcfe0bf2c9b51f43"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535fb6b123783c41bf89"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5a9c6941ffc048a72"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb0b6533cf10aea7682"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca8ffd1adb2f381649f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa1f18d5a473dc77056"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53605fd3d3944b271813"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae34acd94e5cfbc326"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849eca7b525e0348e2a3ab"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb12c3fbc3f5e2d70eb"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53635cee856e1d5facc0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faccf8f1fda13f9ba64"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbf6be0416a9c55fd6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef050b9fc4d0442d9507"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365e7ddfbf5711245f5"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab81df6a20474def45"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca87865f3dfe24257e8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca59787f2debf90b772"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362e1d0621a03333366"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa85d113ea3b741a5cd"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faed97026f407fa342b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bb05678a62e9bd42247"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabf833828d3714e4f2"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab40c14dc39260bb22"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f654e5ed7b3d51e62"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae61b7f951a84d916e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef07273d4601ef7e89b9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca6f833828d3714e484"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535feaa2d7ec319b5c17"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5360e1d0621a03333342"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabb58084754032cfea"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faa85bb321eed9f140f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa485bb321eed9f1379"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9f80ab520086208b4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5360e1d0621a03333334"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca91d6d3aad08c49924"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab685cf9fe4bf7cbbf"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa86fe8a3dfb9685e6b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae670869153b3da65a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca922f582df877ac785"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa8461eb193ef95b421"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f3d86ab9d469255ef"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab9787f2debf90b7be"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536332c881dbbdbf2d17"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362d3ed3bc9654552f1"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa800b2d86ca70b0792"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecd4c3c525464c20e81"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cab68ac3c9840b82fd3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362654e5ed7b3d51e7c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baf670869153b3da675"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb0491ea3f1b549400"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5360806c72156e2f06eb"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa2978c144ce950d541"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535ff4cba8c4c95e211f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2badaec1a5f0a5d35155"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9854918f7106634a3"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bad9c150d7bad5b3683"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbdc95cbbe5c8d3f9b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbf2d9dba5ef043571"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabad3c59bd52b80ad8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca60225c6d074d4897d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362eb1473410435974d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca55ced3f2b73b50b63"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef0684cf3709f0a2ec26"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa1d97026f407fa32b1"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536394898e59740e0ee9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbf2fa23829cea6019"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca7ee061b8508b411fa"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca57865f3dfe242579c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa59af16aa2e89721e5"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9f833828d3714e4d9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa385bb321eed9f134b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca79787f2debf90b78c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa600b2d86ca70b072c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536619a74f2ed03dabab"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849eca62017d6f70569333"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9685cf9fe4bf7cb83"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa4d97026f407fa3314"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5366011028365133b101"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca968ac3c9840b82fba"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363e1d0621a0333337f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363011028365133b0b6"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baf5678a62e9bd42238"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca6f5ee2c6d3ada152e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa585bb321eed9f139a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363654e5ed7b3d51e95"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa9366bbbde999210a9"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849eca508f3cf01ccc95cb"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baeaaf1e76c9d14a197"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535f2b648601b1bd53c0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca68dc7b21a3f7f6b6f"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef047acbb07aa26c8571"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca740c14dc39260baf0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5366eaa2d7ec319b5c7c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2baece240ceb594abb84"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca5b8bdfee84842ce32"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef05fb31f2ec884cc740"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f53607ae0142eebfddc13"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536422c41b7a26f4a27d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bafa007ed1854f47096"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa500b2d86ca70b071b"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecbe2c52491384d141c"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f535fe636d9ab52c39bfd"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecdf6be0416a9c55ff0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536232c881dbbdbf2cfe"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca7854918f710663472"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67849ecb76a4fcebe85ee841"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362f4cba8c4c95e2139"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8faa366bbbde999210c4"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2badd916ebddbb301439"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5363d55e92c0c145cd3a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5362330af71cf9b3e418"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9c158b542095f827d"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef054b473623a516ae0a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fab461eb193ef95b490"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa54976f4830f12715a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f5365d8bf6ce40368933a"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef074e512f32e3cec282"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709ca9a9c6941ffc048ad8"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabc158b542095f82ab"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae6cb9edd18bfca34e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67ab8fa35d113ea3b741a537"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "67709cabf80ab520086208d1"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "676f536294898e59740e0ed0"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "6787ef07ca61a72bcb9ca85e"
+    },
+    {
+      "config": "provided_facts",
+      "task_id": "678e2bae2d050266143ed076"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992767c26e3533f441684"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015afb63dfdabe513c345"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a431ed060f247f27a8"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a509fdccc0b27d7375"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ab2571798d2a4d2a91"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a222ae8820756caba1"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a4d1df171b03978d96"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015adc80c1eb70d0932d9"
+    },
+    {
+      "config": "statistics",
+      "task_id": "4d1ad041-cc02-4da8-a12e-83f942166c53_err"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a609fdccc0b27d7398"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8fef0d8afb03eafdc"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275a033c4ad46dc55f2"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a9dccf5cf985d56a7c"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a6c924153ddeec3640"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8ad2f430942f3f630"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a622ae8820756cabbb"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aa2571798d2a4d2a78"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ae73b920f9bbea8e48"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a28ecbc499d01bd265"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b20adfbddbf27561bb"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ad4bf472416298d3a2"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992767c26e3533f441686"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a331ed060f247f278e"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b24a59c812ead9c67b"
+    },
+    {
+      "config": "statistics",
+      "task_id": "05753812-7c4e-470c-96ae-8584aa7c8e3f_err"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ad8ecbc499d01bd315"
+    },
+    {
+      "config": "statistics",
+      "task_id": "6789927543bc5fa3422c52e3"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a6dccf5cf985d56a4a"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a3fef0d8afb03eaf96"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b073b920f9bbea8e61"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015afb14bffbd35e3a895"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015adc80c1eb70d0932d2"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aaf05aede25a2a038d"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aed522f8db40d7633f"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8d522f8db40d762d9"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a4a1304fb4b3a46c3a"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275d59030797179b939"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ad4a59c812ead9c630"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a60adfbddbf275616b"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992762e03ca7652badf5a"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8dbc0f4236a378a8c"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b04bf472416298d3d4"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275fe189df1cbf6da54"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ab0a61d6428ce8c224"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aadbc0f4236a378aa5"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a446c4882d53888ec5"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8449c0f72c2b30639"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992752e03ca7652badf40"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275bbbe6f2a40494678"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a9ad2f430942f3f649"
+    },
+    {
+      "config": "statistics",
+      "task_id": "6789927543d7ec58fd61e629"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b0d522f8db40d76358"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a48ecbc499d01bd298"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015adad734e541144ecd2"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015adfef0d8afb03eb00e"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899276b2e357b222d5856b"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a42571798d2a4d29fb"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8d1df171b03978dde"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015afc80c1eb70d0932fc"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899277fe189df1cbf6da87"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a6449c0f72c2b30620"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aaa1304fb4b3a46c94"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a822ae8820756cabd4"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275c242f7dac64128f5"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015adf05aede25a2a03bf"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8fbf7014277b588dc"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015abb63dfdabe513c313"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a473b920f9bbea8db2"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ad31ed060f247f2825"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015afcb0357a228a65a00"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275037753e7a22ebb11"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015add522f8db40d76326"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a8c924153ddeec3659"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275dea1151e3af1e9ee"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a64a59c812ead9c5cc"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a273b920f9bbea8d98"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a4ad734e541144ec4a"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899276c242f7dac641290f"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a931ed060f247f27f3"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a5aee43a44e3af9ae4"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a62571798d2a4d2a14"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aeaa013159d1e039ea"
+    },
+    {
+      "config": "statistics",
+      "task_id": "67899275ee047a5a11c5ce9b"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015ab31ed060f247f280c"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aa2e89e56e3617363d"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015acd1df171b03978e10"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015b109fdccc0b27d742e"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aa73b920f9bbea8dfd"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015addbc0f4236a378ad7"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015af449c0f72c2b30684"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a6ad734e541144ec6e"
+    },
+    {
+      "config": "statistics",
+      "task_id": "678992771730971f8902f36d"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a2dbc0f4236a378a28"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015aca1304fb4b3a46cad"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a7aee43a44e3af9afd"
+    },
+    {
+      "config": "statistics",
+      "task_id": "679015a3c80c1eb70d093247"
+    }
+  ],
+  "items_per_config": {
+    "continuations": 176,
+    "disinformation": 125,
+    "doubling_down_known_facts": 120,
+    "known_facts": 209,
+    "provided_facts": 274,
+    "statistics": 96
+  },
+  "target_items": 1000,
+  "settings_sha256": "8caa40a84ec74c1ceb2077427b6dd90a00fd3f29d4c1b1328724cf6e717d1527"
+}
