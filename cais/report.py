@@ -6,6 +6,7 @@ deduplication, pairing and assessability rules.
 import csv, filecmp, json, shutil
 
 import matplotlib
+import matplotlib.ft2font
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
@@ -132,7 +133,6 @@ def rebuild_outputs(cfg, run, package):
     shutil.rmtree(outputs, ignore_errors=True)
     shutil.copytree(package / 'report', outputs)
     shutil.copy2(package / 'data/verified_item_ids.json', outputs)
-    import matplotlib.ft2font
     result = {'status': 'passed' if all(checks.values()) else 'failed', 'checks': checks,
               'png_byte_identical': png_identical,
               'renderer': {'matplotlib': matplotlib.__version__, 'freetype': matplotlib.ft2font.__freetype_version__},

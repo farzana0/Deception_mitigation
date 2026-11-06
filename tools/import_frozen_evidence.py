@@ -7,7 +7,7 @@ re-verifies before using anything.
 
 Usage: python tools/import_frozen_evidence.py --package /path/to/frozen/submission
 """
-import argparse, gzip, hashlib, json, shutil
+import argparse, gzip, hashlib, json
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]

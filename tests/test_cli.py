@@ -1,11 +1,10 @@
 """Hydra configs compose for every option group and agree with the locked artifacts (no GPU, no torch)."""
 import json, unittest
-from pathlib import Path
 
 from hydra import compose, initialize_config_dir
 
-from cais.workspace import REPO, check_locked, jsonl, repo_path, sha256
-import cais.cli  # registers the repo_root resolver
+from cais.workspace import REPO, check_locked, repo_path, sha256
+import cais.cli  # noqa: F401  (registers the repo_root resolver)
 
 GROUPS = {g: sorted(p.stem for p in (REPO / 'conf' / g).glob('*.yaml'))
           for g in ['task', 'model', 'intervention', 'dataset', 'judge_model', 'judge_rubric']}
