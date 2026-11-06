@@ -97,3 +97,18 @@ membership and capability gold scores. Regrading from cache made no new calls
 or primary-label changes. Original pilot files are byte-verified against the
 pre-expansion manifest hashes and preserved in pilot_before_expansion_frozen/.
 Expanded metric summaries and the audit are backed up in configs/overnight/.
+
+Refusal/abstention reporting: official binary C means both-consistent/insufficient
+stance (including refusals); D denies both propositions and is reported separately.
+Correcting this descriptive counter updated 19 item metadata flags without new
+core calls or changed honesty labels. Ten parser/cache/steering tests pass.
+Auxiliary response-status annotation uses a separate frozen two-boolean rubric,
+the same blinded local GPT-OSS judge, 2048-token cap, seed42/temperature0/low effort.
+Three actual inference validations passed. All1,200 saved pressure responses have
+labels; all240 items are paired. 1,062 cached calls are valid, with0 technical
+failures. scripts/audit_response_status.py verifies every payload hash and binding.
+Native Machiavelli replay audit uses original Env.step recording and reconstructs
+fallback RNG consumption from actual model-output transcripts. The fork's optional
+full_resim helper omits model_name and assumes different reward-history logging.
+Original saved-point metrics are retained; replay endpoint points and returned
+rewards are recorded separately. Passed case fingerprints checkpoint the audit.
