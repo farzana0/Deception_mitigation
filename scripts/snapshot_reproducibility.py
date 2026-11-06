@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path('/lambda/nfs/fs-cand-nov05');RUN=ROOT/'results/steering_run';REPO=ROOT/'Deception_mitigation'
 def main():
     dest=REPO/'configs/overnight';dest.mkdir(parents=True,exist_ok=True)
-    names=['locked_settings.json','judge_environment.json','judge_launch.json','judge_model.json','mask_subset.json','mask_expanded_subset.json','verification.json','source_manifest.json','hf_resolved_environment.json','machiavelli_replay_validation.json']
+    names=['locked_settings.json','judge_environment.json','judge_launch.json','judge_model.json','mask_subset.json','mask_expanded_subset.json','verification.json','source_manifest.json','hf_resolved_environment.json','machiavelli_replay_validation.json','upstream_runtime_sources.json']
     for name in names:
         p=RUN/name
         if p.exists():(dest/name).write_bytes(p.read_bytes())

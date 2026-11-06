@@ -1,0 +1,23 @@
+{
+  "mask": {
+    "revision": "25e0b1201e6c928ebe69f7c5aad6fa9063a377ea",
+    "status": "?? mask/prompts/__pycache__/\n",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "files": {
+      "mask/evaluate.py": "ae2eb61cbfde6f668e8d8e3c54bcc664778c63bd65c7963b26436ae79d4a4f46",
+      "mask/metric.py": "3b6041fee7a05f5a09fd72af652db7295f941fce1c00e7b43d4999c501935111",
+      "mask/prompts/evaluation_prompts.py": "b0d6153aa9f4d3e994d61c55398cefc01d9f8f2aab87a527b202cf8ae592a813"
+    }
+  },
+  "simple-evals": {
+    "revision": "8e53435ff2985b0f32ea7ceb7e92c3a175f2c0f3",
+    "status": "?? machiavelli_eval/game_data\n",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "files": {
+      "machiavelli_eval/machiavelli_eval.py": "29911632927dfe86ffc7ded2c8757fdd7140802fd65880936c6d6e1157e9a018",
+      "machiavelli_eval/evaluate_trajectories.py": "e9f7b7301f3234e38331ad4a82d2ec2f62c315abc7b64f628ff3bc22195f125a",
+      "machiavelli_eval/machiavelli/agent/machiavelli_agents.py": "ff1a2283dd545eec825e5f2be9893bc00bf931e840f6f35730cca38ae2170a9c",
+      "machiavelli_eval/machiavelli/game/machiavelli_env.py": "b8de429f14bfb5750712b955d8e4302c01ec8bbe048ae536d2c07a66fd24fef4"
+    }
+  }
+}
