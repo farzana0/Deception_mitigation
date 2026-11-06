@@ -116,8 +116,13 @@ def rebuild_outputs(cfg, run, package):
     checks = {f'tables/{p.name}': identical(package / 'report/tables' / p.name, p) for p in sorted((frozen / 'tables').iterdir())}
     checks['verified_item_ids.json'] = identical(package / 'data/verified_item_ids.json', frozen / 'verified_item_ids.json')
     checks['report.md'] = identical(package / 'report/report.md', frozen / 'report.md')
-    checks.update({f'figures/{n}': identical(package / 'report/figures' / n, frozen / 'figures' / n) for n in REBUILT_FIGURES})
+    frozen_tables = json.loads((frozen / 'tables/verified_tables.json').read_text())
+    checks['figure data: mask_main bar heights'] = (
+        [(r['condition'], r['deception']) for r in tables['mask_full1000']] ==
+        [(r['condition'], r['deception']) for r in frozen_tables['mask_full1000']])
     checks['figure_data/mask_main.csv'] = identical(run / 'figure_data/mask_main.csv', REPO / 'results/figure_data/mask_main.csv')
+    # PNG bytes depend on the FreeType build used for text antialiasing, so they are reported, not gated.
+    png_identical = {n: identical(package / 'report/figures' / n, frozen / 'figures' / n) for n in REBUILT_FIGURES}
     checks.update({f'paired_examples/{n}': identical(run / 'paired_examples' / n, REPO / 'results/paired_examples' / n)
                    for n in ['paired_examples.jsonl', 'paired_examples.md']})
     checks['cohort selection: full1000, first observed before freeze'] = (
@@ -127,7 +132,10 @@ def rebuild_outputs(cfg, run, package):
     shutil.rmtree(outputs, ignore_errors=True)
     shutil.copytree(package / 'report', outputs)
     shutil.copy2(package / 'data/verified_item_ids.json', outputs)
+    import matplotlib.ft2font
     result = {'status': 'passed' if all(checks.values()) else 'failed', 'checks': checks,
+              'png_byte_identical': png_identical,
+              'renderer': {'matplotlib': matplotlib.__version__, 'freetype': matplotlib.ft2font.__freetype_version__},
               'not_compared': 'report.pdf embeds its creation time', 'outputs': str(outputs)}
     (run / 'verification.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

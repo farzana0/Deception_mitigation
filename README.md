@@ -58,7 +58,10 @@ python3 -m venv .venv-rebuild && .venv-rebuild/bin/pip install -r requirements-r
 This verifies every evidence file against `evidence/MANIFEST.json`, rebuilds the submission layout under
 `outputs/rebuild/package/`, and reruns the original `scripts/submission_tables.py` and `scripts/render_submission.py`.
 It then writes the 12-item paired prompt/response examples and figure data, and compares everything with the frozen
-copies. It exits non-zero on any difference.
+copies. It exits non-zero on any difference in tables, item IDs, `report.md`, figure data (bar heights) or examples.
+PNG bytes depend on the FreeType build used for text antialiasing, so `verification.json` reports them separately.
+They are byte-identical with Ubuntu's matplotlib 3.5.1 and FreeType 2.11.1. The pip wheel bundles FreeType 2.6.1,
+which changes text antialiasing (1–2% of pixels) but not the plotted data.
 
 | Output | Path |
 | --- | --- |
