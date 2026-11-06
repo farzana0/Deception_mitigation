@@ -15,6 +15,7 @@ credentials*
 secrets*
 # Environments and caches
 .venv/
+.venv-*/
 venv/
 env/
 deps/
