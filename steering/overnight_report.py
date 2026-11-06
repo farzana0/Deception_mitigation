@@ -95,7 +95,7 @@ def render():
         sections.append('Resolved operational issue at '+note['utc']+': '+note['issue']+' '+note['recovery'])
     audit=read(RUN/'overnight_saved_output_audit.json')
     if audit:sections.append('Saved-output verification: '+audit['status']+'; '+str(audit['unique_generations'])+' unique generations, '+str(audit['condition_item_judgments'])+' condition-item labels recomputed with official metrics, and '+str(audit['capability_gold_verified'])+' capability records checked against gold answers. Metric refresh used only cached judgments, with unchanged call ledgers and primary labels. Original pilot bytes are preserved in pilot_before_expansion_frozen/ and match the hashes recorded before expansion.')
-    sections.append('Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. Evaluation jobs remain partial while running. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.')
+    sections.append('Current blockers: no unresolved infrastructure blocker recorded at this checkpoint. The 240-item MASK subset, capability subsets, and all 20 planned game-seed trajectories are complete and audited. Monitoring continues through the allocated overnight window. Interpretation limits: small capability pilots, capped generations/trajectories, local single-judge scoring, and upstream random fallback actions. Check live logs for new errors before resuming.')
     sections.append('Artifacts: /lambda/nfs/fs-cand-nov05/results/steering_run contains raw generations, fit.pt/extraction.pt, locked settings, independent calls/items/paired summaries and sensitivity. Logs: /lambda/nfs/fs-cand-nov05/logs/{mask_judge_server,mask_gptoss_grade,steering_experimentCONDITION,capability_CONDITION,machiavelli_CONDITION}.log. Use paired summaries and per-trajectory CSVs to establish completion; legacy exitcode filenames can be shared between pilot and expansion commands. Actual PID/GPU/CUDA_VISIBLE_DEVICES assignments are checkpointed in gpu_process_snapshots.jsonl; queued tmux jobs can be waiting on locks without occupying a GPU. Auxiliary response-status calls/items and native replay case audits are preserved separately from core judgments. No raw artifacts are staged in Git.')
     commands='''cd /lambda/nfs/fs-cand-nov05/Deception_mitigation
 # First inspect tmux ls and nvidia-smi; do not duplicate healthy jobs.
@@ -112,6 +112,10 @@ for condition in baseline caa sttp rank2 pooled; do
   CUDA_VISIBLE_DEVICES=0 STEERING_EVAL_CONDITIONS="$condition" MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json bash scripts/run_steering.sh --phase eval
 done
 MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json MASK_JUDGE_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_expanded bash scripts/grade_mask_pilot.sh
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.response_status
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_saved_evaluations.py
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_response_status.py
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_machiavelli.py
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report'''
     sections.append('Executable resume commands (put GPU workers in tmux and confirm GPU 0 is free first; judge uses GPU 5):\n```bash\n'+commands+'\n```')
     text='\n'.join(line.rstrip() for line in '\n\n'.join(sections).splitlines())+'\n'
