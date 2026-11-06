@@ -33,7 +33,8 @@ def audit_aux(name,work,target):
 async def audit_mask():
     from datasets import load_from_disk
     manifest=json.loads((RUN/'mask_full_test_manifest.json').read_text());assert len(manifest['items'])==1000
-    sources=mask_rows();expected=set();settings=digest(RUN/'locked_settings.json');locked=json.loads((RUN/'locked_settings.json').read_text());assert digest(RUN/'fit.pt')==locked['fit_sha256']
+    sources=mask_rows();assert set(sources)=={(i['config'],i['task_id']) for i in manifest['items']},'Full local test data/manifest mismatch'
+    expected=set();settings=digest(RUN/'locked_settings.json');locked=json.loads((RUN/'locked_settings.json').read_text());assert digest(RUN/'fit.pt')==locked['fit_sha256']
     for i in manifest['items']:
         row=sources[i['config'],i['task_id']]
         types=['pressured']+['belief_'+str(k) for k in [1,2,3] if row.get('belief_elicit_'+str(k))]
@@ -42,6 +43,13 @@ async def audit_mask():
     grouped=collections.defaultdict(set)
     for k,g in gs.items():
         assert g['settings_sha256']==settings and len(g['result']['token_ids'])<=256
+        source=sources[k[:2]]
+        if k[3]=='pressured':
+            prompt=[{'role':'system','content':source['system_prompt']}]
+            if k[0]=='doubling_down_known_facts':prompt.extend([{'role':'user','content':source['dd_turn_1_prompt']},{'role':'assistant','content':source['dd_turn_1_response']}])
+            prompt.append({'role':'user','content':source['user_prompt']})
+        else:prompt=[{'role':'system','content':'You are a helpful assistant.'},{'role':'user','content':source['belief_elicit_'+k[3].split('_')[1]]}]
+        assert g['messages']==prompt,(k,'source prompt mismatch')
         grouped[k[0],k[1],k[3]].add(json.dumps(g['messages'],sort_keys=True))
     assert all(len(v)==1 for v in grouped.values())
     # Verify duplicate journals agree, without rewriting any raw record.
@@ -95,6 +103,22 @@ def main():
     audit['auxiliary']['response_status']=audit_response_status(gs)
     cap=json.loads((RUN/'capability_extraction_v1/summary.json').read_text());assert cap['records']==200
     outputs=[r for p in RUN.glob('capability_*.jsonl') for r in complete_lines(p)];assert len(outputs)==200
+    from datasets import load_from_disk
+    import decimal,re
+    cap_sources={b:load_from_disk(str(ROOT/'data'/relative)) for b,relative in [('mmlu','cais__mmlu/all/test'),('gsm8k','openai__gsm8k/main/test')]}
+    for raw in outputs:
+        source=cap_sources[raw['benchmark']][raw['index']]
+        expected=chr(65+source['answer']) if raw['benchmark']=='mmlu' else source['answer'].split('####')[-1].strip().replace(',','')
+        assert raw['expected']==expected and raw['settings_sha256']==result['settings_sha256']
+        text=raw['result']['text']
+        match=re.search(r'\b([ABCD])\b',text) if raw['benchmark']=='mmlu' else re.search(r'####\s*([-+]?\d[\d,]*(?:\.\d+)?)',text)
+        prediction=match.group(1).replace(',','') if match else None
+        correct=prediction==expected
+        if raw['benchmark']=='gsm8k' and prediction is not None:correct=decimal.Decimal(prediction)==decimal.Decimal(expected)
+        assert prediction==raw['prediction'] and correct==raw['correct']
+    for b,count in [('mmlu',30),('gsm8k',10)]:
+        selected=set(sorted(range(len(cap_sources[b])),key=lambda i:hashlib.sha256((b+str(i)).encode()).hexdigest())[:count])
+        for c in CONDITIONS:assert {r['index'] for r in outputs if r['benchmark']==b and r['condition']==c}==selected
     extraction=json.loads((RUN/'capability_extraction_v1/extraction_items.json').read_text());assert len(extraction)==200 and not any(r['judge_failure'] for r in extraction)
     calls={r['request_id']:r for r in complete_lines(RUN/'capability_extraction_v1/calls.jsonl')}
     by={(r['benchmark'],r['index'],r['condition']):r for r in outputs}
