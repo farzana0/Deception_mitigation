@@ -112,3 +112,10 @@ fallback RNG consumption from actual model-output transcripts. The fork's option
 full_resim helper omits model_name and assumes different reward-history logging.
 Original saved-point metrics are retained; replay endpoint points and returned
 rewards are recorded separately. Passed case fingerprints checkpoint the audit.
+
+Main trajectory pilot completed and native-replay verified: all20 trajectories,
+4 identical game/seed pairs per condition, with no150-action cap hits. The final
+CPU audit reused11 passed fingerprints and checked9 new cases. Public upstream
+source files remain unmodified. Detailed paired metrics and validation are in
+configs/overnight/machiavelli_{paired_items,saved_output_audit}.json; raw episodes,
+transcripts, histories, checkpoints and annotations remain on NFS.

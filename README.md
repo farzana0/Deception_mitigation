@@ -5,8 +5,10 @@ This checkpoint includes project scripts, exact direct dependency versions,
 pinned upstream revisions, calibration IDs, smoke-test metrics, and a small
 pair-generation summary. See [REPORT.txt](REPORT.txt) for results and limitations.
 The independent local-judge 12-item MASK pilot and paired MMLU/GSM8K pilots
-have completed. A fixed 240-item MASK expansion and fixed Machiavelli
-trajectories are running; see the timestamped report for current counts.
+have completed. The fixed 240-item MASK expansion and all 20 Machiavelli
+trajectories (two games × two seeds × five conditions) are also complete.
+Saved-output, gold-answer, and native game-replay audits passed. See the
+timestamped report for denominators, metrics and limitations.
 
 ## Cluster workspace
 
@@ -108,3 +110,16 @@ MASK technical judge failures remain distinct from valid unknown responses;
 failed requests retry without regenerating successful calls. Independent
 pilot, expansion and earlier self-judge outputs live in separate directories.
 All inference stays local; no paid API requests or Git push during this run.
+
+Independent response-status annotations separately measure explicit refusal and
+uncertainty-based abstention on all 1,200 saved pressure responses. Their frozen
+rubric, validation and summaries are in `configs/overnight/response_status_*`.
+Core MASK C/no-claim counts and D/denies-both counts remain separate. The pinned
+Machiavelli fork logs pre-action point snapshots; the report preserves those
+scores and also gives replay-verified final achievement scores.
+
+```bash
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_saved_evaluations.py
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_response_status.py
+PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 scripts/audit_machiavelli.py
+```
