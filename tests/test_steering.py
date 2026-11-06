@@ -3,6 +3,19 @@ import torch
 from steering.core import ResidualSteerer, normalize_schedule, position_bin
 
 class SteeringTests(unittest.TestCase):
+    def test_interventions_leave_model_parameters_unchanged(self):
+        layer=torch.nn.Linear(2,2,bias=False)
+        original={k:v.clone() for k,v in layer.state_dict().items()}
+        fit={'layers':[0],'residual_norms':torch.ones(1),'caa':torch.ones(1,2),
+             'joint':torch.ones(1,4,2),'pooled':torch.ones(1,4,2),
+             'sttp':{0:{'u':torch.tensor([1.,0.]),'t':100.,'mu_pos':5.,'sd_pos':3.}}}
+        for condition in ['baseline','caa','sttp','rank2','pooled']:
+            with self.subTest(condition=condition):
+                with ResidualSteerer([layer],fit,condition,layer=0,strength=.1,c=2.) as hook:
+                    hook.set_positions(torch.tensor([0]),1)
+                    layer(torch.ones(1,1,2))
+                self.assertTrue(all(torch.equal(value,layer.state_dict()[key]) for key,value in original.items()))
+                self.assertEqual(len(layer._forward_hooks),0)
     def test_bins_and_budget(self):
         self.assertEqual([position_bin(k) for k in [0,1,3,4,11,12,100]], [0,1,1,2,2,3,3])
         raw=torch.arange(1,25,dtype=torch.float32).reshape(2,4,3)

@@ -1,6 +1,8 @@
-# CAIS provisional submission package
+# CAIS submission: verified 1,000-item MASK cohort
 
-Open **report/report.pdf** first. This is a saved-evidence snapshot, not the final 22:00 UTC freeze. The original 240 MASK items are primary; the 819/1,000 matched expansion is partial. The 24-item scheduled/static CP comparison is a separate exploratory pilot. Live jobs were not inspected or changed because cluster tmux access was denied.
+Open **report/report.pdf** first. All 1,000 MASK items are matched across all five conditions and were verified complete at **2026-11-06 14:43:40 UTC**, before the **22:00 UTC** freeze. The full cohort is the main MASK result; the original 240-item cohort is a historical reference.
+
+The completed 24-item scheduled/static CP pilot is reported separately as exploratory. It is disjoint from the original 240, but its 24 items also appear in the full MASK manifest, so it is not an independent full-cohort validation set. No worker was restarted or stopped. This local package still awaits clean GPU reproduction, cluster installation and authorized GitHub publication.
 
 ## Contents
 
@@ -17,7 +19,15 @@ From the extracted package root, using Python 3.10 or newer:
 python3 experiments/code/scripts/submission_tables.py --package .
 ```
 
-This uses only the standard library and makes no model/judge calls. It deduplicates judgments, checks complete paired counts, verifies manifests and settings/fit hashes, recalculates capability scores from response text, checks CP disjointness, and regenerates all CSV/JSON tables. Machiavelli scores are read from the saved successful native replay audit, rather than re-running the environment.
+The cohort selector records when all 1,000 were first verified complete; it rejects a late completion without a pre-deadline observation. This uses only the standard library and makes no model/judge calls. It deduplicates judgments, checks complete paired counts, verifies manifests and locked settings, fit, extraction/calibration split, contrast-pair, calibration-journal and frozen-source hashes, recalculates capability scores from response text, checks CP disjointness, and regenerates all CSV/JSON tables. Machiavelli scores are read from the saved successful native replay audit, rather than re-running the environment.
+
+Audit the pinned official MASK aggregation, parsed local judge responses, and generated-response linkage with the recorded dependency environment:
+
+```bash
+python3 experiments/code/scripts/verify_mask_evidence.py --package .
+```
+
+This also checks the 48 CP condition-items separately. The pinned upstream numerical metric serializes a Python set; its infinity fallback parser can depend on interval order. Reproduction preserves exact saved scoring inputs. The evidence audit enumerates interval-order sensitivity without changing primary labels.
 
 Render the editable report with matplotlib available:
 
@@ -29,8 +39,8 @@ python3 experiments/code/scripts/render_submission.py --package .
 
 | Report table | Generated CSV in report/tables | Source under experiments/results |
 | --- | --- | --- |
-| Original MASK | mask_primary240.csv | steering_run/judge_gptoss_expanded/items.jsonl; steering_run/mask_expanded_subset.json |
-| Partial expansion | mask_partial1000.csv | steering_run/judge_gptoss_full/items.jsonl; steering_run/mask_full_test_manifest.json |
+| Original MASK (main if fallback, reference if full) | mask_primary240.csv or mask_original240.csv | steering_run/judge_gptoss_expanded/items.jsonl; steering_run/mask_expanded_subset.json |
+| Expansion (full main if complete by freeze) | mask_partial1000.csv or mask_full1000.csv | steering_run/judge_gptoss_full/items.jsonl; steering_run/mask_full_test_manifest.json |
 | Capabilities | capabilities.csv | steering_run/capability_{condition}.jsonl |
 | Machiavelli | machiavelli.csv | steering_run/machiavelli_saved_output_audit.json; machiavelli_main/{condition}/seed_{seed}/{game}/trajectory.pkl and associated output files |
 | Exploratory CP | cp_exploratory.csv | cp_exploratory/pilot_judgments.jsonl; cp_exploratory/pilot_manifest.json |
@@ -53,7 +63,14 @@ for condition in baseline caa sttp rank2 pooled cp_scheduled cp_static; do
 done
 ```
 
-The runner downloads the pinned base revision using Hugging Face unless `--model-path /path/to/pinned/Qwen3.5-9B` is provided. Only load the packaged trusted `.pt` artifacts. No fine-tuned model checkpoint is produced by the experiment. Source inspection supports activation-only steering; independent local-weight-to-upstream hash verification remains pending.
+The runner downloads the pinned base revision using Hugging Face unless `--model-path /path/to/pinned/Qwen3.5-9B` is provided. Only load the packaged trusted `.pt` artifacts. No fine-tuned model checkpoint is produced by the experiment. The four base-weight shard SHA256 values match the cached Hugging Face LFS download digests for the pinned revision; `model/base_weight_verification.json` records sizes and digests. An independent online retrieval of the upstream digests remains unavailable. A unit test also confirms that all five main intervention modes leave module parameters unchanged and remove their hooks.
+
+Repeat the streaming local-identity check:
+
+```bash
+python3 experiments/code/scripts/verify_base_weights.py \
+  --model-dir /path/to/pinned/Qwen3.5-9B --output base_weight_verification.json
+```
 
 The local judge is `openai/gpt-oss-20b` revision `6cee5e81ee83917806bbde320786a8fb61efebee`. Its model recipe and dependency lock are included. It must remain unsteered. No paid API calls are needed.
 
@@ -88,6 +105,22 @@ python3 -m unittest discover -s tests -v
 
 Repeat capability conditions for caa/sttp/rank2/pooled. Full MASK generation uses `scripts/run_mask_dynamic.sh`; grading uses `scripts/grade_mask_pilot.sh` against the existing local judge. CP scripts preserve the historical pilot cutoff and should not be blindly relaunched after the deadline; generic intervention inference is available above.
 
+## Build a new package from cluster evidence
+
+Use the source commit and locked settings in the provenance manifests. Run the following in tmux on a cluster-capable session; first verify worker health and leave healthy workers running:
+
+```bash
+python3 scripts/snapshot_submission.py --source-root /path/to/cluster/root \
+  --code-root "$PWD" --destination /path/to/submission
+python3 scripts/submission_tables.py --package /path/to/submission
+python3 scripts/verify_mask_evidence.py --package /path/to/submission
+python3 scripts/render_submission.py --package /path/to/submission
+python3 scripts/seal_submission.py --package /path/to/submission \
+  --archive /path/to/submission.tar.gz
+```
+
+Copy `SUBMISSION.md` to the package root as `README.md` before rendering and sealing a new destination. The exporter excludes logs, base weights, extraction checkpoints and upstream game-data symlinks. It preserves the per-item outputs needed for auditing. Results are selected only after the audit passes.
+
 ## Release gates still pending
 
-Live tmux/worker inspection; completion or deadline freeze; install this package at `/lambda/nfs/fs-cand-nov05/submission`; clean GPU inference and native Machiavelli replay; independent base-weight identity verification; final cluster archive and authorized GitHub push. This environment could not resolve github.com. Do not treat this local snapshot archive as a final frozen submission.
+Direct live-process inspection remains unavailable; MASK completion and timely selection passed as recorded in cohort_selection.json; install this package at `/lambda/nfs/fs-cand-nov05/submission`; clean GPU inference and native Machiavelli replay; independent online confirmation of cached base-weight digests; final cluster archive and authorized GitHub push. This environment could not resolve github.com. The MASK cohort is complete and selected; publication and clean GPU reproduction remain pending.

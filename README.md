@@ -1,3 +1,5 @@
+Latest submission protocol and verification commands: [SUBMISSION.md](SUBMISSION.md). The rendered report and audit package are described there.
+
 # Deception mitigation checkpoint
 
 Reproducible setup and shared contrast-pair generation for Qwen/Qwen3.5-9B.

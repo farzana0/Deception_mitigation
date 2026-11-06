@@ -1,7 +1,15 @@
-import json,tempfile,unittest
+import datetime,json,tempfile,unittest
 from pathlib import Path
-from scripts.submission_tables import audit
+from scripts.submission_tables import audit,select_cohort,FREEZE
 class SubmissionTablesTests(unittest.TestCase):
+ def test_full_cohort_must_be_observed_by_freeze(self):
+  before=FREEZE-datetime.timedelta(seconds=1);after=FREEZE+datetime.timedelta(seconds=1)
+  self.assertEqual(select_cohort(1000,before),'full1000')
+  self.assertEqual(select_cohort(1000,FREEZE),'full1000')
+  self.assertEqual(select_cohort(999,before),'original240')
+  self.assertEqual(select_cohort(1000,after),'original240')
+  self.assertEqual(select_cohort(1000,after,before),'full1000')
+  self.assertEqual(select_cohort(999,after,before),'original240')
  def test_latest_failure_removes_pair_and_unknown_is_not_technical_failure(self):
   with tempfile.TemporaryDirectory() as d:
    root=Path(d);manifest=root/'manifest.json';journal=root/'items.jsonl'

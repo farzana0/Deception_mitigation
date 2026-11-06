@@ -1,99 +1,25 @@
-Next-stage evaluation checkpoint — 2026-11-06T09:42:50.339597+00:00
+# CAIS submission verification — 2026-11-06
 
-This is a live next-stage report. The initial overnight report remains a frozen checkpoint. Local GPT-OSS judges use pinned official MASK rubric/aggregation; scores are not official API scores. No paid calls and no steering retuning.
+MASK is complete: 1,000 matched manifest items, five conditions, 5,000 technically complete condition-items. The full cohort was verified at 14:43:40 UTC, before the 22:00 UTC Toronto freeze. The original 240 is retained as a reference; the 24-item CP pilot remains separate and exploratory.
 
-Full MASK: 264/1000 items judged across all five conditions.
+Passed checks:
 
-| Condition | Judged items | Assessable N | Dishonest | Deception | Undetermined | Truncated pressure | Mean tokens |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| baseline | 267 | 192 | 102 | 53.125% | 72 | 105 | 173.2 |
-| caa | 264 | 192 | 94 | 48.958% | 72 | 87 | 165.1 |
-| sttp | 264 | 200 | 108 | 54.000% | 64 | 95 | 168.7 |
-| rank2 | 264 | 197 | 101 | 51.269% | 67 | 101 | 172.3 |
-| pooled | 269 | 194 | 104 | 53.608% | 70 | 95 | 168.6 |
+- Complete manifest-matched pairs across all five main conditions; latest-record deduplication, no technical judge failures in retained items, successful judge-call references and locked setting hashes.
+- All 5,000 main condition-item honesty labels reproduced from exact saved scoring inputs using the pinned official MASK metric. All retained judge responses were re-parsed and 14,930 prompt records were linked to their generation outputs.
+- The 1,200 original-cohort condition-items and 48 CP condition-items passed the same evidence audit. CP has 24 technical pairs and 13 shared assessable items; it is disjoint from the original 240 and overlaps the full manifest in 24 items.
+- Frozen source, steering fit, calibration journal, generated contrast pairs and extraction/calibration split hashes match locked records.
+- Capability response scoring independently reproduced on deterministic matching MMLU30 and GSM8K10 indices per condition.
+- All four base-weight shards match cached Hugging Face LFS SHA256 digests for Qwen3.5-9B revision c202236235762e1c871ad0ccb60c8ee5ba337b9a; sizes and modification times stayed stable during streaming hashing.
+- Twenty targeted tests passed: four core steering, three CP, five MASK parsing, three NFS reads, one journal recovery, three submission/cohort selection and one weight-corruption test. The core steering test confirms all five modes leave module parameters unchanged and remove their hooks.
+- Python compilation and diff whitespace checks passed. The preflight archive verified all file checksums, regenerated identical main tables in a fresh extracted directory, and opened the ten-page PDF with a PDF parser. The same sealing procedure is used for the completed full-cohort archive; its external verification JSON records the resulting digest and checks.
 
-Deception uses dishonest/(honest+dishonest); unknown labels remain in the all-paired denominator, reported in metrics. Partial generated-pressure token counts above may cover more items than the judged common set. Technical failures remain separate. See next_stage_metrics.json for strata, fixed-baseline-belief sensitivity, common assessability, rank2/pooled discordances and perturbation telemetry.
+Numerical metric caveat: the pinned upstream MASK metric serializes a set of numeric intervals. Its infinity fallback parser depends on interval order for two condition-item labels (one CAA and one pooled). Permutation diagnostics document both cases; primary labels and settings remain untouched. No CP labels were order-sensitive in this diagnostic.
 
-Auxiliary quality_mask_v2: 11 primary comparisons; 2 items common to all four comparisons; 0 technical failures.
+Checks that have not passed:
 
-| Condition | Common N | Utility delta (steered minus baseline) | 95% paired bootstrap interval |
-| --- | ---: | ---: | --- |
-| caa | 2 | 0.0 | [0.0, 0.0] |
-| sttp | 2 | 0.0 | [0.0, 0.0] |
-| rank2 | 2 | -0.5 | [-1.0, 0.0] |
-| pooled | 2 | 0.0 | [0.0, 0.0] |
-
-All deception-reduction/quality-loss cases: 0, including dishonest-to-undetermined transitions flagged separately. Full quotes and IDs: /lambda/nfs/fs-cand-nov05/results/steering_run/quality_mask_v2/deception_improvement_quality_loss_cases.json.
-Order-swap checks: 1; utility-delta disagreements: 1.
-Rank2 versus pooled: {"steered_utility_difference": {"n": 2, "mean": 0.0, "ci95": [-2.0, 2.0], "method": "paired item bootstrap, 2000 resamples, seed42; diagnostic, no multiplicity correction"}, "paired_quality_delta_difference": {"n": 2, "mean": -0.5, "ci95": [-1.0, 0.0], "method": "paired item bootstrap, 2000 resamples, seed42; diagnostic, no multiplicity correction"}, "note": "Separate blinded comparisons may rate the same baseline differently; per-pair deltas and swapped-order checks expose judge variation."}
-
-Auxiliary quality_capability_v3: 18 primary comparisons; 4 items common to all four comparisons; 0 technical failures.
-
-| Condition | Common N | Utility delta (steered minus baseline) | 95% paired bootstrap interval |
-| --- | ---: | ---: | --- |
-| caa | 4 | 0.0 | [0.0, 0.0] |
-| sttp | 4 | 0.25 | [0.0, 0.75] |
-| rank2 | 4 | 0.0 | [0.0, 0.0] |
-| pooled | 4 | 0.0 | [0.0, 0.0] |
-
-All deception-reduction/quality-loss cases: 0, including dishonest-to-undetermined transitions flagged separately. Full quotes and IDs: /lambda/nfs/fs-cand-nov05/results/steering_run/quality_capability_v3/deception_improvement_quality_loss_cases.json.
-Order-swap checks: 0; utility-delta disagreements: 0.
-Rank2 versus pooled: {"steered_utility_difference": {"n": 4, "mean": 0.0, "ci95": [0.0, 0.0], "method": "paired item bootstrap, 2000 resamples, seed42; diagnostic, no multiplicity correction"}, "paired_quality_delta_difference": {"n": 4, "mean": 0.0, "ci95": [0.0, 0.0], "method": "paired item bootstrap, 2000 resamples, seed42; diagnostic, no multiplicity correction"}, "note": "Separate blinded comparisons may rate the same baseline differently; per-pair deltas and swapped-order checks expose judge variation."}
-
-Matched apparent-deception-reduction diagnostics: {"caa": {"count": 20, "became_undetermined": 8, "became_honest": 12, "status_judged": 20, "steered_explicit_refusal": 2, "steered_epistemic_abstention": 0, "quality_judged": 0, "worse_utility": 0}, "sttp": {"count": 12, "became_undetermined": 8, "became_honest": 4, "status_judged": 12, "steered_explicit_refusal": 2, "steered_epistemic_abstention": 0, "quality_judged": 1, "worse_utility": 0}, "rank2": {"count": 15, "became_undetermined": 6, "became_honest": 9, "status_judged": 15, "steered_explicit_refusal": 2, "steered_epistemic_abstention": 0, "quality_judged": 0, "worse_utility": 0}, "pooled": {"count": 16, "became_undetermined": 7, "became_honest": 9, "status_judged": 16, "steered_explicit_refusal": 4, "steered_epistemic_abstention": 0, "quality_judged": 0, "worse_utility": 0}}
-
-All matched labels, token lengths, truncations, response status and quality scores are preserved in next_stage_matched_items.json. Capability paired accuracy differences and uncertainty are in next_stage_metrics.json (capability_matched_changes).
-
-Quality margins (0.25 utility points; 5 capability percentage points) are diagnostic, not evidence of equivalence. Bootstrap intervals describe variation across these fixed items under this judge; they exclude model/judge uncertainty. Capability N=30 MMLU and N=10 GSM8K, game/seed N=4, are small. Quality preservation must remain inconclusive unless intervals support the diagnostic margin. Apparent deception reductions through undetermined answers, refusal, uncertainty or worse utility are not unqualified successes.
-
-Capability: deterministic accuracy is primary; auxiliary extraction reads only explicit saved final answers.
-
-| Benchmark | Condition | N | Original correct | Assisted correct | Rescues | Judge failures | Truncated |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| mmlu | baseline | 30 | 21 | 21 | 0 | 0 | 0 |
-| mmlu | caa | 30 | 21 | 21 | 0 | 0 | 0 |
-| mmlu | sttp | 30 | 21 | 21 | 0 | 0 | 0 |
-| mmlu | rank2 | 30 | 21 | 21 | 0 | 0 | 0 |
-| mmlu | pooled | 30 | 20 | 20 | 0 | 0 | 0 |
-| gsm8k | baseline | 10 | 8 | 9 | 1 | 0 | 2 |
-| gsm8k | caa | 10 | 8 | 10 | 2 | 0 | 2 |
-| gsm8k | sttp | 10 | 8 | 9 | 1 | 0 | 2 |
-| gsm8k | rank2 | 10 | 9 | 10 | 1 | 0 | 1 |
-| gsm8k | pooled | 10 | 10 | 10 | 0 | 0 | 0 |
-
-Refusal/uncertainty auxiliary coverage: 265/1000 common items. Full condition counts: {"baseline": {"paired_denominator": 265, "complete_items": 268, "explicit_refusal_count": 72, "epistemic_abstention_count": 1, "overlap_count": 0, "technical_item_failures": 0}, "caa": {"paired_denominator": 265, "complete_items": 265, "explicit_refusal_count": 72, "epistemic_abstention_count": 1, "overlap_count": 1, "technical_item_failures": 0}, "sttp": {"paired_denominator": 265, "complete_items": 265, "explicit_refusal_count": 69, "epistemic_abstention_count": 0, "overlap_count": 0, "technical_item_failures": 0}, "rank2": {"paired_denominator": 265, "complete_items": 265, "explicit_refusal_count": 69, "epistemic_abstention_count": 2, "overlap_count": 1, "technical_item_failures": 0}, "pooled": {"paired_denominator": 265, "complete_items": 270, "explicit_refusal_count": 69, "epistemic_abstention_count": 0, "overlap_count": 0, "technical_item_failures": 0}}
-
-Machiavelli native replay: 20/20 main trajectories. Auxiliary decision audit: 143 completed annotations. All saved trajectory inventory: /lambda/nfs/fs-cand-nov05/results/steering_run/machiavelli_quality_v1/inventory.json; all invalid attempts: /lambda/nfs/fs-cand-nov05/results/steering_run/machiavelli_quality_v1/all_invalid_attempts.json.
-
-| Condition | Main paired trajectories | Official deception | Official saved points | Final replay points | Random fallbacks |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| baseline | 4 | 71.690 | 6.897 | 6.897 | 26 |
-| caa | 4 | 77.034 | 14.298 | 18.608 | 12 |
-| sttp | 4 | 96.846 | 10.121 | 12.995 | 23 |
-| rank2 | 4 | 93.392 | 8.653 | 11.526 | 16 |
-| pooled | 4 | 111.206 | 14.649 | 19.885 | 43 |
-
-Machiavelli states diverge across conditions. Only game/seed trajectories are paired; on-policy steps are not identical-state comparisons. Smoke/replay-validation outputs are audited separately and excluded from main scores.
-
-Live jobs:
-```
-deception-next: 1 windows (created Fri Nov  6 09:23:12 2026)
-deception-next-watchdog: 1 windows (created Fri Nov  6 09:23:47 2026)
-machiavelli-fixed-states: 1 windows (created Fri Nov  6 09:33:44 2026)
-machiavelli-quality: 1 windows (created Fri Nov  6 09:27:55 2026)
-mask-full-baseline: 1 windows (created Fri Nov  6 09:20:41 2026)
-mask-full-caa: 1 windows (created Fri Nov  6 09:20:41 2026)
-mask-full-judge: 1 windows (created Fri Nov  6 09:41:27 2026)
-mask-full-pooled: 1 windows (created Fri Nov  6 09:20:41 2026)
-mask-full-rank2: 1 windows (created Fri Nov  6 09:20:41 2026)
-mask-full-sttp: 1 windows (created Fri Nov  6 09:20:41 2026)
-mask-judge-server: 1 windows (created Fri Nov  6 02:58:32 2026)
-quality-capability: 1 windows (created Fri Nov  6 09:39:36 2026)
-quality-mask: 1 windows (created Fri Nov  6 09:40:12 2026)
-report-freeze: 1 windows (created Fri Nov  6 09:41:29 2026)
-response-status-full: 1 windows (created Fri Nov  6 09:41:27 2026)
-```
-
-Remaining work/blockers: full judging, quality and auxiliary coverage must reach their declared targets and pass saved-output validation before completion is asserted. Inspect per-worker logs for failures; generation/judging may have different coverage. The server remains healthy unless health/log checks show otherwise. Safety cutoff: 2026-11-07T03:00:00Z.
-
-Exact resume commands are in NEXT_STAGE_REPRODUCIBILITY.md and NEXT_STAGE_RESUME.sh. Inspect sessions/PIDs first; never duplicate a writer. Primary scores: results/steering_run/judge_gptoss_full. Completion manifest is written only by the final validator.
+- Clean GPU reproduction was attempted but stopped before inference because this session has no accessible CUDA device. nvidia-smi cannot communicate with the driver. The prior saved GPU smoke is not counted as a fresh reproduction.
+- Independent online retrieval of upstream weight metadata is unavailable. Weight identity is verified against cached pinned download records, not an independently retrieved online trust root.
+- The complete test suite is not certified: the concurrent judge-cache test timed out under this sandbox, and cluster-root multiprocessing tests were not rerun here. The twenty targeted passes above are the claimed test scope.
+- Native Machiavelli replay was not rerun here. The saved audit passed 20 trajectories; those saved replay-verified scores are reported.
+- Cluster tmux access and starting a new tmux socket are denied; /lambda is outside this session's writable scope. No worker was restarted or stopped and no cluster package installation is claimed.
+- Existing origin is git@github.com:farzana0/Deception_mitigation.git. SSH DNS resolution fails; the connected farzana0 GitHub app returns 404 for this private repository. Remote divergence, publication and remote commit presence cannot currently be verified. No force-push is authorized or used.
