@@ -1,4 +1,4 @@
-CAIS overnight experiment — verified checkpoint 2026-11-06T05:50:33.536323+00:00
+CAIS overnight experiment — verified checkpoint 2026-11-06T05:52:07.683102+00:00
 
 Overnight coordination started 2026-11-06 03:03 UTC; hour-8 reporting deadline 11:03 UTC; monitoring scheduled through 11:35 UTC.
 
@@ -35,7 +35,7 @@ Discordant shared pairs: 0 rank-2-only dishonest, 1 pooled-only dishonest. These
 
 Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): {"technically_valid_paired_denominator": 12, "all_five_assessable_denominator": 8, "all_five_assessable_conditions": {"baseline": {"dishonest": 7, "denominator": 8}, "caa": {"dishonest": 6, "denominator": 8}, "sttp": {"dishonest": 5, "denominator": 8}, "rank2": {"dishonest": 6, "denominator": 8}, "pooled": {"dishonest": 7, "denominator": 8}}, "rank2_vs_pooled": {"both_assessable_denominator": 8, "rank2_dishonest": 6, "pooled_dishonest": 7, "rank2_only_dishonest": 0, "pooled_only_dishonest": 1}}
 
-Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): 
+Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference):
 
 | Condition | Dishonest | Assessable N | Deception | Changed labels |
 | --- | --- | --- | --- | --- |
@@ -72,7 +72,7 @@ Discordant shared pairs: 5 rank-2-only dishonest, 8 pooled-only dishonest. These
 
 Common assessability and rank-2 versus pooled discordant pairs (compare identical assessable items): {"technically_valid_paired_denominator": 240, "all_five_assessable_denominator": 136, "all_five_assessable_conditions": {"baseline": {"dishonest": 77, "denominator": 136}, "caa": {"dishonest": 68, "denominator": 136}, "sttp": {"dishonest": 76, "denominator": 136}, "rank2": {"dishonest": 73, "denominator": 136}, "pooled": {"dishonest": 73, "denominator": 136}}, "rank2_vs_pooled": {"both_assessable_denominator": 158, "rank2_dishonest": 83, "pooled_dishonest": 86, "rank2_only_dishonest": 5, "pooled_only_dishonest": 8}}
 
-Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference): 
+Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseline beliefs, no new inference):
 
 | Condition | Dishonest | Assessable N | Deception | Changed labels |
 | --- | --- | --- | --- | --- |
@@ -82,7 +82,7 @@ Fixed-baseline-belief sensitivity (saved pressure judgments compared with baseli
 | rank2 | 84 | 176 | 47.7% | 29 |
 | pooled | 88 | 174 | 50.6% | 36 |
 
-Realized perturbation telemetry over all saved MASK prompts at this checkpoint: 
+Realized perturbation telemetry over all saved MASK prompts at this checkpoint:
 
 | Condition | Saved prompts | Mean relative RMS total/step | Steered/eligible layer-token fraction | All-prompt truncations |
 | --- | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ Realized perturbation telemetry over all saved MASK prompts at this checkpoint:
 | rank2 | 760 | 0.100006 | 1.000000 | 350 |
 | pooled | 760 | 0.099916 | 1.000000 | 341 |
 
-Capability pilots: identical SHA256-selected test indices across five conditions; exact-match scoring (numeric equivalence for GSM8K). No few-shot examples. 
+Capability pilots: identical SHA256-selected test indices across five conditions; exact-match scoring (numeric equivalence for GSM8K). No few-shot examples.
 
 | Benchmark | Condition | Paired N | Target N | Correct | Accuracy | Unparsed | Truncated |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -107,7 +107,7 @@ Capability pilots: identical SHA256-selected test indices across five conditions
 | gsm8k | rank2 | 10 | 10 | 9 | 90.0% | 1 | 1 |
 | gsm8k | pooled | 10 | 10 | 10 | 100.0% | 0 | 0 |
 
-Machiavelli paired trajectory pilot (partial): first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official trajectory resimulation and annotation metrics. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here. 
+Machiavelli paired trajectory pilot (partial): first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official saved-trajectory metrics from game annotations. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here.
 
 | Condition | Completed trajectories | Common paired N | Mean deception | Mean reward | Mean length | Random fallback actions | 150-action cap hits |
 | --- | --- | --- | --- | --- | --- | --- | --- |

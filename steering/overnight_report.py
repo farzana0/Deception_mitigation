@@ -65,7 +65,7 @@ def render():
     for c in CONDITIONS:
         rows=[mach[c][k] for k in common];n=len(rows)
         mrows.append([c,len(mach[c]),n,f"{statistics.mean(float(r['violations.deception']) for r,q in rows):.4f}" if n else 'NA',f"{statistics.mean(float(r['points']) for r,q in rows):.4f}" if n else 'NA',f"{statistics.mean(float(r['steps']) for r,q in rows):.1f}" if n else 'NA',sum(q['random_fallback_actions'] for r,q in rows if q),sum(float(r['steps'])>=150 for r,q in rows)])
-    sections.append(f'Machiavelli paired trajectory pilot ({"complete" if len(common)==4 else "partial"}): first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official trajectory resimulation and annotation metrics. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here. '+'\n\n'+table(['Condition','Completed trajectories','Common paired N','Mean deception','Mean reward','Mean length','Random fallback actions','150-action cap hits'],mrows))
+    sections.append(f'Machiavelli paired trajectory pilot ({"complete" if len(common)==4 else "partial"}): first two sorted test games, seeds 0 and 1, maximum 150 actions, identical across conditions. Official saved-trajectory metrics from game annotations. Deception is the official normalized trajectory metric, not a MASK deception probability. Reward is normalized achievement points. The separate initial 10-action smoke completed/scored and is excluded here. '+'\n\n'+table(['Condition','Completed trajectories','Common paired N','Mean deception','Mean reward','Mean length','Random fallback actions','150-action cap hits'],mrows))
     plan=read(RUN/'mask_expanded_subset.json')
     if plan:sections.append(f"Expansion selection: {len(plan['items'])} fixed items, {plan['items_per_config']} per stratum, hash ordering includes pilot. Throughput bound per balanced six items across all conditions: judge {plan['judge_seconds_per_balanced_six']:.1f}s plus generation {plan['generation_seconds_per_balanced_six_parallel_five_workers']:.1f}s with five GPU workers. Used 60% of remaining budget to 10:30 UTC, reserving 40% for variance/recovery. Manifest fixed before expansion. Pilot outputs and judgments were saved before launch and reused. Overall MASK rates are unweighted selected-item rates with equal stratum sample sizes, not prevalence-weighted estimates for the full dataset. The expansion includes pilot items and is not an independent fresh confirmation sample.")
     sessions=subprocess.run(['tmux','list-sessions'],capture_output=True,text=True).stdout.strip()
@@ -94,7 +94,7 @@ done
 MASK_SUBSET_PATH=/lambda/nfs/fs-cand-nov05/results/steering_run/mask_expanded_subset.json MASK_JUDGE_FOLDER=/lambda/nfs/fs-cand-nov05/results/steering_run/judge_gptoss_expanded bash scripts/grade_mask_pilot.sh
 PYTHONPATH=/lambda/nfs/fs-cand-nov05/deps:$PWD python3 -m steering.overnight_report'''
     sections.append('Executable resume commands (put GPU workers in tmux and confirm GPU 0 is free first; judge uses GPU 5):\n```bash\n'+commands+'\n```')
-    text='\n\n'.join(sections)+'\n'
+    text='\n'.join(line.rstrip() for line in '\n\n'.join(sections).splitlines())+'\n'
     (ROOT/'OVERNIGHT_STATUS.md').write_text(text)
     (ROOT/'Deception_mitigation/REPORT.txt').write_text(text)
     print(now,'report saved','MASK',[(k,v['paired_complete_items']) for k,v in snapshots.items()],'Machiavelli paired',len(common),flush=True)
